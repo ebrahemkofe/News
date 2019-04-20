@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <ImageView
+       android:id="@+id/viewpagerpic"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/_125sdp"
+       android:src="@drawable/logo"
+       />
+
+    <ImageView
+        android:id="@+id/more_image"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_more_horiz_black_24dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_125sdp"
+        android:layout_below="@+id/viewpagerpic"
+        android:orientation="vertical"
+        android:background="#0D195A"
+        >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        android:text="hellohellohellohellohellohellohelloh"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="@dimen/_14sdp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_125sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:text=" ellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelloh"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

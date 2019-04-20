@@ -1,13 +1,13 @@
-package com.colleg.project.news;
+package com.colleg.project.news.Adapters;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import com.colleg.project.news.R;
 
 import java.util.List;
 
@@ -42,9 +42,11 @@ public class CustomPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, final int position) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.view_blue, container, false);
+        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.item_viewpager, container, false);
 
-        final ImageView textView = view.findViewById(R.id.viewpagerpic);
+        final ImageView image = view.findViewById(R.id.viewpagerpic);
+
+        image.setImageResource(mListData.get(position));
 
 
         container.addView(view);

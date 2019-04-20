@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragments.HomeFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_accidents"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_250sdp"
+        />
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_sports"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_250sdp"
+        android:layout_below="@+id/viewpager_accidents"
+        />
+
+    <ListView
+        android:id="@+id/homeListview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewpager_sports"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager_Investigations"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_below="@+id/homeListview"
+            />
+
+    </RelativeLayout>
+</ScrollView>
