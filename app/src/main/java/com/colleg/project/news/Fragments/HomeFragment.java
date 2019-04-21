@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -32,7 +34,10 @@ public class HomeFragment extends Fragment {
     ListView listView ;
     ArrayList<ModelListViewHome> list = new ArrayList<>();
 
+    boolean c=false , spo=false , ing=false ;
     AdapterListViewHome adapter ;
+    ImageView more_acc,more_spo,more_ing;
+    LinearLayout morelayout_acc,morelayout_spo,morelayout_ing;
 
     public HomeFragment() {
            }
@@ -43,6 +48,61 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
          View v=inflater.inflate(R.layout.fragment_home, container, false);
+
+         more_acc=v.findViewById(R.id.more_accidents);
+         morelayout_acc=v.findViewById(R.id.more_in_linearlayout_accidents);
+         more_acc.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 if(c==false) {
+                     morelayout_acc.setVisibility(View.VISIBLE);
+                     c=true;
+                 }
+                 else{
+                     morelayout_acc.setVisibility(View.GONE);
+                     c=false;
+                 }
+             }
+         });
+
+
+
+         more_spo=v.findViewById(R.id.more_sports);
+         morelayout_spo=v.findViewById(R.id.more_in_linearlayout_sports);
+         more_spo.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 if(spo==false) {
+                     morelayout_spo.setVisibility(View.VISIBLE);
+                     spo=true;
+                 }
+                 else{
+                     morelayout_spo.setVisibility(View.GONE);
+                     spo=false;
+                 }
+             }
+         });
+
+
+
+         more_ing=v.findViewById(R.id.more_Investigations);
+         morelayout_ing=v.findViewById(R.id.more_in_linearlayout_Investigations);
+         more_ing.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 if(ing==false) {
+                     morelayout_ing.setVisibility(View.VISIBLE);
+                     ing=true;
+                 }
+                 else{
+                     morelayout_ing.setVisibility(View.GONE);
+                     ing=false;
+                 }
+             }
+         });
+
+
+
 
         List<Integer> listImagesAcc = new ArrayList<>();
         listImagesAcc.add(R.drawable.acs);
@@ -100,6 +160,7 @@ public class HomeFragment extends Fragment {
         });
 
     }
+
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) return;

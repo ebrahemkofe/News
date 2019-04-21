@@ -39,6 +39,7 @@
         android:layout_alignParentLeft="true"
         android:layout_margin="@dimen/_5sdp"
         android:text="2019 jun 7 09:12"
+        android:textColor="#6A000000"
         android:textSize="@dimen/_10sdp"
         />
 

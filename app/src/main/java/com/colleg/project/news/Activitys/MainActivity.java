@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.colleg.project.news.Adapters.CustomPagerAdapter;
 import com.colleg.project.news.Fragments.HomeFragment;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
 
     Fragment fragment;
     FragmentTransaction transaction;
@@ -42,7 +44,5 @@ public class MainActivity extends AppCompatActivity {
         transaction.commitNow();
     }
 
-    public void profile(View view) {
 
-    }
 }

@@ -18,6 +18,63 @@
         android:layout_height="@dimen/_250sdp"
         android:layout_marginBottom="10dp"
         />
+        <LinearLayout
+            android:id="@+id/more_in_linearlayout_accidents"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:orientation="horizontal"
+            android:background="#66161515"
+            android:visibility="gone"
+            android:layout_margin="@dimen/_40sdp"
+            >
+
+            <ImageView
+                android:id="@+id/comment_in_viewpager_accidents"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/comment"
+                />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+
+            <ImageView
+                android:id="@+id/like_in_viewpager_accidents"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/favorite"
+                />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+
+            <ImageView
+                android:id="@+id/save_in_viewpager_accidents"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/bookmark"
+                />
+
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/more_accidents"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/_5sdp"
+            android:onClick="more"
+            android:src="@drawable/ic_more_horiz_black_24dp"
+            />
 
 
     <android.support.v4.view.ViewPager
@@ -27,6 +84,63 @@
         android:layout_below="@+id/viewpager_accidents"
         android:layout_marginBottom="10dp"
         />
+        <LinearLayout
+            android:id="@+id/more_in_linearlayout_sports"
+            android:visibility="gone"
+            android:layout_below="@id/viewpager_accidents"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_90sdp"
+            android:orientation="horizontal"
+            android:background="#66161515"
+            android:layout_margin="@dimen/_40sdp"
+            >
+
+            <ImageView
+                android:id="@+id/comment_in_viewpager_sports"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/comment"
+                />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+
+            <ImageView
+                android:id="@+id/like_in_viewpager_sports"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/favorite"
+                />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+
+            <ImageView
+                android:id="@+id/save_in_viewpager_sports"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/bookmark"
+                />
+
+
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/more_sports"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_below="@id/viewpager_accidents"
+            android:src="@drawable/ic_more_horiz_black_24dp"
+            />
 
     <ListView
         android:id="@+id/homeListview"
@@ -40,6 +154,63 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_250sdp"
             android:layout_below="@+id/homeListview"
+            />
+        <LinearLayout
+            android:id="@+id/more_in_linearlayout_Investigations"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_below="@id/homeListview"
+            android:orientation="horizontal"
+            android:background="#66161515"
+            android:visibility="gone"
+            android:layout_margin="@dimen/_40sdp"
+            >
+
+            <ImageView
+                android:id="@+id/comment_in_viewpager_Investigations"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/comment"
+                />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+
+            <ImageView
+                android:id="@+id/like_in_viewpager_Investigations"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/favorite"
+                />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+
+            <ImageView
+                android:id="@+id/save_in_viewpager_Investigations"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/bookmark"
+                />
+
+
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/more_Investigations"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_below="@id/homeListview"
+            android:src="@drawable/ic_more_horiz_black_24dp"
             />
 
     </RelativeLayout>
