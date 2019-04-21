@@ -32,7 +32,7 @@ public class AdapterListViewHome extends ArrayAdapter {
 
             LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            convertView = layoutInflater.inflate(R.layout.item_listview_doneassi, parent,false);
+            convertView = layoutInflater.inflate(R.layout.item_listview_home, parent,false);
 
             TextView textdisc = convertView.findViewById(R.id.text_listview);
             TextView textTime = convertView.findViewById(R.id.time_listview);

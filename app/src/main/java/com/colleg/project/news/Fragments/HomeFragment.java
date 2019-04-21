@@ -28,7 +28,7 @@ public class HomeFragment extends Fragment {
 
     String []dis = {"hellohellohelhellohellohellohlohellohlohellohlohellohlohellohello" ,"hellohellohelhellohellohellohlohellohlohellohlohellohlohellohello" , "hellohellohelhellohellohellohlohellohlohellohlohellohlohellohello"};
     String []time = {"2019 jun 7 09:12" , "2019 jun 7 09:12", "2019 jun 7 09:12"};
-    int []image = {R.drawable.zodic,R.drawable.logo,R.drawable.logo};
+    int []image = {R.drawable.sheekh,R.drawable.sheekh,R.drawable.sheekh};
     ListView listView ;
     ArrayList<ModelListViewHome> list = new ArrayList<>();
 
@@ -45,23 +45,23 @@ public class HomeFragment extends Fragment {
          View v=inflater.inflate(R.layout.fragment_home, container, false);
 
         List<Integer> listImagesAcc = new ArrayList<>();
-        listImagesAcc.add(R.drawable.logo);
-        listImagesAcc.add(R.drawable.zodic);
+        listImagesAcc.add(R.drawable.acs);
+        listImagesAcc.add(R.drawable.acs);
 
         ViewPager viewPagerAcc = v.findViewById(R.id.viewpager_accidents);
         viewPagerAcc.setAdapter(new CustomPagerAdapter(getContext(), listImagesAcc));
 
         List<Integer> listImagesInvestigations = new ArrayList<>();
-        listImagesInvestigations.add(R.drawable.logo);
-        listImagesInvestigations.add(R.drawable.zodic);
+        listImagesInvestigations.add(R.drawable.tramp);
+        listImagesInvestigations.add(R.drawable.tramp);
 
         ViewPager viewPagerInvestigations = v.findViewById(R.id.viewpager_Investigations);
         viewPagerInvestigations.setAdapter(new CustomPagerAdapter(getContext(), listImagesInvestigations));
 
 
         List<Integer> listImagesSports = new ArrayList<>();
-        listImagesSports.add(R.drawable.logo);
-        listImagesSports.add(R.drawable.zodic);
+        listImagesSports.add(R.drawable.mohamedsalah);
+        listImagesSports.add(R.drawable.mohamedsalah);
 
         ViewPager viewPagerSports = v.findViewById(R.id.viewpager_sports);
         viewPagerSports.setAdapter(new CustomPagerAdapter(getContext(), listImagesSports));
@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment {
         }
 
 
-        adapter = new AdapterListViewHome(getContext(), R.layout.item_listview_doneassi , list);
+        adapter = new AdapterListViewHome(getContext(), R.layout.item_listview_home, list);
 
         listView.setAdapter(adapter);
         ListViewClick();
