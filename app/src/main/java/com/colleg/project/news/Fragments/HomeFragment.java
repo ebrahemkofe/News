@@ -13,22 +13,16 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.colleg.project.news.Adapters.AdapterListViewHome;
 import com.colleg.project.news.Adapters.CustomPagerAdapter;
 import com.colleg.project.news.R;
 import com.colleg.project.news.Models.ModelListViewHome;
-
 import java.util.ArrayList;
 import java.util.List;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class HomeFragment extends Fragment {
 
-    String []dis = {"hellohellohelhellohellohellohlohellohlohellohlohellohlohellohello" ,"hellohellohelhellohellohellohlohellohlohellohlohellohlohellohello" , "hellohellohelhellohellohellohlohellohlohellohlohellohlohellohello"};
+    String []dis = {String.valueOf(R.string.discrbtian),String.valueOf(R.string.discrbtian) , String.valueOf(R.string.discrbtian)};
     String []time = {"2019 jun 7 09:12" , "2019 jun 7 09:12", "2019 jun 7 09:12"};
     int []image = {R.drawable.sheekh,R.drawable.sheekh,R.drawable.sheekh};
     ListView listView ;
@@ -103,28 +97,60 @@ public class HomeFragment extends Fragment {
 
 
 
+//......................  View pager accident ................................................
+
 
         List<Integer> listImagesAcc = new ArrayList<>();
+        List<String> listTitleAcc = new ArrayList<>();
+        List<String> listDisAcc = new ArrayList<>();
         listImagesAcc.add(R.drawable.acs);
         listImagesAcc.add(R.drawable.acs);
+        listTitleAcc.add("Explosion volcano");
+        listTitleAcc.add("Explosion volcano");
+        listDisAcc.add("Mexican authorities have raised the level of alert from the eruption of the Popocapatile volcano to the highest degree below the state of emergency.");
+        listDisAcc.add("Mexican authorities have raised the level of alert from the eruption of the Popocapatile volcano to the highest degree below the state of emergency.");
 
         ViewPager viewPagerAcc = v.findViewById(R.id.viewpager_accidents);
-        viewPagerAcc.setAdapter(new CustomPagerAdapter(getContext(), listImagesAcc));
+        viewPagerAcc.setAdapter(new CustomPagerAdapter(getContext(), listImagesAcc,listTitleAcc,listDisAcc));
+
+
+//......................  View pager Investigations ................................................
+
 
         List<Integer> listImagesInvestigations = new ArrayList<>();
+        List<String> listTitleInvestigations = new ArrayList<>();
+        List<String> listDisInvestigations = new ArrayList<>();
         listImagesInvestigations.add(R.drawable.tramp);
         listImagesInvestigations.add(R.drawable.tramp);
+        listTitleInvestigations.add("Trump calls for trial of all those accused of collusion with Russia");
+        listTitleInvestigations.add("Trump calls for trial of all those accused of collusion with Russia");
+        listDisInvestigations.add("US President Donald Trump, to try those who brought him in collusion with Russia in his election");
+        listDisInvestigations.add("US President Donald Trump, to try those who brought him in collusion with Russia in his election");
 
         ViewPager viewPagerInvestigations = v.findViewById(R.id.viewpager_Investigations);
-        viewPagerInvestigations.setAdapter(new CustomPagerAdapter(getContext(), listImagesInvestigations));
+        viewPagerInvestigations.setAdapter(new CustomPagerAdapter(getContext(), listImagesInvestigations,listTitleInvestigations,listDisInvestigations));
+
+
+//......................  View pager Sports ................................................
+
 
 
         List<Integer> listImagesSports = new ArrayList<>();
+        List<String> listTitleSports = new ArrayList<>();
+        List<String> listDisSports = new ArrayList<>();
         listImagesSports.add(R.drawable.mohamedsalah);
         listImagesSports.add(R.drawable.mohamedsalah);
+        listTitleSports.add("Liverpool regain top spot in the Premier League");
+        listTitleSports.add("Liverpool regain top spot in the Premier League");
+        listDisSports.add("Liverpool rode their luck in the second half as Alisson's costly error almost gifted relegation-threatened Cardiff the equalizer, but Sean Morrison failed to convert.");
+        listDisSports.add("Liverpool rode their luck in the second half as Alisson's costly error almost gifted relegation-threatened Cardiff the equalizer, but Sean Morrison failed to convert.");
 
         ViewPager viewPagerSports = v.findViewById(R.id.viewpager_sports);
-        viewPagerSports.setAdapter(new CustomPagerAdapter(getContext(), listImagesSports));
+        viewPagerSports.setAdapter(new CustomPagerAdapter(getContext(), listImagesSports,listTitleSports,listDisSports));
+
+
+//......................  List view ................................................
+
 
         listView = v.findViewById(R.id.homeListview);
 
@@ -138,8 +164,12 @@ public class HomeFragment extends Fragment {
         listView.setAdapter(adapter);
         ListViewClick();
         setListViewHeightBasedOnChildren(listView);
+
+
         return v;
     }
+
+
     private void ListViewClick() {
 
 
@@ -160,6 +190,7 @@ public class HomeFragment extends Fragment {
         });
 
     }
+
 
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
