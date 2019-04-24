@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.colleg.project.news.R;
 
@@ -18,10 +19,15 @@ public class CustomPagerAdapter extends PagerAdapter {
 
     private Context mContext;
     private List<Integer> mListData;
+    private List<String> title;
+    private List<String> dis;
 
-    public CustomPagerAdapter(Context context, List<Integer> listDate) {
+
+    public CustomPagerAdapter(Context context, List<Integer> listDate, List<String> Title, List<String> Dis) {
         mContext = context;
         mListData = listDate;
+        title = Title;
+        dis = Dis;
     }
 
     @Override
@@ -45,8 +51,12 @@ public class CustomPagerAdapter extends PagerAdapter {
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.item_viewpager, container, false);
 
         final ImageView image = view.findViewById(R.id.viewpagerpic);
+        final TextView titl = view.findViewById(R.id.title_viewpager);
+        final TextView disc = view.findViewById(R.id.dis_viewpager);
 
         image.setImageResource(mListData.get(position));
+        titl.setText(title.get(position));
+        disc.setText(dis.get(position));
 
 
         container.addView(view);

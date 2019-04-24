@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">News</string>
-    <string name="red">RED</string>
-    <string name="blue">BLUE</string>
-    <string name="green">GREEN</string>
+    <string name="discrbtian">hellohellohelhellohellohellohlohellohlohellohlohellohlohellohello</string>
+    <string name="Title">hellohellohellohellohellohellohelloh</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

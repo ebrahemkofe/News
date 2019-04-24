@@ -8,7 +8,7 @@
        android:layout_width="match_parent"
        android:layout_height="@dimen/_160sdp"
        android:src="@drawable/acs"
-       android:scaleType="centerCrop"
+       android:scaleType="fitXY"
        />
 
     <LinearLayout
@@ -20,6 +20,7 @@
         >
 
     <TextView
+        android:id="@+id/title_viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_4sdp"
@@ -29,6 +30,7 @@
         android:textSize="@dimen/_12sdp" />
 
     <TextView
+        android:id="@+id/dis_viewpager"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_125sdp"
         android:layout_margin="@dimen/_5sdp"
