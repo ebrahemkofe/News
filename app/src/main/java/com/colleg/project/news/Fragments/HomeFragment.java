@@ -196,6 +196,8 @@ public class HomeFragment extends Fragment {
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) return;
 
+
+
         View.MeasureSpec m = new View.MeasureSpec();
 
 

@@ -2,24 +2,30 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.colleg.project.news">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity
-            android:name=".NavigationDrawer.navigationInOurApp"
-            android:label="@string/title_activity_navigation_in_our_app"
-            android:theme="@style/NoActionBar"></activity>
-        <activity android:name=".Activitys.MainActivity">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Activitys.Rejester"></activity>
+        <activity android:name=".Activitys.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".NavigationDrawer.navigationInOurApp"
+            android:label="@string/title_activity_navigation_in_our_app"
+            android:theme="@style/NoActionBar" />
+        <activity android:name=".Activitys.MainActivity"></activity>
     </application>
 
 </manifest>

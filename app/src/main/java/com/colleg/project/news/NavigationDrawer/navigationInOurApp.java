@@ -2,6 +2,7 @@ package com.colleg.project.news.NavigationDrawer;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Gravity;
@@ -9,7 +10,6 @@ import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
-import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
@@ -40,7 +40,7 @@ public class navigationInOurApp extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         toolbar.setNavigationIcon(R.drawable.right);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { drawer.openDrawer(Gravity.RIGHT); } });
-displaySelectedScreen(R.id.main_home);
+        displaySelectedScreen(R.id.main_home);
     }
 
     @Override
