@@ -2,7 +2,6 @@ package com.colleg.project.news.NavigationDrawer;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Gravity;
@@ -10,6 +9,7 @@ import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
@@ -40,7 +40,7 @@ public class navigationInOurApp extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         toolbar.setNavigationIcon(R.drawable.right);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { drawer.openDrawer(Gravity.RIGHT); } });
-        displaySelectedScreen(R.id.main_home);
+//displaySelectedScreen(R.id.main_home);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class navigationInOurApp extends AppCompatActivity
         }
     }
 
-    @Override
+  /*  @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigation_in_our_app, menu);
@@ -75,49 +75,7 @@ public class navigationInOurApp extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void displaySelectedScreen(int id)
-    {
-        Fragment frag = null ;
-
-        switch (id) {
-            case R.id.home:
-                frag = new MainHome();
-                break;
-            case R.id.urgent:
-                frag = new Urgent();
-                break;
-            case R.id.detection:
-                frag = new Detection();
-                break;
-            case R.id.politics:
-                frag = new Politics();
-                break;
-            case R.id.events:
-                frag = new Events();
-                break;
-            case R.id.reports:
-                frag = new Reports();
-                break;
-            case R.id.governorates:
-                frag = new Governorates();
-                break;
-            case R.id.settings:
-                frag = new Settings();
-                break;
-            case R.id.logout:
-                frag = new Logout();
-                break;
-        }
-                if (frag != null)
-                {
-                    FragmentTransaction FT = getSupportFragmentManager().beginTransaction();
-                    FT.replace(R.id.content_main , frag);
-                    FT.commit();
-                }
-            DrawerLayout drawer =  findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-        }
-
+*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -126,8 +84,9 @@ public class navigationInOurApp extends AppCompatActivity
         int id = item.getItemId();
 
 
-displaySelectedScreen(id);
 
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }

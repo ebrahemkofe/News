@@ -10,4 +10,7 @@
     tools:context=".NavigationDrawer.navigationInOurApp"
     tools:showIn="@layout/app_bar_navigation_in_our_app">
 
+    <include
+        layout="@layout/activity_main"/>
+
 </android.support.constraint.ConstraintLayout>
