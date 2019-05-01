@@ -1,6 +1,8 @@
 package com.colleg.project.news.Fragments;
 
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -12,20 +14,23 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+import com.colleg.project.news.Activitys.Details;
 import com.colleg.project.news.Adapters.AdapterListViewHome;
 import com.colleg.project.news.Adapters.CustomPagerAdapter;
 import com.colleg.project.news.R;
 import com.colleg.project.news.Models.ModelListViewHome;
 import java.util.ArrayList;
 import java.util.List;
+import static com.facebook.share.internal.DeviceShareDialogFragment.TAG;
+
 
 public class HomeFragment extends Fragment {
 
-    String []dis = {String.valueOf(R.string.discrbtian),String.valueOf(R.string.discrbtian) , String.valueOf(R.string.discrbtian)};
+    String []dis = {"الطيب : اطلس الاوقاف يضم 25 مليون مستند","الطيب : اطلس الاوقاف يضم 25 مليون مستند","الطيب : اطلس الاوقاف يضم 25 مليون مستند"};
     String []time = {"2019 jun 7 09:12" , "2019 jun 7 09:12", "2019 jun 7 09:12"};
     int []image = {R.drawable.sheekh,R.drawable.sheekh,R.drawable.sheekh};
     ListView listView ;
+    ViewPager pager;
     ArrayList<ModelListViewHome> list = new ArrayList<>();
 
     boolean c=false , spo=false , ing=false ;
@@ -37,11 +42,13 @@ public class HomeFragment extends Fragment {
            }
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
          View v=inflater.inflate(R.layout.fragment_home, container, false);
+
 
          more_acc=v.findViewById(R.id.more_accidents);
          morelayout_acc=v.findViewById(R.id.more_in_linearlayout_accidents);
@@ -97,12 +104,14 @@ public class HomeFragment extends Fragment {
 
 
 
+
+
 //......................  View pager accident ................................................
 
 
         List<Integer> listImagesAcc = new ArrayList<>();
         List<String> listTitleAcc = new ArrayList<>();
-        List<String> listDisAcc = new ArrayList<>();
+        final List<String> listDisAcc = new ArrayList<>();
         listImagesAcc.add(R.drawable.acs);
         listImagesAcc.add(R.drawable.acs);
         listTitleAcc.add("Explosion volcano");
@@ -112,6 +121,9 @@ public class HomeFragment extends Fragment {
 
         ViewPager viewPagerAcc = v.findViewById(R.id.viewpager_accidents);
         viewPagerAcc.setAdapter(new CustomPagerAdapter(getContext(), listImagesAcc,listTitleAcc,listDisAcc));
+
+
+
 
 
 //......................  View pager Investigations ................................................
@@ -172,19 +184,19 @@ public class HomeFragment extends Fragment {
 
     private void ListViewClick() {
 
-
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 if (position == 0) {
-                    Toast.makeText(getContext(), "Clicked", Toast.LENGTH_SHORT).show();
+                    Intent go=new Intent(getContext(), Details.class);
+                    startActivity(go);
                 }
 
                 else if (position == 1) {
-                    Toast.makeText(getContext(), "Clicked", Toast.LENGTH_SHORT).show();
-
+                    Intent go=new Intent(getContext(), Details.class);
+                    startActivity(go);
                 }
             }
         });

@@ -23,6 +23,7 @@
         android:id="@+id/title_viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="right"
         android:layout_margin="@dimen/_4sdp"
         android:text="hellohellohellohellohellohellohelloh"
         android:textColor="@color/white"
@@ -32,6 +33,7 @@
     <TextView
         android:id="@+id/dis_viewpager"
         android:layout_width="match_parent"
+        android:gravity="right"
         android:layout_height="@dimen/_125sdp"
         android:layout_margin="@dimen/_5sdp"
         android:text=" ellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelloh"

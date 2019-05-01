@@ -1,13 +1,16 @@
 package com.colleg.project.news.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.colleg.project.news.Activitys.Details;
 import com.colleg.project.news.R;
 
 import java.util.List;
@@ -58,8 +61,28 @@ public class CustomPagerAdapter extends PagerAdapter {
         titl.setText(title.get(position));
         disc.setText(dis.get(position));
 
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                if(position==0) {
+
+                    Intent go=new Intent(mContext, Details.class);
+                    mContext.startActivity(go);
+
+                }
+
+                else if(position==1) {
+                    Intent go=new Intent(mContext, Details.class);
+                    mContext.startActivity(go);
+                }
+
+            }
+        });
         container.addView(view);
         return view;
     }
+
+
+
 }

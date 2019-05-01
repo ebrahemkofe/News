@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void favourite(View view) {
 
+
     }
 
     public void home(View view) {
@@ -42,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
         transaction.commitNow();
+    }
+
+    public void profile(View view){
+
     }
 
 
