@@ -36,5 +36,9 @@ dependencies {
 
     //facebook
     implementation 'com.facebook.android:facebook-login:[4,5)'
+
+    //circle image view
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
 }
-apply plugin: 'com.google.gms.google-services'
+apply plugin:'com.google.gms.google-services'
