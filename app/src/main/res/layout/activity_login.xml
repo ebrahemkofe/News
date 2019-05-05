@@ -60,6 +60,7 @@
 
             />
         <EditText
+            android:id="@+id/editTextEmailForLogin"
             android:backgroundTint="#03A9F4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,6 +76,7 @@
 
             />
         <EditText
+            android:id="@+id/editTextPassword"
             android:backgroundTint="#2196F3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,6 +101,7 @@
         >
 
         <Button
+            android:onClick="login"
             android:id="@+id/login_btn"
             android:layout_centerHorizontal="true"
             android:background="@drawable/back_ground_of_login_btn"
