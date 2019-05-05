@@ -86,6 +86,7 @@ public class HomeFragment extends Fragment {
 
 
          more_spo=v.findViewById(R.id.more_sports);
+
          morelayout_spo=v.findViewById(R.id.more_in_linearlayout_sports);
          more_spo.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -268,9 +269,8 @@ public class HomeFragment extends Fragment {
 
                            listGson = array.getNews();
 
-                        viewPagerAcc.setAdapter(new CustomPagerAdapterAcc(getContext(),listGson));
-//                        viewPagerAcc.setAdapter(new CustomPagerAdapterSports(getContext(),listGson));
-//                        viewPagerAcc.setAdapter(new CustomPagerAdapterTran(getContext(),listGson));
+                       viewPagerAcc.setAdapter(new CustomPagerAdapterAcc(getContext(),listGson));
+
 
                         Toast.makeText(getContext(),listGson.get(0).getCategory_posts().get(0).getPost_title().toString(), Toast.LENGTH_SHORT).show();
                     }

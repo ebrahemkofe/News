@@ -21,11 +21,15 @@ import java.util.List;
 public class CustomPagerAdapterAcc extends PagerAdapter {
 
     private Context mContext;
-    private List<GsonForHome> list = new ArrayList<>();
+    private List<GsonForHome.NewsBean> list = new ArrayList<>();
+    List<GsonForHome.NewsBean.CategoryPostsBean>list2 = new ArrayList<>();
+
 
     public CustomPagerAdapterAcc(Context context, List listDate) {
         mContext = context;
         list = listDate;
+
+        list2 = list.get(0).getCategory_posts();
 
     }
 
@@ -36,7 +40,7 @@ public class CustomPagerAdapterAcc extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return list.size();
+        return  list2.size();
     }
 
     @Override
@@ -47,6 +51,9 @@ public class CustomPagerAdapterAcc extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, final int position) {
 
+
+
+
         LayoutInflater inflater = LayoutInflater.from(mContext);
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.item_viewpager, container, false);
 
@@ -54,9 +61,12 @@ public class CustomPagerAdapterAcc extends PagerAdapter {
          TextView titl = view.findViewById(R.id.title_viewpager);
          TextView disc = view.findViewById(R.id.dis_viewpager);
 
-        Glide.with(mContext).load(list.get(0).getNews().get(0).getCategory_posts().get(position).getPost_img()).into(image);
-        titl.setText(list.get(0).getNews().get(0).getCategory_posts().get(position).getPost_title());
-        disc.setText(list.get(0).getNews().get(0).getCategory_posts().get(position).getDescription());
+
+
+
+       Glide.with(mContext).load(list2.get(position).getPost_img()).into(image);
+       titl.setText(list.get(0).getCategory_title());
+        disc.setText(list2.get(position).getDescription()+"");
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
