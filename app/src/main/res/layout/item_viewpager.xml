@@ -7,14 +7,13 @@
        android:id="@+id/viewpagerpic"
        android:layout_width="match_parent"
        android:layout_height="@dimen/_160sdp"
-       android:src="@drawable/acs"
        android:scaleType="fitXY"
        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/viewpagerpic"
+        android:layout_below="@id/viewpagerpic"
         android:orientation="vertical"
         android:background="#0D195A"
         >
@@ -25,7 +24,6 @@
         android:layout_height="wrap_content"
         android:gravity="right"
         android:layout_margin="@dimen/_4sdp"
-        android:text="hellohellohellohellohellohellohelloh"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="@dimen/_12sdp" />
@@ -36,7 +34,6 @@
         android:gravity="right"
         android:layout_height="@dimen/_125sdp"
         android:layout_margin="@dimen/_5sdp"
-        android:text=" ellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelloh"
         android:textColor="@color/white"
         android:textSize="@dimen/_10sdp" />
 

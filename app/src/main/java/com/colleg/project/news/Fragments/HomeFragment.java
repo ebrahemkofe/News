@@ -14,14 +14,28 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import com.colleg.project.news.Activitys.Details;
 import com.colleg.project.news.Adapters.AdapterListViewHome;
-import com.colleg.project.news.Adapters.CustomPagerAdapter;
+import com.colleg.project.news.Adapters.CustomPagerAdapterAcc;
+import com.colleg.project.news.Adapters.CustomPagerAdapterSports;
+import com.colleg.project.news.Adapters.CustomPagerAdapterTran;
+import com.colleg.project.news.Models.GsonForHome;
 import com.colleg.project.news.R;
 import com.colleg.project.news.Models.ModelListViewHome;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
-import static com.facebook.share.internal.DeviceShareDialogFragment.TAG;
+
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 
 
 public class HomeFragment extends Fragment {
@@ -32,7 +46,10 @@ public class HomeFragment extends Fragment {
     ListView listView ;
     ViewPager pager;
     ArrayList<ModelListViewHome> list = new ArrayList<>();
+    List<GsonForHome.NewsBean> listGson =new ArrayList<>();
 
+
+    ViewPager viewPagerAcc, viewPagerSports ,viewPagerTran;
     boolean c=false , spo=false , ing=false ;
     AdapterListViewHome adapter ;
     ImageView more_acc,more_spo,more_ing;
@@ -109,56 +126,55 @@ public class HomeFragment extends Fragment {
 //......................  View pager accident ................................................
 
 
-        List<Integer> listImagesAcc = new ArrayList<>();
-        List<String> listTitleAcc = new ArrayList<>();
-        final List<String> listDisAcc = new ArrayList<>();
-        listImagesAcc.add(R.drawable.acs);
-        listImagesAcc.add(R.drawable.acs);
-        listTitleAcc.add("Explosion volcano");
-        listTitleAcc.add("Explosion volcano");
-        listDisAcc.add("Mexican authorities have raised the level of alert from the eruption of the Popocapatile volcano to the highest degree below the state of emergency.");
-        listDisAcc.add("Mexican authorities have raised the level of alert from the eruption of the Popocapatile volcano to the highest degree below the state of emergency.");
 
-        ViewPager viewPagerAcc = v.findViewById(R.id.viewpager_accidents);
-        viewPagerAcc.setAdapter(new CustomPagerAdapter(getContext(), listImagesAcc,listTitleAcc,listDisAcc));
+//        List<Integer> listImagesAcc = new ArrayList<>();
+//        List<String> listTitleAcc = new ArrayList<>();
+//        final List<String> listDisAcc = new ArrayList<>();
+//        listImagesAcc.add(R.drawable.acs);
+//        listImagesAcc.add(R.drawable.acs);
+//        listTitleAcc.add("Explosion volcano");
+//        listTitleAcc.add("Explosion volcano");
+//        listDisAcc.add("Mexican authorities have raised the level of alert from the eruption of the Popocapatile volcano to the highest degree below the state of emergency.");
+//        listDisAcc.add("Mexican authorities have raised the level of alert from the eruption of the Popocapatile volcano to the highest degree below the state of emergency.");
+//
+         viewPagerAcc = v.findViewById(R.id.viewpager_accidents);
 
-
-
+        Get_Data();
 
 
 //......................  View pager Investigations ................................................
 
 
-        List<Integer> listImagesInvestigations = new ArrayList<>();
-        List<String> listTitleInvestigations = new ArrayList<>();
-        List<String> listDisInvestigations = new ArrayList<>();
-        listImagesInvestigations.add(R.drawable.tramp);
-        listImagesInvestigations.add(R.drawable.tramp);
-        listTitleInvestigations.add("Trump calls for trial of all those accused of collusion with Russia");
-        listTitleInvestigations.add("Trump calls for trial of all those accused of collusion with Russia");
-        listDisInvestigations.add("US President Donald Trump, to try those who brought him in collusion with Russia in his election");
-        listDisInvestigations.add("US President Donald Trump, to try those who brought him in collusion with Russia in his election");
-
-        ViewPager viewPagerInvestigations = v.findViewById(R.id.viewpager_Investigations);
-        viewPagerInvestigations.setAdapter(new CustomPagerAdapter(getContext(), listImagesInvestigations,listTitleInvestigations,listDisInvestigations));
+//        List<Integer> listImagesInvestigations = new ArrayList<>();
+//        List<String> listTitleInvestigations = new ArrayList<>();
+//        List<String> listDisInvestigations = new ArrayList<>();
+//        listImagesInvestigations.add(R.drawable.tramp);
+//        listImagesInvestigations.add(R.drawable.tramp);
+//        listTitleInvestigations.add("Trump calls for trial of all those accused of collusion with Russia");
+//        listTitleInvestigations.add("Trump calls for trial of all those accused of collusion with Russia");
+//        listDisInvestigations.add("US President Donald Trump, to try those who brought him in collusion with Russia in his election");
+//        listDisInvestigations.add("US President Donald Trump, to try those who brought him in collusion with Russia in his election");
+//
+          viewPagerTran = v.findViewById(R.id.viewpager_Investigations);
+//        viewPagerInvestigations.setAdapter(new CustomPagerAdapter(getContext(), listImagesInvestigations,listTitleInvestigations,listDisInvestigations));
 
 
 //......................  View pager Sports ................................................
 
 
 
-        List<Integer> listImagesSports = new ArrayList<>();
-        List<String> listTitleSports = new ArrayList<>();
-        List<String> listDisSports = new ArrayList<>();
-        listImagesSports.add(R.drawable.mohamedsalah);
-        listImagesSports.add(R.drawable.mohamedsalah);
-        listTitleSports.add("Liverpool regain top spot in the Premier League");
-        listTitleSports.add("Liverpool regain top spot in the Premier League");
-        listDisSports.add("Liverpool rode their luck in the second half as Alisson's costly error almost gifted relegation-threatened Cardiff the equalizer, but Sean Morrison failed to convert.");
-        listDisSports.add("Liverpool rode their luck in the second half as Alisson's costly error almost gifted relegation-threatened Cardiff the equalizer, but Sean Morrison failed to convert.");
-
-        ViewPager viewPagerSports = v.findViewById(R.id.viewpager_sports);
-        viewPagerSports.setAdapter(new CustomPagerAdapter(getContext(), listImagesSports,listTitleSports,listDisSports));
+//        List<Integer> listImagesSports = new ArrayList<>();
+//        List<String> listTitleSports = new ArrayList<>();
+//        List<String> listDisSports = new ArrayList<>();
+//        listImagesSports.add(R.drawable.mohamedsalah);
+//        listImagesSports.add(R.drawable.mohamedsalah);
+//        listTitleSports.add("Liverpool regain top spot in the Premier League");
+//        listTitleSports.add("Liverpool regain top spot in the Premier League");
+//        listDisSports.add("Liverpool rode their luck in the second half as Alisson's costly error almost gifted relegation-threatened Cardiff the equalizer, but Sean Morrison failed to convert.");
+//        listDisSports.add("Liverpool rode their luck in the second half as Alisson's costly error almost gifted relegation-threatened Cardiff the equalizer, but Sean Morrison failed to convert.");
+//
+          viewPagerSports = v.findViewById(R.id.viewpager_sports);
+//        viewPagerSports.setAdapter(new CustomPagerAdapter(getContext(), listImagesSports,listTitleSports,listDisSports));
 
 
 //......................  List view ................................................
@@ -235,5 +251,38 @@ public class HomeFragment extends Fragment {
         listView.requestLayout();
 
     }
+
+
+    private void Get_Data() {
+
+        AndroidNetworking.get("https://cizaro.net/2030/api/allnews")
+                .setPriority(Priority.HIGH)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                        GsonForHome array = gson.fromJson(response.toString(), GsonForHome.class);
+
+                           listGson = array.getNews();
+
+                        viewPagerAcc.setAdapter(new CustomPagerAdapterAcc(getContext(),listGson));
+//                        viewPagerAcc.setAdapter(new CustomPagerAdapterSports(getContext(),listGson));
+//                        viewPagerAcc.setAdapter(new CustomPagerAdapterTran(getContext(),listGson));
+
+                        Toast.makeText(getContext(),listGson.get(0).getCategory_posts().get(0).getPost_title().toString(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                        Toast.makeText(getContext(), "connection field", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+    }
+
 
 }

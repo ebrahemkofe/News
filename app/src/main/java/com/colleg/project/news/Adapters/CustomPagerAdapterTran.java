@@ -8,29 +8,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.colleg.project.news.Activitys.Details;
+import com.colleg.project.news.Models.GsonForHome;
 import com.colleg.project.news.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by anupamchugh on 26/12/15.
  */
-public class CustomPagerAdapter extends PagerAdapter {
+public class CustomPagerAdapterTran extends PagerAdapter {
 
     private Context mContext;
     private List<Integer> mListData;
     private List<String> title;
     private List<String> dis;
 
+    private List<GsonForHome> list =new ArrayList<>();
 
-    public CustomPagerAdapter(Context context, List<Integer> listDate, List<String> Title, List<String> Dis) {
+    public CustomPagerAdapterTran(Context context, List listDate) {
         mContext = context;
-        mListData = listDate;
-        title = Title;
-        dis = Dis;
+        list = listDate;
+
     }
 
     @Override
@@ -40,7 +42,7 @@ public class CustomPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return mListData.size();
+        return list.size();
     }
 
     @Override
@@ -56,10 +58,10 @@ public class CustomPagerAdapter extends PagerAdapter {
         final ImageView image = view.findViewById(R.id.viewpagerpic);
         final TextView titl = view.findViewById(R.id.title_viewpager);
         final TextView disc = view.findViewById(R.id.dis_viewpager);
-
-        image.setImageResource(mListData.get(position));
-        titl.setText(title.get(position));
-        disc.setText(dis.get(position));
+        String link=list.get(position).getNews().get(2).getCategory_posts().get(position).getPost_img();
+        Glide.with(mContext).load(link).into(image);
+        titl.setText(list.get(position).getNews().get(2).getCategory_posts().get(position).getPost_title());
+        disc.setText(list.get(position).getNews().get(2).getCategory_posts().get(position).getDescription());
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
