@@ -82,7 +82,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        toolbar.setNavigationIcon(R.drawable.right);
+        toolbar.setNavigationIcon(R.drawable.nav);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { drawer.openDrawer(Gravity.RIGHT); } });
 
 

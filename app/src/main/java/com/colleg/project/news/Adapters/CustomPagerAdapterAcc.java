@@ -23,6 +23,7 @@ public class CustomPagerAdapterAcc extends PagerAdapter {
     private Context mContext;
     private List<GsonForHome.NewsBean> list = new ArrayList<>();
     List<GsonForHome.NewsBean.CategoryPostsBean>list2 = new ArrayList<>();
+    public static String PostID;
 
 
     public CustomPagerAdapterAcc(Context context, List listDate) {
@@ -64,26 +65,17 @@ public class CustomPagerAdapterAcc extends PagerAdapter {
 
 
 
-       Glide.with(mContext).load(list2.get(position).getPost_img()).into(image);
-       titl.setText(list.get(0).getCategory_title());
-        disc.setText(list2.get(position).getDescription()+"");
+        Glide.with(mContext).load(list2.get(position).getPost_img()).into(image);
+        titl.setText(list2.get(position).getPost_title());
+        disc.setText(list2.get(position).getDescription());
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
 
-                if(position==0) {
-
-                    Intent go=new Intent(mContext, Details.class);
-                    mContext.startActivity(go);
-
-                }
-
-                else if(position==1) {
-                    Intent go=new Intent(mContext, Details.class);
-                    mContext.startActivity(go);
-                }
-
+               PostID= String.valueOf(list.get(0).getCategory_posts().get(position).getPost_id());
+               Intent i = new Intent(mContext,Details.class);
+               mContext.startActivity(i);
             }
         });
         container.addView(view);

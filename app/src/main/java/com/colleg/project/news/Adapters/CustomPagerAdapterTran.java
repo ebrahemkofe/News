@@ -26,12 +26,14 @@ public class CustomPagerAdapterTran extends PagerAdapter {
     private List<Integer> mListData;
     private List<String> title;
     private List<String> dis;
-
-    private List<GsonForHome> list =new ArrayList<>();
+    private List<GsonForHome.NewsBean> list = new ArrayList<>();
+    List<GsonForHome.NewsBean.CategoryPostsBean>list2 = new ArrayList<>();
 
     public CustomPagerAdapterTran(Context context, List listDate) {
         mContext = context;
         list = listDate;
+        list2 = list.get(1).getCategory_posts();
+
 
     }
 
@@ -42,7 +44,7 @@ public class CustomPagerAdapterTran extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return list.size();
+        return list2.size();
     }
 
     @Override
@@ -58,26 +60,20 @@ public class CustomPagerAdapterTran extends PagerAdapter {
         final ImageView image = view.findViewById(R.id.viewpagerpic);
         final TextView titl = view.findViewById(R.id.title_viewpager);
         final TextView disc = view.findViewById(R.id.dis_viewpager);
-        String link=list.get(position).getNews().get(2).getCategory_posts().get(position).getPost_img();
-        Glide.with(mContext).load(link).into(image);
-        titl.setText(list.get(position).getNews().get(2).getCategory_posts().get(position).getPost_title());
-        disc.setText(list.get(position).getNews().get(2).getCategory_posts().get(position).getDescription());
+
+
+        Glide.with(mContext).load(list2.get(position).getPost_img()).into(image);
+        titl.setText(list2.get(position).getPost_title());
+        disc.setText(list2.get(position).getDescription());
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(position==0) {
 
-                    Intent go=new Intent(mContext, Details.class);
-                    mContext.startActivity(go);
-
-                }
-
-                else if(position==1) {
-                    Intent go=new Intent(mContext, Details.class);
-                    mContext.startActivity(go);
-                }
+                CustomPagerAdapterAcc.PostID= String.valueOf(list.get(1).getCategory_posts().get(position).getPost_id());
+                Intent i = new Intent(mContext,Details.class);
+                mContext.startActivity(i);
 
             }
         });

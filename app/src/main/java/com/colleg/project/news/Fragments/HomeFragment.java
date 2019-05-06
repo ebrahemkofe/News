@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
 
     String []dis = {"الطيب : اطلس الاوقاف يضم 25 مليون مستند","الطيب : اطلس الاوقاف يضم 25 مليون مستند","الطيب : اطلس الاوقاف يضم 25 مليون مستند"};
     String []time = {"2019 jun 7 09:12" , "2019 jun 7 09:12", "2019 jun 7 09:12"};
-    int []image = {R.drawable.sheekh,R.drawable.sheekh,R.drawable.sheekh};
+    int []image = {R.drawable.sheekh,R.drawable.tramp,R.drawable.news};
     ListView listView ;
     ViewPager pager;
     ArrayList<ModelListViewHome> list = new ArrayList<>();
@@ -243,9 +243,11 @@ public class HomeFragment extends Fragment {
                            listGson = array.getNews();
 
                        viewPagerAcc.setAdapter(new CustomPagerAdapterAcc(getContext(),listGson));
+                       viewPagerSports.setAdapter(new CustomPagerAdapterSports(getContext(),listGson));
+                       viewPagerTran.setAdapter(new CustomPagerAdapterTran(getContext(),listGson));
 
 
-                        Toast.makeText(getContext(),listGson.get(0).getCategory_posts().get(0).getPost_title().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),listGson.get(0).getCategory_posts().get(0).getPost_title(), Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
