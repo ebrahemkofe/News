@@ -18,7 +18,9 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.colleg.project.news.InternalStorage.mySharedPreference;
+import com.colleg.project.news.Models.ErrorModel;
 import com.colleg.project.news.Models.ModelOfRejestraion;
+import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -70,8 +72,14 @@ public class Login extends AppCompatActivity {
 
         onClick();
 
+        if (!mySharedPreference.getUserOBJ().equals("")){
 
-        Toast.makeText(this, mySharedPreference.getUserOBJ()+"", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(this, "rejested", Toast.LENGTH_SHORT).show();
+        }else {
+
+            Toast.makeText(this, "no", Toast.LENGTH_SHORT).show();
+        }
 
 
 
@@ -131,8 +139,6 @@ public class Login extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-
-            Toast.makeText(this,   account.getDisplayName()+",m,m,m", Toast.LENGTH_SHORT).show();
 
             onLoginWithGoogle(account.getEmail() , account.getDisplayName() , account.getId());
 
@@ -261,7 +267,7 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onError(ANError anError) {
 
-                        Toast.makeText(Login.this, anError.getErrorBody()+"", Toast.LENGTH_SHORT).show();
+                     MyUtils.handleError(Login.this , anError.getErrorBody() , anError.getErrorCode());
                     }
                 });
     }
@@ -328,7 +334,21 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onError(ANError anError) {
 
-                        Toast.makeText(Login.this, anError.getErrorBody()+"", Toast.LENGTH_SHORT).show();
+
+
+                        if (anError.getErrorCode() == 400){
+
+
+                            onLoginWithGoogleAfterRejested(password , email);
+
+
+
+                        }else {
+
+                            MyUtils.handleError(Login.this,anError.getErrorBody(),anError.getErrorCode());
+                        }
+
+
                     }
                 });
 
@@ -414,7 +434,16 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onError(ANError anError) {
 
-                        Toast.makeText(Login.this, anError.getErrorBody()+"", Toast.LENGTH_SHORT).show();
+
+
+                        if (anError.getErrorCode() == 400){
+
+                            afterLoginWithFaceBook(password,email);
+
+                        }else {
+                            Toast.makeText(Login.this, anError.getErrorBody()+"", Toast.LENGTH_SHORT).show();
+
+                        }
                     }
                 });
 

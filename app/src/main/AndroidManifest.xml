@@ -18,22 +18,26 @@
             android:value="@string/facebookID" />
         <activity android:name=".Activitys.Rejester">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".Activitys.Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Activitys.Details"></activity>
         <activity
             android:name=".NavigationDrawer.navigationInOurApp"
             android:label="@string/title_activity_navigation_in_our_app"
             android:theme="@style/NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
 
         </activity>

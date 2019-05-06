@@ -15,6 +15,7 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.colleg.project.news.InternalStorage.mySharedPreference;
 import com.colleg.project.news.Models.ModelOfRejestraion;
+import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -28,7 +29,7 @@ public class Rejester extends AppCompatActivity {
     EditText userName , email  , password , repassword  ;
 
     String sUserName   ,sEmail , sPassword , sRepassword ;
-
+    final String EMAIL_PATTERN = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,11 +42,6 @@ public class Rejester extends AppCompatActivity {
         repassword = findViewById(R.id.repassword);
 
 
-        Gson gson = new Gson();
-        ModelOfRejestraion.UserInfoBean m = gson.fromJson(mySharedPreference.getUserOBJ() , ModelOfRejestraion.UserInfoBean.class);
-
-
-        Toast.makeText(this, m.getUserId()+"", Toast.LENGTH_SHORT).show();
 
 
 
@@ -66,10 +62,19 @@ public class Rejester extends AppCompatActivity {
         }else if (email1.equals("")){
             email.setError("Required");
 
-        }else if(password1.equals("")){
+        }else if(!email1.matches(EMAIL_PATTERN)) {
+            email.setError("example@example.com" );
+        }
+
+        else if(password1.equals("")){
             password.setError("Required");
 
-        }else if(!repassword1.equals(password1)){
+        }else if (password1.length() < 8 ){
+
+            password.setError("Password shouldn't less than 8 characters");
+        }
+
+        else if(!repassword1.equals(password1)){
             repassword.setError("Not Matched");
         }else {
             onRegisterData(userName1 ,password1  , email1 );
@@ -120,7 +125,7 @@ public class Rejester extends AppCompatActivity {
                     @Override
                     public void onError(ANError anError) {
 
-                        Toast.makeText(Rejester.this, anError.getErrorBody()+"", Toast.LENGTH_SHORT).show();
+                        MyUtils.handleError(Rejester.this , anError.getErrorBody() , anError.getErrorCode());
                     }
                 });
     }
