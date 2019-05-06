@@ -1,4 +1,4 @@
-package com.colleg.project.news.NavigationDrawer;
+package com.colleg.project.news.Activitys;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -21,7 +21,7 @@ import android.widget.ListView;
 import com.colleg.project.news.Fragments.HomeFragment;
 import com.colleg.project.news.R;
 
-public class navigationInOurApp extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Fragment fragment;
     FragmentTransaction transaction;
     ListView listView  ;

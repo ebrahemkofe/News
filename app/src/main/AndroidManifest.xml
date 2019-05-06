@@ -34,7 +34,7 @@
         </activity>
         <activity android:name=".Activitys.Details"></activity>
         <activity
-            android:name=".NavigationDrawer.navigationInOurApp"
+            android:name=".Activitys.Home"
             android:label="@string/title_activity_navigation_in_our_app"
             android:theme="@style/NoActionBar" >
 
