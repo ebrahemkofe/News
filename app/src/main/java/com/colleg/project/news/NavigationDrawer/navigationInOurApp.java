@@ -15,24 +15,67 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.colleg.project.news.Fragments.HomeFragment;
 import com.colleg.project.news.R;
 
-public class navigationInOurApp extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class navigationInOurApp extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Fragment fragment;
     FragmentTransaction transaction;
+    ListView listView  ;
+    String [] x = {"بيسبسيببس","بيسبسيب"};
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_in_our_app);
+         navFunction();
+
+
+         listView  =findViewById(R.id.items_listView_for_navigation);
+
+
+         ArrayAdapter <String> arrayAdapter  = new ArrayAdapter<String>(this , android.R.layout.simple_list_item_1,x);
+
+         listView.setAdapter(arrayAdapter);
+
+
+        fragment = new HomeFragment();
+        transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
+        transaction.commitNow();
+
+    }
+
+
+
+
+
+    public void favourite(View view) {
+    }
+
+    public void profile(View view) {
+    }
+
+    public void home(View view) {
+        fragment = new HomeFragment();
+        transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
+        transaction.commitNow();
+
+    }
+
+    private void navFunction(){
+
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         }
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-         final DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -42,11 +85,8 @@ public class navigationInOurApp extends AppCompatActivity
         toolbar.setNavigationIcon(R.drawable.right);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { drawer.openDrawer(Gravity.RIGHT); } });
 
-        fragment = new HomeFragment();
-        transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
-        transaction.commitNow();
-//displaySelectedScreen(R.id.main_home);
+
+
     }
 
     @Override
@@ -59,31 +99,7 @@ public class navigationInOurApp extends AppCompatActivity
         }
     }
 
-  /*  @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.navigation_in_our_app, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-*/
-
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.

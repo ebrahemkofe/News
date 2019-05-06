@@ -11,28 +11,14 @@
     android:orientation="horizontal"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <de.hdodenhof.circleimageview.CircleImageView
 
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/contact_us"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
-        android:gravity="start"
-        android:layout_margin="@dimen/_15sdp"
-        android:contentDescription="@string/nav_header_desc"
-
-        android:src="@drawable/profile"
-
-        />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_30sdp"
         android:gravity="end"
-
-
         android:text="حمزة شعبان"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#000"
