@@ -3,6 +3,9 @@
     <string name="discrbtian">hellohellohelhellohellohellohlohellohlohellohlohellohlohellohello</string>
     <string name="Title">hellohellohellohellohellohellohelloh</string>
 
+    <string name="facebookID">555984658142361</string>
+    <string name="fb_login_protocol_scheme">fb555984658142361</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

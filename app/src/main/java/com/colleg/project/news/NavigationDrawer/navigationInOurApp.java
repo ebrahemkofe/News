@@ -16,12 +16,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.colleg.project.news.Fragments.HomeFragment;
 import com.colleg.project.news.R;
 
 public class navigationInOurApp extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    @Override
+    Fragment fragment;
+    FragmentTransaction transaction;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_in_our_app);
@@ -40,6 +41,11 @@ public class navigationInOurApp extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         toolbar.setNavigationIcon(R.drawable.right);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { drawer.openDrawer(Gravity.RIGHT); } });
+
+        fragment = new HomeFragment();
+        transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
+        transaction.commitNow();
 //displaySelectedScreen(R.id.main_home);
     }
 

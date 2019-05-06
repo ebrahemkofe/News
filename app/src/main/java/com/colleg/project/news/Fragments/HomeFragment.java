@@ -73,7 +73,9 @@ public class HomeFragment extends Fragment {
              @Override
              public void onClick(View v) {
                  if(c==false) {
+
                      morelayout_acc.setVisibility(View.VISIBLE);
+
                      c=true;
                  }
                  else{
@@ -124,20 +126,11 @@ public class HomeFragment extends Fragment {
 
 
 
-//......................  View pager accident ................................................
+//......................  View pager accident ......................................................
 
 
 
-//        List<Integer> listImagesAcc = new ArrayList<>();
-//        List<String> listTitleAcc = new ArrayList<>();
-//        final List<String> listDisAcc = new ArrayList<>();
-//        listImagesAcc.add(R.drawable.acs);
-//        listImagesAcc.add(R.drawable.acs);
-//        listTitleAcc.add("Explosion volcano");
-//        listTitleAcc.add("Explosion volcano");
-//        listDisAcc.add("Mexican authorities have raised the level of alert from the eruption of the Popocapatile volcano to the highest degree below the state of emergency.");
-//        listDisAcc.add("Mexican authorities have raised the level of alert from the eruption of the Popocapatile volcano to the highest degree below the state of emergency.");
-//
+
          viewPagerAcc = v.findViewById(R.id.viewpager_accidents);
 
         Get_Data();
@@ -146,39 +139,19 @@ public class HomeFragment extends Fragment {
 //......................  View pager Investigations ................................................
 
 
-//        List<Integer> listImagesInvestigations = new ArrayList<>();
-//        List<String> listTitleInvestigations = new ArrayList<>();
-//        List<String> listDisInvestigations = new ArrayList<>();
-//        listImagesInvestigations.add(R.drawable.tramp);
-//        listImagesInvestigations.add(R.drawable.tramp);
-//        listTitleInvestigations.add("Trump calls for trial of all those accused of collusion with Russia");
-//        listTitleInvestigations.add("Trump calls for trial of all those accused of collusion with Russia");
-//        listDisInvestigations.add("US President Donald Trump, to try those who brought him in collusion with Russia in his election");
-//        listDisInvestigations.add("US President Donald Trump, to try those who brought him in collusion with Russia in his election");
-//
           viewPagerTran = v.findViewById(R.id.viewpager_Investigations);
-//        viewPagerInvestigations.setAdapter(new CustomPagerAdapter(getContext(), listImagesInvestigations,listTitleInvestigations,listDisInvestigations));
 
 
-//......................  View pager Sports ................................................
+//......................  View pager Sports ........................................................
 
 
 
-//        List<Integer> listImagesSports = new ArrayList<>();
-//        List<String> listTitleSports = new ArrayList<>();
-//        List<String> listDisSports = new ArrayList<>();
-//        listImagesSports.add(R.drawable.mohamedsalah);
-//        listImagesSports.add(R.drawable.mohamedsalah);
-//        listTitleSports.add("Liverpool regain top spot in the Premier League");
-//        listTitleSports.add("Liverpool regain top spot in the Premier League");
-//        listDisSports.add("Liverpool rode their luck in the second half as Alisson's costly error almost gifted relegation-threatened Cardiff the equalizer, but Sean Morrison failed to convert.");
-//        listDisSports.add("Liverpool rode their luck in the second half as Alisson's costly error almost gifted relegation-threatened Cardiff the equalizer, but Sean Morrison failed to convert.");
-//
+
           viewPagerSports = v.findViewById(R.id.viewpager_sports);
 //        viewPagerSports.setAdapter(new CustomPagerAdapter(getContext(), listImagesSports,listTitleSports,listDisSports));
 
 
-//......................  List view ................................................
+//......................  List view ................................................................
 
 
         listView = v.findViewById(R.id.homeListview);

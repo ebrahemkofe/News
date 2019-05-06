@@ -25,6 +25,8 @@ public class mySharedPreference {
     }
 
     private static SharedPreferences getSharedPreferences() {
+
+
         return mAppContext.getSharedPreferences(mySharedPreferenceName, Context.MODE_PRIVATE);
     }
 

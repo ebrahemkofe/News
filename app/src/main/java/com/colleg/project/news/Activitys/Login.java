@@ -21,6 +21,12 @@ import com.colleg.project.news.InternalStorage.mySharedPreference;
 import com.colleg.project.news.Models.ModelOfRejestraion;
 import com.colleg.project.news.R;
 import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -35,9 +41,11 @@ import org.json.JSONObject;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 
 public class Login extends AppCompatActivity {
     private Button loginWithGoogle ;
+    private  Button loginWithFaceBook ;
     private int RC_SIGN_IN = 123;
     private CallbackManager callbackManager;
     private GoogleSignInClient mGoogleSignInClient;
@@ -50,16 +58,20 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
          mySharedPreference.init(this);
 
-        editEmail = findViewById(R.id.editTextEmailForLogin);
-        editpassword = findViewById(R.id.editTextPassword) ;
+
+        printKeyHash();
 
 
 
         definitions();
 
         googleToken();
+        facebookToken();
 
         onClick();
+
+
+        Toast.makeText(this, mySharedPreference.getUserOBJ()+"", Toast.LENGTH_SHORT).show();
 
 
 
@@ -76,11 +88,21 @@ public class Login extends AppCompatActivity {
                 startActivityForResult(signInIntent, RC_SIGN_IN);
             }
         });
+
+        loginWithFaceBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginManager.getInstance().logInWithReadPermissions(Login.this, Arrays.asList("public_profile", "email"));
+            }
+        });
     }
 
 
     private void definitions(){
+        editEmail = findViewById(R.id.editTextEmailForLogin);
+        editpassword = findViewById(R.id.editTextPassword) ;
         loginWithGoogle = findViewById(R.id.login_with_google);
+        loginWithFaceBook = findViewById(R.id.login_with_faceBook);
 
 
     }
@@ -112,6 +134,8 @@ public class Login extends AppCompatActivity {
 
             Toast.makeText(this,   account.getDisplayName()+",m,m,m", Toast.LENGTH_SHORT).show();
 
+            onLoginWithGoogle(account.getEmail() , account.getDisplayName() , account.getId());
+
 
         } catch (ApiException e) {
 
@@ -128,6 +152,62 @@ public class Login extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
     }
+
+
+
+
+    private void facebookToken() {
+
+        callbackManager = CallbackManager.Factory.create();
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+
+
+                GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(JSONObject object, GraphResponse response) {
+                        // Application code
+                        Log.d("facebookData", object.toString());
+                        try {
+                            String name = object.getString("name");
+                            String id  = object.getString("id");
+
+
+                            onLoginWithFaceBook(id  , name , id);
+
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+                });
+
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "id,name,link");
+                request.setParameters(parameters);
+                request.executeAsync();
+
+                LoginManager.getInstance().logOut();
+
+            }
+
+            @Override
+            public void onCancel() {
+                Log.d("FacebookData", "facebook cancelled");
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.d("FacebookData", error.toString());
+                Toast.makeText(Login.this, "Failed to do Sign In", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private void printKeyHash() {
         // Add code to print out the key hash
         try {
@@ -156,7 +236,6 @@ public class Login extends AppCompatActivity {
         } catch (JSONException e) {
             e.getStackTrace();
         }
-
 
 
         AndroidNetworking.post("https://cizaro.net/2030/api/login")
@@ -213,4 +292,188 @@ public class Login extends AppCompatActivity {
 
         validationRegisterData( sEmail , sPassword );
     }
+
+    private void onLoginWithGoogle (final String email  , String userName  , final String password ){
+
+        JSONObject object = new JSONObject();
+        try {
+            object.put("user_name", userName);
+            object.put("email", email);
+            object.put("password", password);
+
+
+        } catch (JSONException e) {
+            e.getStackTrace();
+        }
+
+
+
+        AndroidNetworking.post("https://cizaro.net/2030/api/registration")
+                .addJSONObjectBody(object)
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+
+
+
+                         onLoginWithGoogleAfterRejested(password , email);
+
+
+
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                        Toast.makeText(Login.this, anError.getErrorBody()+"", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+
+
+    }
+    private void onLoginWithGoogleAfterRejested( String password,  String email) {
+        JSONObject object = new JSONObject();
+        try {
+
+            object.put("email", email);
+            object.put("password", password);
+
+
+        } catch (JSONException e) {
+            e.getStackTrace();
+        }
+
+
+        AndroidNetworking.post("https://cizaro.net/2030/api/login")
+                .addJSONObjectBody(object)
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+
+
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                        ModelOfRejestraion resPOJO = gson.fromJson(response.toString(), ModelOfRejestraion.class);
+
+                        String userOBJSTR = gson.toJson(resPOJO.getUser_info());
+
+                        mySharedPreference.setUserOBJ(userOBJSTR);
+                        Toast.makeText(Login.this, mySharedPreference.getUserOBJ()+"", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                        Toast.makeText(Login.this, anError.getErrorDetail()+"", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void onLoginWithFaceBook (final String email  , String userName  , final String password ){
+
+
+        JSONObject object = new JSONObject();
+        try {
+            object.put("user_name", userName);
+            object.put("email", email);
+            object.put("password", password);
+
+
+        } catch (JSONException e) {
+            e.getStackTrace();
+        }
+
+
+
+        AndroidNetworking.post("https://cizaro.net/2030/api/registration")
+                .addJSONObjectBody(object)
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+
+
+
+                     afterLoginWithFaceBook(password,email);
+
+
+
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                        Toast.makeText(Login.this, anError.getErrorBody()+"", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+
+
+    }
+    private void  afterLoginWithFaceBook ( String password,  String email){
+
+
+
+        JSONObject object = new JSONObject();
+        try {
+
+            object.put("email", email);
+            object.put("password", password);
+
+
+        } catch (JSONException e) {
+            e.getStackTrace();
+        }
+
+
+        AndroidNetworking.post("https://cizaro.net/2030/api/login")
+                .addJSONObjectBody(object)
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+
+
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                        ModelOfRejestraion resPOJO = gson.fromJson(response.toString(), ModelOfRejestraion.class);
+
+                        String userOBJSTR = gson.toJson(resPOJO.getUser_info());
+
+                        mySharedPreference.setUserOBJ(userOBJSTR);
+                        Toast.makeText(Login.this, mySharedPreference.getUserOBJ()+"", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                        Toast.makeText(Login.this, anError.getErrorDetail()+"", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+
+
+    }
+
+
+
+
+
 }
