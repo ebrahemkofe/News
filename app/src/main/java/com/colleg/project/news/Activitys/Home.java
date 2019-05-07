@@ -17,27 +17,44 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.colleg.project.news.Adapters.CustomPagerAdapterAcc;
+import com.colleg.project.news.Adapters.CustomPagerAdapterSports;
+import com.colleg.project.news.Adapters.CustomPagerAdapterTran;
 import com.colleg.project.news.Fragments.HomeFragment;
+import com.colleg.project.news.Models.GsonForHome;
 import com.colleg.project.news.R;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Fragment fragment;
     FragmentTransaction transaction;
     ListView listView  ;
-    String [] x = {"بيسبسيببس","بيسبسيب"};
+
+    List<GsonForHome.NewsBean> listGson =new ArrayList<>();
+    String [] arrayOfnav ;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_in_our_app);
+
          navFunction();
+         Get_Data();
 
 
          listView  =findViewById(R.id.items_listView_for_navigation);
 
 
-         ArrayAdapter <String> arrayAdapter  = new ArrayAdapter<String>(this , android.R.layout.simple_list_item_1,x);
-
-         listView.setAdapter(arrayAdapter);
 
 
         fragment = new HomeFragment();
@@ -46,6 +63,57 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         transaction.commitNow();
 
     }
+
+
+
+    private void Get_Data() {
+
+        AndroidNetworking.get("https://cizaro.net/2030/api/allnews")
+                .setPriority(Priority.HIGH)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                        GsonForHome array = gson.fromJson(response.toString(), GsonForHome.class);
+
+                        listGson = array.getNews();
+
+                        dataForNav();
+
+
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                        Toast.makeText(Home.this, "connection field", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+    }
+
+
+
+    private void dataForNav(){
+        arrayOfnav = new String[listGson.size()];
+
+        for(int x = 0 ; x <listGson.size() ; x++){
+
+
+
+            arrayOfnav [x]  = listGson.get(x).getCategory_title() ;
+        }
+
+        ArrayAdapter <String> arrayAdapter  = new ArrayAdapter<String>(this , android.R.layout.simple_list_item_1,arrayOfnav);
+
+        listView.setAdapter(arrayAdapter);
+
+
+    }
+
 
 
 

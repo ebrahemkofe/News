@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -54,6 +55,7 @@ public class HomeFragment extends Fragment {
     AdapterListViewHome adapter ;
     ImageView more_acc,more_spo,more_ing;
     LinearLayout morelayout_acc,morelayout_spo,morelayout_ing;
+    ListView nav  ;
 
     public HomeFragment() {
            }
@@ -67,7 +69,12 @@ public class HomeFragment extends Fragment {
          View v=inflater.inflate(R.layout.fragment_home, container, false);
 
 
-         more_acc=v.findViewById(R.id.more_accidents);
+
+
+
+
+
+        more_acc=v.findViewById(R.id.more_accidents);
          morelayout_acc=v.findViewById(R.id.more_in_linearlayout_accidents);
          more_acc.setOnClickListener(new View.OnClickListener() {
              @Override
