@@ -13,24 +13,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebookID" />
-        <activity android:name=".Activitys.Rejester"></activity>
+        <activity android:name=".Activitys.Splash">
 
-        <activity android:name=".Activitys.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activitys.Details"></activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebookID" />
+
+        <activity android:name=".Activitys.Rejester" />
+        <activity android:name=".Activitys.Login"></activity>
+        <activity android:name=".Activitys.Details" />
         <activity
             android:name=".Activitys.Home"
             android:label="@string/title_activity_navigation_in_our_app"
-            android:theme="@style/NoActionBar" ></activity>
+            android:theme="@style/NoActionBar">
 
+        </activity>
     </application>
 
 </manifest>

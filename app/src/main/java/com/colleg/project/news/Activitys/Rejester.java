@@ -120,6 +120,9 @@ public class Rejester extends AppCompatActivity {
                         mySharedPreference.setUserOBJ(userOBJSTR);
                         Toast.makeText(Rejester.this, mySharedPreference.getUserOBJ()+"", Toast.LENGTH_SHORT).show();
 
+                        startActivity(new Intent(Rejester.this  , Home.class));
+                        finish();
+
                     }
 
                     @Override
@@ -136,5 +139,12 @@ public class Rejester extends AppCompatActivity {
         sPassword = password.getText().toString();
         sRepassword = repassword.getText().toString();
         validationRegisterData(sUserName , sEmail , sPassword , sRepassword);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        startActivity(new Intent(Rejester.this  , Login.class));
+        finish();
     }
 }

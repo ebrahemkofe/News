@@ -42,7 +42,7 @@ public class MyUtils {
     }
     public static void setLocale(Context context) {
 
-        Locale locale = new Locale("en");
+        Locale locale = new Locale("ar");
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.locale = locale;

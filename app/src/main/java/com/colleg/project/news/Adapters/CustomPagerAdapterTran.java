@@ -23,9 +23,7 @@ import java.util.List;
 public class CustomPagerAdapterTran extends PagerAdapter {
 
     private Context mContext;
-    private List<Integer> mListData;
-    private List<String> title;
-    private List<String> dis;
+
     private List<GsonForHome.NewsBean> list = new ArrayList<>();
     List<GsonForHome.NewsBean.CategoryPostsBean>list2 = new ArrayList<>();
 

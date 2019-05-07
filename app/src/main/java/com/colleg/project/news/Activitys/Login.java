@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
@@ -231,7 +233,7 @@ public class Login extends AppCompatActivity {
         }
     }
 
-    private void onLoginData( String password,  String email) {
+    private void onLoginData( String email,  String password) {
         JSONObject object = new JSONObject();
         try {
 
@@ -261,6 +263,10 @@ public class Login extends AppCompatActivity {
 
                         mySharedPreference.setUserOBJ(userOBJSTR);
                         Toast.makeText(Login.this, mySharedPreference.getUserOBJ()+"", Toast.LENGTH_SHORT).show();
+
+                        startActivity(new Intent(Login.this, Home.class));
+                        finish();
+
 
                     }
 
@@ -388,6 +394,10 @@ public class Login extends AppCompatActivity {
                         mySharedPreference.setUserOBJ(userOBJSTR);
                         Toast.makeText(Login.this, mySharedPreference.getUserOBJ()+"", Toast.LENGTH_SHORT).show();
 
+                        startActivity(new Intent(Login.this, Home.class));
+                        finish();
+
+
                     }
 
                     @Override
@@ -486,6 +496,9 @@ public class Login extends AppCompatActivity {
                         mySharedPreference.setUserOBJ(userOBJSTR);
                         Toast.makeText(Login.this, mySharedPreference.getUserOBJ()+"", Toast.LENGTH_SHORT).show();
 
+                        startActivity(new Intent(Login.this, Home.class));
+                        finish();
+
                     }
 
                     @Override
@@ -502,7 +515,10 @@ public class Login extends AppCompatActivity {
     }
 
 
-
+    public void signUp(View view) {
+        startActivity(new Intent(Login.this , Rejester.class));
+        finish();
+    }
 
 
 }
