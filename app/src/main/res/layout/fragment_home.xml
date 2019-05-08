@@ -18,6 +18,26 @@
         android:layout_height="@dimen/_250sdp"
         android:layout_marginBottom="10dp"
         />
+
+
+        <TextView
+            android:id="@+id/title_home1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_151sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:padding="@dimen/_2sdp"
+            android:text="حوادث"
+            android:textColor="@color/black"
+            android:fontFamily="@font/calibri"
+            android:background="@drawable/textview_slider"
+            android:textSize="@dimen/_11sdp"
+            />
+
+
         <LinearLayout
             android:id="@+id/more_in_linearlayout_accidents"
             android:layout_width="@dimen/_70sdp"
@@ -45,6 +65,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="Save"
+                android:fontFamily="@font/calibri"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_8sdp"
@@ -72,6 +93,24 @@
         android:layout_below="@+id/viewpager_accidents"
         android:layout_marginBottom="10dp"
         />
+
+        <TextView
+            android:id="@+id/title_home2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_151sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:gravity="center"
+            android:layout_below="@id/viewpager_accidents"
+            android:text="حوادث"
+            android:padding="@dimen/_2sdp"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:fontFamily="@font/calibri"
+            android:background="@drawable/textview_slider"
+            android:textSize="@dimen/_11sdp"
+            />
         <LinearLayout
             android:id="@+id/more_in_linearlayout_sports"
             android:visibility="gone"
@@ -99,6 +138,7 @@
                 android:layout_weight="1"
                 android:text="Save"
                 android:gravity="center"
+                android:fontFamily="@font/calibri"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_8sdp"
                 android:textStyle="bold"
@@ -130,6 +170,25 @@
             android:layout_height="@dimen/_250sdp"
             android:layout_below="@+id/homeListview"
             />
+
+        <TextView
+            android:id="@+id/title_home3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_151sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="حوادث"
+            android:padding="@dimen/_2sdp"
+            android:layout_below="@id/homeListview"
+            android:textColor="@color/black"
+            android:fontFamily="@font/calibri"
+            android:background="@drawable/textview_slider"
+            android:textSize="@dimen/_11sdp"
+            />
+
         <LinearLayout
             android:id="@+id/more_in_linearlayout_Investigations"
             android:layout_width="@dimen/_70sdp"
@@ -158,6 +217,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="Save"
+                android:fontFamily="@font/calibri"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_8sdp"
@@ -173,8 +233,108 @@
             android:layout_height="@dimen/_25sdp"
             android:layout_alignParentRight="true"
             android:layout_margin="@dimen/_5sdp"
+            android:visibility="gone"
             android:layout_below="@id/homeListview"
             android:src="@drawable/ic_more_horiz_black_24dp"
+            />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager_fourth"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_below="@id/viewpager_Investigations"
+            />
+        <TextView
+            android:id="@+id/title_home4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_150sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:gravity="center"
+            android:text="حوادث"
+            android:padding="@dimen/_2sdp"
+            android:layout_below="@id/viewpager_Investigations"
+            android:textColor="@color/black"
+            android:fontFamily="@font/calibri"
+            android:visibility="gone"
+            android:background="@drawable/textview_slider"
+            android:textSize="@dimen/_11sdp"
+            />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager_fifth"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_below="@id/viewpager_fourth"
+            />
+        <TextView
+            android:id="@+id/title_home5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_153sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:gravity="center"
+            android:padding="@dimen/_2sdp"
+            android:text="حوادث"
+            android:visibility="gone"
+            android:layout_below="@id/viewpager_fourth"
+            android:textColor="@color/black"
+            android:fontFamily="@font/calibri"
+            android:background="@drawable/textview_slider"
+            android:textSize="@dimen/_11sdp"
+            />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager_sixith"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_below="@id/viewpager_fifth"
+            />
+        <TextView
+            android:id="@+id/title_home6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_154sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:gravity="center"
+            android:text="حوادث"
+            android:layout_below="@id/viewpager_fifth"
+            android:textColor="@color/black"
+            android:fontFamily="@font/calibri"
+            android:visibility="gone"
+            android:padding="@dimen/_2sdp"
+            android:background="@drawable/textview_slider"
+            android:textSize="@dimen/_11sdp"
+            />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager_seventh"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_below="@id/viewpager_sixith"
+            />
+        <TextView
+            android:id="@+id/title_home7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_150sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:gravity="center"
+            android:padding="@dimen/_2sdp"
+            android:text="حوادث"
+            android:layout_below="@id/viewpager_sixith"
+            android:textColor="@color/black"
+            android:fontFamily="@font/calibri"
+            android:background="@drawable/textview_slider"
+            android:textSize="@dimen/_11sdp"
             />
 
     </RelativeLayout>

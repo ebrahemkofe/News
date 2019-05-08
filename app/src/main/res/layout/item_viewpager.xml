@@ -23,7 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:layout_margin="@dimen/_4sdp"
+        android:layout_margin="@dimen/_8sdp"
+        android:fontFamily="@font/calibri"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="@dimen/_12sdp" />
@@ -34,6 +35,7 @@
         android:gravity="right"
         android:layout_height="@dimen/_125sdp"
         android:layout_margin="@dimen/_5sdp"
+        android:fontFamily="@font/calibri"
         android:textColor="@color/white"
         android:textSize="@dimen/_10sdp" />
 

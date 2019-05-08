@@ -30,7 +30,7 @@ public class CustomPagerAdapterTran extends PagerAdapter {
     public CustomPagerAdapterTran(Context context, List listDate) {
         mContext = context;
         list = listDate;
-        list2 = list.get(1).getCategory_posts();
+        list2 = list.get(2).getCategory_posts();
 
 
     }
@@ -69,7 +69,7 @@ public class CustomPagerAdapterTran extends PagerAdapter {
             public void onClick(View v) {
 
 
-                CustomPagerAdapterAcc.PostID= String.valueOf(list.get(1).getCategory_posts().get(position).getPost_id());
+                CustomPagerAdapterAcc.PostID= String.valueOf(list.get(2).getCategory_posts().get(position).getPost_id());
                 Intent i = new Intent(mContext,Details.class);
                 mContext.startActivity(i);
 

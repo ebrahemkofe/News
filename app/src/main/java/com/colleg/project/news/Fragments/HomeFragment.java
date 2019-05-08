@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.colleg.project.news.Activitys.Details;
@@ -22,6 +23,10 @@ import com.colleg.project.news.Adapters.AdapterListViewHome;
 import com.colleg.project.news.Adapters.CustomPagerAdapterAcc;
 import com.colleg.project.news.Adapters.CustomPagerAdapterSports;
 import com.colleg.project.news.Adapters.CustomPagerAdapterTran;
+import com.colleg.project.news.Adapters.CustomPagerAdapterfifth;
+import com.colleg.project.news.Adapters.CustomPagerAdapterfourth;
+import com.colleg.project.news.Adapters.CustomPagerAdapterseventh;
+import com.colleg.project.news.Adapters.CustomPagerAdaptersixith;
 import com.colleg.project.news.Models.GsonForHome;
 import com.colleg.project.news.R;
 import com.colleg.project.news.Models.ModelListViewHome;
@@ -49,8 +54,9 @@ public class HomeFragment extends Fragment {
     ArrayList<ModelListViewHome> list = new ArrayList<>();
     List<GsonForHome.NewsBean> listGson =new ArrayList<>();
 
+    TextView one , tow , three , four , fife , six , seven;
 
-    ViewPager viewPagerAcc, viewPagerSports ,viewPagerTran;
+    ViewPager viewPagerAcc, viewPagerSports ,viewPagerTran , viewPagerfourth , viewPagerfifth , viewPagersexith , viewPagerseventh ;
     boolean c=false , spo=false , ing=false ;
     AdapterListViewHome adapter ;
     ImageView more_acc,more_spo,more_ing;
@@ -68,6 +74,13 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
          View v=inflater.inflate(R.layout.fragment_home, container, false);
 
+         one =v.findViewById(R.id.title_home1);
+         tow =v.findViewById(R.id.title_home2);
+         three =v.findViewById(R.id.title_home3);
+         four =v.findViewById(R.id.title_home4);
+         fife =v.findViewById(R.id.title_home5);
+         six =v.findViewById(R.id.title_home6);
+         seven =v.findViewById(R.id.title_home7);
 
 
 
@@ -155,7 +168,11 @@ public class HomeFragment extends Fragment {
 
 
           viewPagerSports = v.findViewById(R.id.viewpager_sports);
-//        viewPagerSports.setAdapter(new CustomPagerAdapter(getContext(), listImagesSports,listTitleSports,listDisSports));
+          viewPagerfourth= v.findViewById(R.id.viewpager_fourth);
+          viewPagerfifth = v.findViewById(R.id.viewpager_fifth);
+          viewPagersexith = v.findViewById(R.id.viewpager_sixith);
+          viewPagerseventh = v.findViewById(R.id.viewpager_seventh);
+
 
 
 //......................  List view ................................................................
@@ -249,9 +266,31 @@ public class HomeFragment extends Fragment {
 
                            listGson = array.getNews();
 
+                           one.setText(listGson.get(0).getCategory_title());
+                           tow.setText(listGson.get(1).getCategory_title());
+                           three.setText(listGson.get(2).getCategory_title());
+                           four.setText(listGson.get(3).getCategory_title());
+                           fife.setText(listGson.get(4).getCategory_title());
+                           six.setText(listGson.get(5).getCategory_title());
+                           seven.setText(listGson.get(6).getCategory_title());
+
+
                        viewPagerAcc.setAdapter(new CustomPagerAdapterAcc(getContext(),listGson));
                        viewPagerSports.setAdapter(new CustomPagerAdapterSports(getContext(),listGson));
                        viewPagerTran.setAdapter(new CustomPagerAdapterTran(getContext(),listGson));
+                       viewPagerfourth.setAdapter(new CustomPagerAdapterfourth(getContext(),listGson));
+                       viewPagerfifth.setAdapter(new CustomPagerAdapterfifth(getContext(),listGson));
+                       viewPagersexith.setAdapter(new CustomPagerAdaptersixith(getContext(),listGson));
+                       viewPagerseventh.setAdapter(new CustomPagerAdapterseventh(getContext(),listGson));
+
+                        one.setVisibility(View.VISIBLE);
+                        tow.setVisibility(View.VISIBLE);
+                        three.setVisibility(View.VISIBLE);
+                        four.setVisibility(View.VISIBLE);
+                        fife.setVisibility(View.VISIBLE);
+                        six.setVisibility(View.VISIBLE);
+                        seven.setVisibility(View.VISIBLE);
+
 
 
                         Toast.makeText(getContext(),listGson.get(0).getCategory_posts().get(0).getPost_title(), Toast.LENGTH_SHORT).show();

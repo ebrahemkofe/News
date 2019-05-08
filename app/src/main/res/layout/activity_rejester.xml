@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="اسم المستخدم "
-
+            android:fontFamily="@font/calibri"
             android:backgroundTint="@color/textColorOfLogin"
             />
         <EditText
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="البريد الالكتروني "
-
+            android:fontFamily="@font/calibri"
             android:backgroundTint="@color/textColorOfLogin"
             />
         <EditText
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="كلمه المرور  "
-
+            android:fontFamily="@font/calibri"
             android:backgroundTint="@color/textColorOfLogin"
             />
         <EditText
@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="  تاكيد كلمه المرور"
-
+            android:fontFamily="@font/calibri"
             android:backgroundTint="@color/textColorOfLogin"
             />
 
@@ -78,6 +78,7 @@
         android:textColor="@color/white"
         android:text="انشاء حساب"
         android:textSize="@dimen/_14sdp"
+        android:fontFamily="@font/calibri"
         android:textStyle="bold"
         android:layout_height="@dimen/_50sdp" />
 </RelativeLayout>

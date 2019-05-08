@@ -8,29 +8,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.colleg.project.news.Activitys.Details;
 import com.colleg.project.news.Models.GsonForHome;
 import com.colleg.project.news.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by anupamchugh on 26/12/15.
  */
-public class CustomPagerAdapterSports extends PagerAdapter {
+public class CustomPagerAdapterseventh extends PagerAdapter {
 
     private Context mContext;
+
     private List<GsonForHome.NewsBean> list = new ArrayList<>();
     List<GsonForHome.NewsBean.CategoryPostsBean>list2 = new ArrayList<>();
-    public static String PostID;
 
-
-    public CustomPagerAdapterSports(Context context, List listDate) {
+    public CustomPagerAdapterseventh(Context context, List listDate) {
         mContext = context;
         list = listDate;
+        list2 = list.get(6).getCategory_posts();
 
-        list2 = list.get(1).getCategory_posts();
 
     }
 
@@ -41,7 +42,7 @@ public class CustomPagerAdapterSports extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return  list2.size();
+        return list2.size();
     }
 
     @Override
@@ -51,18 +52,12 @@ public class CustomPagerAdapterSports extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, final int position) {
-
-
-
-
         LayoutInflater inflater = LayoutInflater.from(mContext);
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.item_viewpager, container, false);
 
-        ImageView image = view.findViewById(R.id.viewpagerpic);
-        TextView titl = view.findViewById(R.id.title_viewpager);
-        TextView disc = view.findViewById(R.id.dis_viewpager);
-
-
+        final ImageView image = view.findViewById(R.id.viewpagerpic);
+        final TextView titl = view.findViewById(R.id.title_viewpager);
+        final TextView disc = view.findViewById(R.id.dis_viewpager);
 
 
         Glide.with(mContext).load(list2.get(position).getPost_img()).into(image);
@@ -71,11 +66,13 @@ public class CustomPagerAdapterSports extends PagerAdapter {
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
 
-                PostID= String.valueOf(list.get(1).getCategory_posts().get(position).getPost_id());
+
+                CustomPagerAdapterAcc.PostID= String.valueOf(list.get(6).getCategory_posts().get(position).getPost_id());
                 Intent i = new Intent(mContext,Details.class);
                 mContext.startActivity(i);
+
             }
         });
         container.addView(view);

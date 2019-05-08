@@ -22,22 +22,25 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             />
+
         <TextView
             android:id="@+id/fristText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/logo"
             android:layout_centerInParent="true"
             android:layout_marginTop="@dimen/_2sdp"
-            android:textSize="@dimen/_13sdp"
+            android:fontFamily="@font/calibri"
             android:text="مرحبا بكم "
             android:textColor="#2196F3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textSize="@dimen/_13sdp" />
         <TextView
             android:layout_below="@+id/fristText"
             android:layout_centerInParent="true"
             android:textColor="@color/textColorOfLogin"
             android:textSize="@dimen/_11sdp"
             android:text="تسجيل الدخول للمتابعه"
+            android:fontFamily="@font/calibri"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -55,6 +58,8 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/_11sdp"
             android:textColor="@color/textColorOfLogin"
+            android:fontFamily="@font/calibri"
+
             android:text="البريد الالكتروني"
 
             />
@@ -69,6 +74,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/calibri"
             android:textSize="@dimen/_11sdp"
             android:textColor="@color/textColorOfLogin"
             android:text="كلمه المرور "
@@ -88,6 +94,7 @@
             android:textColor="@color/textColorOfLogin"
             android:gravity="left"
             android:text="هل نسيت كلمه المرور "
+            android:fontFamily="@font/calibri"
             />
 
 
@@ -109,6 +116,7 @@
             android:text="تسجيل الدخول"
             android:textSize="@dimen/_14sdp"
             android:textStyle="bold"
+            android:fontFamily="@font/calibri"
             android:layout_height="@dimen/_50sdp" />
         <LinearLayout
             android:id="@+id/linear"
@@ -126,6 +134,7 @@
                 android:textColor="@color/black"
                 android:text="Facebook"
                 android:textSize="@dimen/_9sdp"
+                android:fontFamily="@font/calibri"
                 android:textAllCaps="false"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:layout_height="@dimen/_42sdp" />
@@ -138,6 +147,7 @@
                 android:textSize="@dimen/_9sdp"
                 android:textAllCaps="false"
                 android:layout_width="@dimen/_90sdp"
+                android:fontFamily="@font/calibri"
                 android:layout_height="@dimen/_42sdp" />
 
 
@@ -160,6 +170,7 @@
             android:textSize="@dimen/_11sdp"
             android:textColor="@color/textColorOfLogin"
             android:text="انشاء  حساب جديد"
+            android:fontFamily="@font/calibri"
 
             />
 

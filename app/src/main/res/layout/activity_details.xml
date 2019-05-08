@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_170sdp"
         android:scaleType="fitXY"
+        android:src="@drawable/tramp"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="@dimen/_5sdp"
 
@@ -30,71 +31,95 @@
             android:layout_margin="@dimen/_5sdp"
             android:src="@drawable/ic_more_horiz_black_24dp"
             />
+
         <LinearLayout
             android:id="@+id/more_in_det"
-            android:layout_below="@id/viewpager_accidents"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_70sdp"
+            android:layout_below="@id/viewpager_accidents"
             android:layout_centerHorizontal="true"
-            android:visibility="gone"
-            android:padding="@dimen/_2sdp"
-            android:orientation="vertical"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_40sdp"
             android:background="#66161515"
-            android:layout_margin="@dimen/_40sdp"
-            >
+            android:orientation="vertical"
+            android:padding="@dimen/_4sdp"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/save_in_details"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="4"
-                android:src="@drawable/save"
-                />
+                android:src="@drawable/save" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="Save"
                 android:gravity="center"
+                android:text="Save"
                 android:textColor="@color/white"
+                android:fontFamily="@font/calibri"
                 android:textSize="@dimen/_8sdp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
 
         </LinearLayout>
-    <TextView
-        android:id="@+id/title_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_5sdp"
-        android:gravity="right"
-        android:layout_below="@id/image_details"
-        android:textColor="@color/Blue"
-        android:textStyle="bold"
-        android:textSize="@dimen/_15sdp" />
 
-    <TextView
-        android:id="@+id/dis_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/title_details"
-        android:layout_margin="@dimen/_5sdp"
-        android:gravity="right"
-        android:textColor="@color/Blue"
-        android:textSize="@dimen/_13sdp" />
-
-
-        <TextView
-            android:id="@+id/more_details"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:layout_below="@id/dis_details"
-            android:layout_margin="@dimen/_5sdp"
-            android:textColor="@color/Blue"
-            android:textSize="@dimen/_13sdp" />
+            android:orientation="vertical"
+            android:background="#59FFFFFF"
+            android:layout_below="@id/image_details"
+            android:layout_marginTop="-30dp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            >
+
+            <TextView
+                android:id="@+id/date_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:gravity="right"
+                android:text="2019 jun 7 09:12"
+                android:fontFamily="@font/calibri"
+                android:textColor="#6A000000"                android:textStyle="bold"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:id="@+id/title_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:fontFamily="@font/calibri"
+                android:gravity="right"
+                android:textColor="@color/Blue"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/dis_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/calibri"
+                android:layout_margin="@dimen/_5sdp"
+                android:gravity="right"
+                android:textColor="@color/Blue"
+                android:textSize="@dimen/_13sdp" />
+
+            <TextView
+                android:id="@+id/more_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:fontFamily="@font/calibri"
+                android:layout_margin="@dimen/_5sdp"
+                android:textColor="@color/Blue"
+                android:textSize="@dimen/_13sdp" />
+        </LinearLayout>
 
     </RelativeLayout>
 </ScrollView>
