@@ -26,6 +26,7 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.colleg.project.news.Adapters.CustomPagerAdapterAcc;
 import com.colleg.project.news.Adapters.CustomPagerAdapterSports;
 import com.colleg.project.news.Adapters.CustomPagerAdapterTran;
+import com.colleg.project.news.Fragments.Favourite;
 import com.colleg.project.news.Fragments.HomeFragment;
 import com.colleg.project.news.Models.GsonForHome;
 import com.colleg.project.news.MyUtils.MyUtils;
@@ -127,6 +128,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
 
     public void favourite(View view) {
+        fragment = new Favourite();
+        transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
+        transaction.commitNow();
     }
 
     public void profile(View view) {

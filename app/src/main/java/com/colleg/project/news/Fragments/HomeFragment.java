@@ -50,18 +50,14 @@ public class HomeFragment extends Fragment {
     String []time = {"2019 jun 7 09:12" , "2019 jun 7 09:12", "2019 jun 7 09:12"};
     int []image = {R.drawable.sheekh,R.drawable.tramp,R.drawable.news};
     ListView listView ;
-    ViewPager pager;
     ArrayList<ModelListViewHome> list = new ArrayList<>();
     List<GsonForHome.NewsBean> listGson =new ArrayList<>();
-
     TextView one , tow , three , four , fife , six , seven;
-
     ViewPager viewPagerAcc, viewPagerSports ,viewPagerTran , viewPagerfourth , viewPagerfifth , viewPagersexith , viewPagerseventh ;
     boolean c=false , spo=false , ing=false ;
     AdapterListViewHome adapter ;
     ImageView more_acc,more_spo,more_ing;
     LinearLayout morelayout_acc,morelayout_spo,morelayout_ing;
-    ListView nav  ;
 
     public HomeFragment() {
            }
@@ -292,8 +288,6 @@ public class HomeFragment extends Fragment {
                         seven.setVisibility(View.VISIBLE);
 
 
-
-                        Toast.makeText(getContext(),listGson.get(0).getCategory_posts().get(0).getPost_title(), Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
