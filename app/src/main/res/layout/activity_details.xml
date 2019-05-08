@@ -20,7 +20,6 @@
         android:scaleType="fitXY"
         android:src="@drawable/tramp"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="@dimen/_5sdp"
 
         />
         <ImageView
@@ -31,6 +30,11 @@
             android:layout_margin="@dimen/_5sdp"
             android:src="@drawable/ic_more_horiz_black_24dp"
             />
+        <TextView
+            android:layout_width="match_parent"
+            android:background="#FF5722"
+            android:layout_below="@id/image_details"
+            android:layout_height="2dp" />
 
         <LinearLayout
             android:id="@+id/more_in_det"
@@ -79,14 +83,15 @@
             >
 
             <TextView
-                android:id="@+id/date_details"
+                android:id="@+id/subject_details"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:gravity="right"
-                android:text="2019 jun 7 09:12"
-                android:fontFamily="@font/calibri"
-                android:textColor="#6A000000"                android:textStyle="bold"
+                android:layout_height="30dp"
+                android:background="#A40328BF"
+                android:gravity="center_vertical"
+                android:paddingRight="@dimen/_5sdp"
+                android:text="أخبار"
+                android:fontFamily="@font/calibri_bold"
+                android:textColor="#000000"
                 android:textSize="@dimen/_11sdp" />
 
             <TextView

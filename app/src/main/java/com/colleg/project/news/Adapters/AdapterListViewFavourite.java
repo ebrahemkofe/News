@@ -1,51 +1,119 @@
 package com.colleg.project.news.Adapters;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.colleg.project.news.Models.ModelListViewHome;
+import com.colleg.project.news.Models.ModelListViewFavourite;
 import com.colleg.project.news.R;
 
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class AdapterListViewFavourite extends ArrayAdapter {
 
+    List<ModelListViewFavourite> heroList;
+
+    Context context;
+    boolean c=false;
+    int resource;
+
+    public AdapterListViewFavourite(Context context, int resource, List objects) {
+        super(context , resource , objects);
+        this.context = context;
+        this.resource = resource;
+        this.heroList = objects;
+    }
+
+    @NonNull
+    @Override
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+        LayoutInflater layoutInflater = LayoutInflater.from(context);
+
+        View view = layoutInflater.inflate(R.layout.item_listview_favourite, null);
+
+        ImageView imageView = view.findViewById(R.id.listviewFavPic);
+        TextView textViewtitle = view.findViewById(R.id.title_listview);
+        TextView textViewdis = view.findViewById(R.id.dis_listview);
+        TextView textViewsubject = view.findViewById(R.id.subject_list_fav);
+        ImageView buttonDelete = view.findViewById(R.id.unsave_in_listview);
+        ImageView morebtn = view.findViewById(R.id.more_fav);
+        final LinearLayout morelayout=view.findViewById(R.id.more_in_listview_fav);
 
 
-        ArrayList<ModelListViewHome> mlist;
 
-        public AdapterListViewFavourite(@NonNull Context context, int resource, @NonNull ArrayList objects) {
-            super(context, resource, objects);
+        imageView.setImageResource(heroList.get(position).image);
+        textViewtitle.setText(heroList.get(position).texttitle);
+        textViewdis.setText(heroList.get(position).textdis);
+        textViewsubject.setText(heroList.get(position).subject);
 
-            mlist = objects;
-        }
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                removeHero(position);
+            }
+        });
 
-            LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        morebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(c==false) {
 
-            convertView = layoutInflater.inflate(R.layout.item_listview_favourite, parent,false);
+                    morelayout.setVisibility(View.VISIBLE);
 
-            TextView textdisc = convertView.findViewById(R.id.title_listview);
-            TextView textTime = convertView.findViewById(R.id.dis_listview);
-            ImageView images = convertView.findViewById(R.id.listviewFavPic);
+                    c=true;
+                }
+                else{
+                    morelayout.setVisibility(View.GONE);
+                    c=false;
+                }
+            }
+        });
+
+        return view;
+    }
+
+    private void removeHero(final int position) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Are you sure you want to delete this?");
 
 
-            textdisc.setText(mlist.get(position).textdis);
-            textTime.setText(mlist.get(position).texttime);
-            images.setImageResource(mlist.get(position).image);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
 
 
-            return convertView;
-        }
+                heroList.remove(position);
 
+
+                notifyDataSetChanged();
+            }
+        });
+
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
 }

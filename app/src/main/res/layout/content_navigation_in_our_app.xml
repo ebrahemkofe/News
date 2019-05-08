@@ -32,56 +32,18 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <LinearLayout
-
-            android:id="@+id/favourite_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:onClick="favourite"
-            android:orientation="vertical"
-
-            >
 
             <ImageView
                 android:paddingRight="20dp"
                 android:paddingLeft="20dp"
                 android:id="@+id/favert_icon_id"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="@dimen/_20sdp"
                 android:src="@drawable/ic_favorite_filled"
                 android:onClick="favourite"
 
                 />
-
-            <TextView
-                android:id="@+id/favert_text_id"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
-                android:text="Favorite"
-                android:textSize="14dp"
-                android:fontFamily="@font/calibri"
-                android:textColor="#000"
-
-                />
-
-
-        </LinearLayout>
-
-
-
-
-        <LinearLayout
-            android:id="@+id/account_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-
-            android:orientation="vertical"
-
-            >
 
 
             <ImageView
@@ -89,59 +51,28 @@
                 android:paddingRight="20dp"
                 android:paddingLeft="20dp"
                 android:id="@+id/account_icon_id"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="@dimen/_20sdp"
                 android:src="@drawable/ic_person_filled"
                 android:onClick="profile"
 
                 />
 
-            <TextView
-                android:id="@+id/account_text_id"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
-                android:text="Account"
-                android:textColor="#000"
-                android:textSize="14dp"
-                android:fontFamily="@font/calibri"
-
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-
-            android:id="@+id/home_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:onClick="home"
-            android:orientation="vertical">
-
             <ImageView
                 android:id="@+id/home_icon_id"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="@dimen/_20sdp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/home_icon"
+                android:onClick="home"
 
                 />
 
-            <TextView
-                android:textColor="#000"
-                android:id="@+id/home_text_id"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
-                android:text="Home"
-                android:textSize="14dp"
-                android:fontFamily="@font/calibri"
 
-                />
-
-        </LinearLayout>
     </LinearLayout>
 
 

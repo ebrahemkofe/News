@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -20,7 +21,9 @@
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/_5sdp"
         android:src="@drawable/ic_more_horiz_black_24dp"
-        />
+         />
+
+
     <LinearLayout
         android:id="@+id/more_in_listview_fav"
         android:layout_width="@dimen/_70sdp"
@@ -36,11 +39,11 @@
 
 
         <ImageView
-            android:id="@+id/unsave_in_viewpager_accidents"
+            android:id="@+id/unsave_in_listview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="4"
-            android:src="@drawable/save"
+            android:src="@drawable/ic_cancel_black_24dp"
             />
 
         <TextView
@@ -72,10 +75,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:layout_margin="@dimen/_8sdp"
+        android:paddingRight="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
         android:fontFamily="@font/calibri_bold"
         android:textColor="@color/white"
-        android:textStyle="bold"
         android:maxLines="2"
         android:ellipsize="end"
         android:textSize="@dimen/_12sdp" />
@@ -84,7 +88,7 @@
         android:id="@+id/dis_listview"
         android:layout_width="match_parent"
         android:gravity="right"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_margin="@dimen/_5sdp"
         android:fontFamily="@font/calibri"
         android:textColor="@color/white"
@@ -92,7 +96,17 @@
         android:textSize="@dimen/_10sdp" />
 
     </LinearLayout>
-
+    <TextView
+        android:id="@+id/subject_list_fav"
+        android:layout_width="@dimen/_70sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:background="@drawable/textview_slider"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_90sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:textColor="@color/Blue"
+        />
 
 
 </RelativeLayout>

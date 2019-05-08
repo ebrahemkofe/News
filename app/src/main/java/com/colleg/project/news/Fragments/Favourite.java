@@ -16,10 +16,12 @@ import android.widget.ListView;
 import com.colleg.project.news.Activitys.Details;
 import com.colleg.project.news.Adapters.AdapterListViewFavourite;
 import com.colleg.project.news.Adapters.AdapterListViewHome;
+import com.colleg.project.news.Models.ModelListViewFavourite;
 import com.colleg.project.news.Models.ModelListViewHome;
 import com.colleg.project.news.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,14 +30,14 @@ public class Favourite extends Fragment {
 
     String []dis = {"الطيب : اطلس الاوقاف يضم 25 مليون مستند","الطيب : اطلس الاوقاف يضم 25 مليون مستند","الطيب : اطلس الاوقاف يضم 25 مليون مستند"};
     String []time = {"2019 jun 7 09:12" , "2019 jun 7 09:12", "2019 jun 7 09:12"};
-    int []image = {R.drawable.sheekh,R.drawable.tramp,R.drawable.news};
+    String []subj = {"اخبار" , "اخبار", "اخبار"};
+    int [] image = {R.drawable.sheekh,R.drawable.tramp,R.drawable.news};
+
     ListView listView ;
-    ArrayList<ModelListViewHome> list = new ArrayList<>();
-    AdapterListViewFavourite adapter;
+    List<ModelListViewFavourite> list = new ArrayList<>();
     ImageView morebtn;
     LinearLayout morelayout;
 
-    boolean c;
     public Favourite() {
         // Required empty public constructor
     }
@@ -49,67 +51,19 @@ public class Favourite extends Fragment {
 
         morelayout=view.findViewById(R.id.more_in_listview_fav);
         morebtn=view.findViewById(R.id.more_fav);
-        morebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(c==false) {
 
-                    morelayout.setVisibility(View.VISIBLE);
+        list.add(new ModelListViewFavourite(dis[0],time[0],subj[0],image[0]));
+        list.add(new ModelListViewFavourite(dis[1],time[1],subj[1],image[1]));
+        list.add(new ModelListViewFavourite(dis[2],time[2],subj[2],image[2]));
 
-                    c=true;
-                }
-                else{
-                    morelayout.setVisibility(View.GONE);
-                    c=false;
-                }
-            }
-        });
+        listView=view.findViewById(R.id.FavouriteListView);
+
+        listView.setAdapter(new AdapterListViewFavourite(getContext(),R.layout.item_listview_favourite,list));
 
 
-
-
-
-
-
-
-
-
-        listView = view.findViewById(R.id.homeListview);
-
-        for(int i=0;i<image.length;i++) {
-            list.add(new ModelListViewHome(dis[i], time[i], image[i]));
-        }
-
-
-        adapter = new AdapterListViewFavourite(getContext(), R.layout.item_listview_home, list);
-
-        listView.setAdapter(adapter);
-        ListViewClick();
 
 
         return view;
-    }
-
-
-    private void ListViewClick() {
-
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                if (position == 0) {
-                    Intent go=new Intent(getContext(), Details.class);
-                    startActivity(go);
-                }
-
-                else if (position == 1) {
-                    Intent go=new Intent(getContext(), Details.class);
-                    startActivity(go);
-                }
-            }
-        });
-
     }
 
 }

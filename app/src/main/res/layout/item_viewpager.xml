@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:gravity="right"
         android:layout_margin="@dimen/_8sdp"
+        android:paddingTop="@dimen/_6sdp"
         android:fontFamily="@font/calibri"
         android:textColor="@color/white"
         android:textStyle="bold"

@@ -54,10 +54,10 @@ public class HomeFragment extends Fragment {
     List<GsonForHome.NewsBean> listGson =new ArrayList<>();
     TextView one , tow , three , four , fife , six , seven;
     ViewPager viewPagerAcc, viewPagerSports ,viewPagerTran , viewPagerfourth , viewPagerfifth , viewPagersexith , viewPagerseventh ;
-    boolean c=false , spo=false , ing=false ;
+    boolean c=false , spo=false , ing=false ,fourth=false ,fifth=false ,sixith=false ,seventh=false ;
     AdapterListViewHome adapter ;
-    ImageView more_acc,more_spo,more_ing;
-    LinearLayout morelayout_acc,morelayout_spo,morelayout_ing;
+    ImageView more_acc,more_spo,more_ing,more_4,more_5,more_6,more_7;
+    LinearLayout morelayout_acc,morelayout_spo,morelayout_ing ,morelayout_4,morelayout_5,morelayout_6,morelayout_7;
 
     public HomeFragment() {
            }
@@ -134,6 +134,74 @@ public class HomeFragment extends Fragment {
                  else{
                      morelayout_ing.setVisibility(View.GONE);
                      ing=false;
+                 }
+             }
+         });
+
+
+         more_4=v.findViewById(R.id.more_Fourth);
+         morelayout_4=v.findViewById(R.id.more_in_linearlayout_fourth);
+         more_4.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 if(fourth==false) {
+                     morelayout_4.setVisibility(View.VISIBLE);
+                     fourth=true;
+                 }
+                 else{
+                     morelayout_4.setVisibility(View.GONE);
+                     fourth=false;
+                 }
+             }
+         });
+
+
+         more_5=v.findViewById(R.id.more_fifth);
+         morelayout_5=v.findViewById(R.id.more_in_linearlayout_fifth);
+         more_5.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 if(fifth==false) {
+                     morelayout_5.setVisibility(View.VISIBLE);
+                     fifth=true;
+                 }
+                 else{
+                     morelayout_5.setVisibility(View.GONE);
+                     fifth=false;
+                 }
+             }
+         });
+
+
+         more_6=v.findViewById(R.id.more_sixith);
+         morelayout_6=v.findViewById(R.id.more_in_linearlayout_sixith);
+         more_6.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 if(sixith==false) {
+                     morelayout_6.setVisibility(View.VISIBLE);
+                     sixith=true;
+                 }
+                 else{
+                     morelayout_6.setVisibility(View.GONE);
+                     sixith=false;
+                 }
+             }
+         });
+
+
+         more_7=v.findViewById(R.id.more_seventh);
+         morelayout_7=v.findViewById(R.id.more_in_linearlayout_seventh);
+         more_7.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 if(seventh==false) {
+                     morelayout_7.setVisibility(View.VISIBLE);
+                     seventh=true;
+                 }
+                 else{
+                     morelayout_7.setVisibility(View.GONE);
+                     seventh=false;
                  }
              }
          });
