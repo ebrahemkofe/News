@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "com.colleg.project.news"
         minSdkVersion 17
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -52,6 +52,9 @@ dependencies {
 
     //Images
     implementation 'com.github.bumptech.glide:glide:4.6.1'
+
+    //Notification
+    implementation 'com.google.firebase:firebase-messaging:17.6.0'
 }
 //
 apply plugin: 'com.google.gms.google-services'
