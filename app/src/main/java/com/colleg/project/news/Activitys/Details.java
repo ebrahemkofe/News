@@ -1,5 +1,6 @@
 package com.colleg.project.news.Activitys;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.colleg.project.news.Adapters.CustomPagerAdapterAcc;
 import com.colleg.project.news.Models.GsonForDetails;
 import com.colleg.project.news.Models.GsonForHome;
+import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,6 +51,14 @@ public class Details extends AppCompatActivity {
 
         more_acc=findViewById(R.id.more_det);
         morelayout_acc=findViewById(R.id.more_in_det);
+
+        morelayout_acc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addToFavourite(MyUtils.userId(), Integer.parseInt(MyUtils.PostID));
+
+            }
+        });
         more_acc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,8 +80,8 @@ public class Details extends AppCompatActivity {
     private void initiateData() {
         JSONObject object = new JSONObject();
         try {
-            object.put("id", CustomPagerAdapterAcc.PostID);
-            Log.d("IdProject", CustomPagerAdapterAcc.PostID + " T");
+            object.put("id", MyUtils.PostID);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -105,6 +115,54 @@ public class Details extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    private void addToFavourite(int userId  , int postId){
+
+        JSONObject object = new JSONObject();
+        try {
+            object.put("user_id", userId);
+            object.put("post_id" , postId);
+
+
+
+        } catch (JSONException e) {
+            e.getStackTrace();
+        }
+
+
+
+        AndroidNetworking.post("https://cizaro.net/2030/api/favorite")
+                .addJSONObjectBody(object)
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+
+
+
+
+
+
+
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                        MyUtils.handleError(Details.this , anError.getErrorBody() , anError.getErrorCode());
+                    }
+                });
+
+
+    }
+    @Override
+    public void onBackPressed() {
+
+        startActivity(new Intent(Details.this  , Home.class));
+        finish();
     }
 
 

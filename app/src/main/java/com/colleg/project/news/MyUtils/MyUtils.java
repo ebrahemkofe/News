@@ -9,7 +9,9 @@ import android.util.Log;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.colleg.project.news.InternalStorage.mySharedPreference;
 import com.colleg.project.news.Models.ErrorModel;
+import com.colleg.project.news.Models.ModelOfRejestraion;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -20,6 +22,8 @@ import java.util.Locale;
  */
 
 public class MyUtils {
+
+    public static String PostID;
 
 
     public static void handleError(Context context, String errorRes, int errorStatusCode) {
@@ -32,6 +36,16 @@ public class MyUtils {
         Toast.makeText(context, error.getMsg(), Toast.LENGTH_SHORT).show();
 
 
+    }
+
+    public static int userId() {
+        Gson gson = new Gson();
+        ModelOfRejestraion.UserInfoBean id = gson.fromJson( mySharedPreference.getUserOBJ() , ModelOfRejestraion.UserInfoBean.class);
+
+
+
+
+      return  id.getUserId();
     }
 
     public static Boolean isConnected(Context context) {

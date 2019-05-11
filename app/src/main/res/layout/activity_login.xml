@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/_11sdp"
             android:textColor="@color/textColorOfLogin"
-            android:fontFamily="@font/calibri"
+            android:fontFamily="@string/bottom_sheet_behavior"
 
             android:text="البريد الالكتروني"
 

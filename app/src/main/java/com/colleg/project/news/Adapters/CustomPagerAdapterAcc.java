@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.colleg.project.news.Activitys.Details;
 import com.colleg.project.news.Models.GsonForHome;
+import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class CustomPagerAdapterAcc extends PagerAdapter {
     private Context mContext;
     private List<GsonForHome.NewsBean> list = new ArrayList<>();
     List<GsonForHome.NewsBean.CategoryPostsBean>list2 = new ArrayList<>();
-    public static String PostID;
+
 
 
     public CustomPagerAdapterAcc(Context context, List listDate) {
@@ -73,7 +74,7 @@ public class CustomPagerAdapterAcc extends PagerAdapter {
             @Override
             public void onClick(View v){
 
-               PostID= String.valueOf(list.get(0).getCategory_posts().get(position).getPost_id());
+               MyUtils.PostID  = String.valueOf(list.get(0).getCategory_posts().get(position).getPost_id());
                Intent i = new Intent(mContext,Details.class);
                mContext.startActivity(i);
             }

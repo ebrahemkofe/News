@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.colleg.project.news.Activitys.Details;
 import com.colleg.project.news.Models.GsonForHome;
+import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
 
 import java.util.ArrayList;
@@ -69,7 +70,7 @@ public class CustomPagerAdaptersixith extends PagerAdapter {
             public void onClick(View v) {
 
 
-                CustomPagerAdapterAcc.PostID= String.valueOf(list.get(5).getCategory_posts().get(position).getPost_id());
+                MyUtils.PostID= String.valueOf(list.get(5).getCategory_posts().get(position).getPost_id());
                 Intent i = new Intent(mContext,Details.class);
                 mContext.startActivity(i);
 

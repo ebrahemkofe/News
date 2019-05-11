@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "com.colleg.project.news"
         minSdkVersion 17
-        targetSdkVersion 28
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -38,7 +38,7 @@ dependencies {
     implementation 'com.facebook.android:facebook-login:[4,5)'
 
     //gson
-    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
 
     //Api AFN
     implementation 'com.amitshekhar.android:android-networking:1.0.2'

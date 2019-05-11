@@ -18,7 +18,7 @@ public class Firebase_Messaging_Service extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
         handleNotification(remoteMessage.getNotification().getBody());
-sendNotification(remoteMessage);
+        sendNotification(remoteMessage);
 
     }
 
@@ -32,7 +32,7 @@ private void sendNotification (RemoteMessage remoteMessage)
 {
     NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
             .setSmallIcon(R.mipmap.ic_launcher)
-     .setContentTitle(remoteMessage.getFrom())
+            .setContentTitle(remoteMessage.getFrom())
         .setContentText(remoteMessage.getNotification().getBody())
         .setAutoCancel(true);
 

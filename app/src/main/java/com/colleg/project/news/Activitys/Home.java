@@ -1,5 +1,6 @@
 package com.colleg.project.news.Activitys;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,8 +16,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
@@ -46,17 +50,24 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private   long backPressedTime  ;
     private   List<GsonForHome.NewsBean> listGson =new ArrayList<>();
     private   String [] arrayOfnav ;
+    private Button search ;
+
+    public static int categoryId ;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_in_our_app);
 
         listView  =findViewById(R.id.items_listView_for_navigation);
+        search = findViewById(R.id.searchBtn);
 
          MyUtils.setLocale(this);
          navFunction();
          Get_Data();
          firstFragmentRun();
+         onClickOnItemsForNavList();
+
+
 
 
 
@@ -64,6 +75,30 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
 
     }
+    private void onClickOnItemsForNavList(){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                categoryId   = listGson.get(position).getCategory_id() ;
+
+                startActivity(new Intent(Home.this , CategoryFilter.class));
+
+
+
+            }
+        });
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Home.this,Search.class));
+
+            }
+        });
+
+    }
+
     private void firstFragmentRun(){
         fragment = new HomeFragment();
         transaction = getSupportFragmentManager().beginTransaction();
@@ -193,6 +228,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+
+
+        Toast.makeText(this, id+"", Toast.LENGTH_SHORT).show();
 
 
 

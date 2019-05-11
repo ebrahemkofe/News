@@ -12,13 +12,29 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.colleg.project.news.Activitys.Details;
+import com.colleg.project.news.Activitys.Home;
+import com.colleg.project.news.Activitys.Rejester;
 import com.colleg.project.news.Adapters.AdapterListViewFavourite;
 import com.colleg.project.news.Adapters.AdapterListViewHome;
+import com.colleg.project.news.InternalStorage.mySharedPreference;
 import com.colleg.project.news.Models.ModelListViewFavourite;
 import com.colleg.project.news.Models.ModelListViewHome;
+import com.colleg.project.news.Models.ModelOfAllFavourite;
+import com.colleg.project.news.Models.ModelOfRejestraion;
+import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,13 +44,10 @@ import java.util.List;
  */
 public class Favourite extends Fragment {
 
-    String []dis = {"الطيب : اطلس الاوقاف يضم 25 مليون مستند","الطيب : اطلس الاوقاف يضم 25 مليون مستند","الطيب : اطلس الاوقاف يضم 25 مليون مستند"};
-    String []time = {"2019 jun 7 09:12" , "2019 jun 7 09:12", "2019 jun 7 09:12"};
-    String []subj = {"اخبار" , "اخبار", "اخبار"};
-    int [] image = {R.drawable.sheekh,R.drawable.tramp,R.drawable.news};
+
 
     ListView listView ;
-    List<ModelListViewFavourite> list = new ArrayList<>();
+    List<ModelOfAllFavourite.FavoritesBean> list = new ArrayList<>();
     ImageView morebtn;
     LinearLayout morelayout;
 
@@ -52,18 +65,71 @@ public class Favourite extends Fragment {
         morelayout=view.findViewById(R.id.more_in_listview_fav);
         morebtn=view.findViewById(R.id.more_fav);
 
-        list.add(new ModelListViewFavourite(dis[0],time[0],subj[0],image[0]));
-        list.add(new ModelListViewFavourite(dis[1],time[1],subj[1],image[1]));
-        list.add(new ModelListViewFavourite(dis[2],time[2],subj[2],image[2]));
 
         listView=view.findViewById(R.id.FavouriteListView);
 
-        listView.setAdapter(new AdapterListViewFavourite(getContext(),R.layout.item_listview_favourite,list));
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MyUtils.PostID  = String.valueOf(list.get(position).getPost_id());
+                Intent i = new Intent(getActivity(),Details.class);
+                startActivity(i);
+                getActivity().finish();
+            }
+        });
 
 
+
+        getData(MyUtils.userId());
 
 
         return view;
     }
+
+
+    private void getData(int id ) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("user_id", id);
+
+
+
+        } catch (JSONException e) {
+            e.getStackTrace();
+        }
+
+
+
+        AndroidNetworking.post("https://cizaro.net/2030/api/allfavorites")
+                .addJSONObjectBody(object)
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+
+
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                        ModelOfAllFavourite data = gson.fromJson(response.toString(), ModelOfAllFavourite.class);
+
+                        list = data.getFavorites();
+
+
+                        listView.setAdapter(new AdapterListViewFavourite(getContext(),R.layout.item_listview_favourite,list));
+
+
+
+
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                        MyUtils.handleError(getActivity() , anError.getErrorBody() , anError.getErrorCode());
+                    }
+                });
+    }
+
 
 }
