@@ -1,10 +1,12 @@
 package com.colleg.project.news.Activitys;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
@@ -19,6 +21,7 @@ import android.view.Menu;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,6 +54,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private   List<GsonForHome.NewsBean> listGson =new ArrayList<>();
     private   String [] arrayOfnav ;
     private Button search ;
+    private ImageView HomeIcon , FavIcon , AccountIcon;
 
     public static int categoryId ;
 
@@ -60,7 +64,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         listView  =findViewById(R.id.items_listView_for_navigation);
         search = findViewById(R.id.searchBtn);
-
+        HomeIcon=findViewById(R.id.home_icon_id);
+        FavIcon=findViewById(R.id.favert_icon_id);
+        AccountIcon=findViewById(R.id.account_icon_id);
          MyUtils.setLocale(this);
          navFunction();
          Get_Data();
@@ -167,9 +173,41 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
         transaction.commitNow();
+
+        HomeIcon.setImageResource(R.drawable.home_black);
+        FavIcon.setImageResource(R.drawable.love_blue);
     }
 
-    public void profile(View view) {
+    public void logout(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
+        builder.setTitle("Are you sure you want to logout?");
+
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent go =new Intent(Home.this,Login.class);
+                startActivity(go);
+                finish();
+            }
+        });
+
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                fragment = new HomeFragment();
+                transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
+                transaction.commitNow();
+                HomeIcon.setImageResource(R.drawable.home_blue);
+                FavIcon.setImageResource(R.drawable.love_black);
+            }
+        });
+
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     public void home(View view) {
@@ -177,6 +215,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
         transaction.commitNow();
+
+        HomeIcon.setImageResource(R.drawable.home_blue);
+        FavIcon.setImageResource(R.drawable.love_black);
+
 
     }
 

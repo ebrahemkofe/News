@@ -19,70 +19,26 @@
         android:layout_marginBottom="10dp"
         />
 
-
-        <TextView
-            android:id="@+id/title_home1"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_22sdp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_151sdp"
-            android:layout_marginRight="@dimen/_30sdp"
-            android:gravity="center"
-            android:visibility="gone"
-            android:padding="@dimen/_2sdp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/calibri"
-            android:background="@drawable/textview_slider"
-            android:textSize="@dimen/_11sdp"
-            />
-
-
         <LinearLayout
             android:id="@+id/more_in_linearlayout_accidents"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_60sdp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:orientation="vertical"
             android:background="#66161515"
             android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone"
-            android:padding="@dimen/_2sdp"
-            android:layout_margin="@dimen/_40sdp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/_10sdp"
             >
 
 
             <ImageView
                 android:id="@+id/save_in_viewpager_accidents"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
+                android:layout_height="match_parent"
                 android:src="@drawable/save"
                 />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="Save"
-                android:fontFamily="@font/calibri"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_8sdp"
-                android:textStyle="bold"
-                />
-
-
-
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/more_accidents"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/_5sdp"
-            android:src="@drawable/ic_more_horiz_black_24dp"
-            />
 
 
     <android.support.v4.view.ViewPager
@@ -93,67 +49,27 @@
         android:layout_marginBottom="10dp"
         />
 
-        <TextView
-            android:id="@+id/title_home2"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_22sdp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_151sdp"
-            android:layout_marginRight="@dimen/_30sdp"
-            android:gravity="center"
-            android:layout_below="@id/viewpager_accidents"
-            android:padding="@dimen/_2sdp"
-            android:visibility="gone"
-            android:textColor="@color/black"
-            android:fontFamily="@font/calibri"
-            android:background="@drawable/textview_slider"
-            android:textSize="@dimen/_11sdp"
-            />
-        <LinearLayout
-            android:id="@+id/more_in_linearlayout_sports"
-            android:visibility="gone"
-            android:padding="@dimen/_2sdp"
-            android:layout_below="@id/viewpager_accidents"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_90sdp"
-            android:layout_centerHorizontal="true"
-            android:orientation="vertical"
-            android:background="#66161515"
-            android:layout_margin="@dimen/_40sdp"
-            >
 
-            <ImageView
-                android:id="@+id/save_in_viewpager_sports"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:src="@drawable/save"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="Save"
+            <LinearLayout
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:orientation="vertical"
+                android:background="#66161515"
                 android:gravity="center"
-                android:fontFamily="@font/calibri"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_8sdp"
-                android:textStyle="bold"
-                />
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/viewpager_accidents"
+                android:layout_margin="@dimen/_10sdp"
+                >
 
 
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/save_in_viewpager_sports"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/save"
+                    />
+            </LinearLayout>
 
-        <ImageView
-            android:id="@+id/more_sports"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_below="@id/viewpager_accidents"
-            android:src="@drawable/ic_more_horiz_black_24dp"
-            />
 
     <ListView
         android:id="@+id/homeListview"
@@ -169,34 +85,15 @@
             android:layout_below="@+id/homeListview"
             />
 
-        <TextView
-            android:id="@+id/title_home3"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_22sdp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_151sdp"
-            android:layout_marginRight="@dimen/_30sdp"
-            android:gravity="center"
-            android:visibility="gone"
-            android:padding="@dimen/_2sdp"
-            android:layout_below="@id/homeListview"
-            android:textColor="@color/black"
-            android:fontFamily="@font/calibri"
-            android:background="@drawable/textview_slider"
-            android:textSize="@dimen/_11sdp"
-            />
 
         <LinearLayout
-            android:id="@+id/more_in_linearlayout_Investigations"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="match_parent"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:layout_below="@id/homeListview"
+            android:layout_alignParentRight="true"
             android:orientation="vertical"
             android:background="#66161515"
-            android:padding="@dimen/_2sdp"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone"
-            android:layout_margin="@dimen/_40sdp"
+            android:layout_margin="@dimen/_10sdp"
             >
 
 
@@ -204,35 +101,11 @@
             <ImageView
                 android:id="@+id/save_in_viewpager_Investigations"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
+                android:layout_height="match_parent"
                 android:src="@drawable/save"
                 />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="Save"
-                android:fontFamily="@font/calibri"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_8sdp"
-                android:textStyle="bold"
-                />
-
-
-
         </LinearLayout>
-        <ImageView
-            android:id="@+id/more_Investigations"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_below="@id/homeListview"
-            android:src="@drawable/ic_more_horiz_black_24dp"
-            />
+
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager_fourth"
@@ -241,70 +114,31 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_below="@id/viewpager_Investigations"
             />
-        <ImageView
-            android:id="@+id/more_Fourth"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_below="@id/viewpager_Investigations"
-            android:src="@drawable/ic_more_horiz_black_24dp"
-            />
+
         <LinearLayout
             android:id="@+id/more_in_linearlayout_fourth"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_60sdp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:orientation="vertical"
             android:background="#66161515"
             android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone"
-            android:padding="@dimen/_2sdp"
+            android:layout_alignParentRight="true"
             android:layout_below="@id/viewpager_Investigations"
-            android:layout_margin="@dimen/_40sdp"
+            android:layout_margin="@dimen/_10sdp"
             >
 
 
             <ImageView
                 android:id="@+id/save_in_viewpager_fourth"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
+                android:layout_height="match_parent"
                 android:src="@drawable/save"
                 />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="Save"
-                android:fontFamily="@font/calibri"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_8sdp"
-                android:textStyle="bold"
-                />
-
 
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/title_home4"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_22sdp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_150sdp"
-            android:layout_marginRight="@dimen/_30sdp"
-            android:gravity="center"
-            android:padding="@dimen/_2sdp"
-            android:layout_below="@id/viewpager_Investigations"
-            android:textColor="@color/black"
-            android:fontFamily="@font/calibri"
-            android:visibility="gone"
-            android:background="@drawable/textview_slider"
-            android:textSize="@dimen/_11sdp"
-            />
+
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager_fifth"
             android:layout_width="match_parent"
@@ -314,70 +148,27 @@
             />
         <LinearLayout
             android:id="@+id/more_in_linearlayout_fifth"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_60sdp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:orientation="vertical"
             android:background="#66161515"
             android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone"
+            android:layout_alignParentRight="true"
             android:layout_below="@id/viewpager_fourth"
-            android:padding="@dimen/_2sdp"
-            android:layout_margin="@dimen/_40sdp"
+            android:layout_margin="@dimen/_10sdp"
             >
 
 
             <ImageView
                 android:id="@+id/save_in_viewpager_fifth"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
+                android:layout_height="match_parent"
                 android:src="@drawable/save"
                 />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="Save"
-                android:fontFamily="@font/calibri"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_8sdp"
-                android:textStyle="bold"
-                />
-
-
 
         </LinearLayout>
 
 
-        <ImageView
-            android:id="@+id/more_fifth"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_below="@id/viewpager_fourth"
-            android:src="@drawable/ic_more_horiz_black_24dp"
-            />
-
-        <TextView
-            android:id="@+id/title_home5"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_22sdp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_153sdp"
-            android:layout_marginRight="@dimen/_30sdp"
-            android:gravity="center"
-            android:padding="@dimen/_2sdp"
-            android:visibility="gone"
-            android:layout_below="@id/viewpager_fourth"
-            android:textColor="@color/black"
-            android:fontFamily="@font/calibri"
-            android:background="@drawable/textview_slider"
-            android:textSize="@dimen/_11sdp"
-            />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager_sixith"
@@ -387,70 +178,28 @@
             android:layout_below="@id/viewpager_fifth"
             />
 
-        <ImageView
-            android:id="@+id/more_sixith"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_below="@id/viewpager_fifth"
-            android:src="@drawable/ic_more_horiz_black_24dp"
-            />
         <LinearLayout
             android:id="@+id/more_in_linearlayout_sixith"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_60sdp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentRight="true"
             android:orientation="vertical"
             android:background="#66161515"
             android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone"
             android:layout_below="@id/viewpager_fifth"
-            android:padding="@dimen/_2sdp"
-            android:layout_margin="@dimen/_40sdp"
+            android:layout_margin="@dimen/_10sdp"
             >
 
 
             <ImageView
                 android:id="@+id/save_in_viewpager_sixith"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
+                android:layout_height="match_parent"
                 android:src="@drawable/save"
                 />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="Save"
-                android:fontFamily="@font/calibri"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_8sdp"
-                android:textStyle="bold"
-                />
-
-
-
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/title_home6"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_22sdp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_154sdp"
-            android:layout_marginRight="@dimen/_30sdp"
-            android:gravity="center"
-            android:layout_below="@id/viewpager_fifth"
-            android:textColor="@color/black"
-            android:fontFamily="@font/calibri"
-            android:visibility="gone"
-            android:padding="@dimen/_2sdp"
-            android:background="@drawable/textview_slider"
-            android:textSize="@dimen/_11sdp"
-            />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager_seventh"
@@ -459,70 +208,29 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_below="@id/viewpager_sixith"
             />
-        <ImageView
-            android:id="@+id/more_seventh"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_below="@id/viewpager_sixith"
-            android:src="@drawable/ic_more_horiz_black_24dp"
-            />
+
         <LinearLayout
             android:id="@+id/more_in_linearlayout_seventh"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_60sdp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:orientation="vertical"
             android:background="#66161515"
             android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone"
-            android:layout_below="@id/viewpager_fourth"
-            android:padding="@dimen/_2sdp"
-            android:layout_margin="@dimen/_40sdp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/viewpager_sixith"
+            android:layout_margin="@dimen/_10sdp"
             >
 
 
             <ImageView
                 android:id="@+id/save_in_viewpager_seventh"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
+                android:layout_height="match_parent"
                 android:src="@drawable/save"
                 />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="Save"
-                android:fontFamily="@font/calibri"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_8sdp"
-                android:textStyle="bold"
-                />
-
-
-
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/title_home7"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_22sdp"
-            android:visibility="gone"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_150sdp"
-            android:layout_marginRight="@dimen/_30sdp"
-            android:gravity="center"
-            android:padding="@dimen/_2sdp"
-            android:layout_below="@id/viewpager_sixith"
-            android:textColor="@color/black"
-            android:fontFamily="@font/calibri"
-            android:background="@drawable/textview_slider"
-            android:textSize="@dimen/_11sdp"
-            />
 
     </RelativeLayout>
 </ScrollView>

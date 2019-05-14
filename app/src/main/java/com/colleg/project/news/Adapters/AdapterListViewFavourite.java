@@ -65,15 +65,13 @@ public class AdapterListViewFavourite extends ArrayAdapter {
         TextView textViewdis = view.findViewById(R.id.dis_listview);
         TextView textViewsubject = view.findViewById(R.id.subject_list_fav);
         ImageView buttonDelete = view.findViewById(R.id.unsave_in_listview);
-        ImageView morebtn = view.findViewById(R.id.more_fav);
-        final LinearLayout morelayout=view.findViewById(R.id.more_in_listview_fav);
 
 
 
         Glide.with(context).load(list.get(position).getPost_img()).into(imageView);
-        textViewtitle.setText(list.get(position).getCategoty_name());
+        textViewsubject.setText(list.get(position).getCategoty_name());
         textViewdis.setText(list.get(position).getDescription());
-        textViewsubject.setText(list.get(position).getPost_title());
+        textViewtitle.setText(list.get(position).getPost_title());
 
 
 
@@ -87,21 +85,6 @@ public class AdapterListViewFavourite extends ArrayAdapter {
             }
         });
 
-        morebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(c==false) {
-
-                    morelayout.setVisibility(View.VISIBLE);
-
-                    c=true;
-                }
-                else{
-                    morelayout.setVisibility(View.GONE);
-                    c=false;
-                }
-            }
-        });
 
         return view;
     }
@@ -115,12 +98,6 @@ public class AdapterListViewFavourite extends ArrayAdapter {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
-
-
-
-
-
                 removeFormFavourite(MyUtils.userId() , list.get(position).getPost_id());
                 list.remove(position);
                 notifyDataSetChanged();

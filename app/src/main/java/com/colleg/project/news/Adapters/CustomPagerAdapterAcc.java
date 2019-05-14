@@ -62,13 +62,13 @@ public class CustomPagerAdapterAcc extends PagerAdapter {
          ImageView image = view.findViewById(R.id.viewpagerpic);
          TextView titl = view.findViewById(R.id.title_viewpager);
          TextView disc = view.findViewById(R.id.dis_viewpager);
+         TextView name = view.findViewById(R.id.title_home);
 
 
-
-
-        Glide.with(mContext).load(list2.get(position).getPost_img()).into(image);
-        titl.setText(list2.get(position).getPost_title());
-        disc.setText(list2.get(position).getDescription());
+         name.setText(list.get(0).getCategory_title());
+         Glide.with(mContext).load(list2.get(position).getPost_img()).into(image);
+         titl.setText(list2.get(position).getPost_title());
+         disc.setText(list2.get(position).getDescription());
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -64,6 +64,9 @@ public class CustomPagerAdapterfifth extends PagerAdapter {
         Glide.with(mContext).load(list2.get(position).getPost_img()).into(image);
         titl.setText(list2.get(position).getPost_title());
         disc.setText(list2.get(position).getDescription());
+        TextView name = view.findViewById(R.id.title_home);
+        name.setText(list.get(4).getCategory_title());
+
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override

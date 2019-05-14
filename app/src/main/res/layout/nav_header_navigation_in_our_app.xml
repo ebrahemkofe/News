@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_200sdp"
@@ -13,11 +13,19 @@
 
 
 
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:src="@drawable/tramp"
+        android:layout_margin="@dimen/_15sdp"/>
+
     <TextView
+        android:id="@+id/profile_name"
+        android:layout_below="@id/profile_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_15sdp"
         android:gravity="end"
         android:fontFamily="@font/calibri"
         android:text="حمزة شعبان"
@@ -27,4 +35,4 @@
         android:textStyle="bold" />
 
 
-</LinearLayout>
+</RelativeLayout>

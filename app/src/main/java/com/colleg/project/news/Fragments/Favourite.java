@@ -48,8 +48,7 @@ public class Favourite extends Fragment {
 
     ListView listView ;
     List<ModelOfAllFavourite.FavoritesBean> list = new ArrayList<>();
-    ImageView morebtn;
-    LinearLayout morelayout;
+
 
     public Favourite() {
         // Required empty public constructor
@@ -62,8 +61,6 @@ public class Favourite extends Fragment {
         View view = inflater.inflate(R.layout.fragment_favorite, container, false);
 
 
-        morelayout=view.findViewById(R.id.more_in_listview_fav);
-        morebtn=view.findViewById(R.id.more_fav);
 
 
         listView=view.findViewById(R.id.FavouriteListView);
@@ -130,6 +127,6 @@ public class Favourite extends Fragment {
                     }
                 });
     }
-
+//kjn
 
 }

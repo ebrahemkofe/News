@@ -65,6 +65,8 @@ public class CustomPagerAdapterseventh extends PagerAdapter {
         titl.setText(list2.get(position).getPost_title());
         disc.setText(list2.get(position).getDescription());
 
+        TextView name = view.findViewById(R.id.title_home);
+        name.setText(list.get(6).getCategory_title());
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

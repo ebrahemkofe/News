@@ -40,24 +40,11 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="@dimen/_20sdp"
-                android:src="@drawable/ic_favorite_filled"
+                android:src="@drawable/love_black"
                 android:onClick="favourite"
 
                 />
 
-
-            <ImageView
-
-                android:paddingRight="20dp"
-                android:paddingLeft="20dp"
-                android:id="@+id/account_icon_id"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/_20sdp"
-                android:src="@drawable/ic_person_filled"
-                android:onClick="profile"
-
-                />
 
             <ImageView
                 android:id="@+id/home_icon_id"
@@ -67,10 +54,24 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/home_icon"
+                android:src="@drawable/home_blue"
                 android:onClick="home"
 
                 />
+
+        <ImageView
+
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:id="@+id/account_icon_id"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/logout_icon"
+            android:onClick="logout"
+
+            />
+
 
 
     </LinearLayout>
