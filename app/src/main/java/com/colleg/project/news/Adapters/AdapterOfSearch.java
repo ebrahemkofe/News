@@ -9,10 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.colleg.project.news.Models.ModelListViewHome;
 import com.colleg.project.news.Models.ModelOfSearchResult;
 import com.colleg.project.news.R;
 
@@ -40,17 +38,15 @@ public class AdapterOfSearch extends ArrayAdapter {
 
         LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        convertView = layoutInflater.inflate(R.layout.item_listview_favourite, parent,false);
+        convertView = layoutInflater.inflate(R.layout.item_of_searh, parent,false);
 
-        TextView categoryTittle = convertView.findViewById(R.id.subject_list_fav);
-        TextView newsTittle = convertView.findViewById(R.id.title_listview);
-        TextView desc = convertView.findViewById(R.id.dis_listview);
-        ImageView images = convertView.findViewById(R.id.listviewFavPic);
+
+        TextView newsTittle = convertView.findViewById(R.id.textNews);
+        ImageView images = convertView.findViewById(R.id.imgNews);
 
         Glide.with(mContext).load(mlist.get(position).getPost_img()).into(images);
-        categoryTittle.setText(mlist.get(position).getCategory_post());
         newsTittle.setText(mlist.get(position).getPost_title());
-        desc.setText(mlist.get(position).getDescription());
+
 
 
         return convertView;

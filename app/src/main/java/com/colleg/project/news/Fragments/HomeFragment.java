@@ -191,14 +191,6 @@ public class HomeFragment extends Fragment {
 
                            listGson = array.getNews();
 
-                           one.setText(listGson.get(0).getCategory_title());
-                           tow.setText(listGson.get(1).getCategory_title());
-                           three.setText(listGson.get(2).getCategory_title());
-                           four.setText(listGson.get(3).getCategory_title());
-                           fife.setText(listGson.get(4).getCategory_title());
-                           six.setText(listGson.get(5).getCategory_title());
-                           seven.setText(listGson.get(6).getCategory_title());
-
 
                        viewPagerAcc.setAdapter(new CustomPagerAdapterAcc(getContext(),listGson));
                        viewPagerSports.setAdapter(new CustomPagerAdapterSports(getContext(),listGson));
@@ -208,13 +200,6 @@ public class HomeFragment extends Fragment {
                        viewPagersexith.setAdapter(new CustomPagerAdaptersixith(getContext(),listGson));
                        viewPagerseventh.setAdapter(new CustomPagerAdapterseventh(getContext(),listGson));
 
-                        one.setVisibility(View.VISIBLE);
-                        tow.setVisibility(View.VISIBLE);
-                        three.setVisibility(View.VISIBLE);
-                        four.setVisibility(View.VISIBLE);
-                        fife.setVisibility(View.VISIBLE);
-                        six.setVisibility(View.VISIBLE);
-                        seven.setVisibility(View.VISIBLE);
 
 
                     }

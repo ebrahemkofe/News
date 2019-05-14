@@ -84,15 +84,7 @@ public class CategoryFilter extends AppCompatActivity {
 
                         list = array.getPosts() ;
 
-                        listView.setAdapter(new AdapterOfSearch(CategoryFilter.this,R.layout.item_listview_favourite,list));
-
-
-
-
-
-
-
-
+                        listView.setAdapter(new AdapterOfSearch(CategoryFilter.this,R.layout.item_of_searh,list));
 
                     }
 
@@ -100,7 +92,7 @@ public class CategoryFilter extends AppCompatActivity {
                     public void onError(ANError anError) {
 
 
-
+                   MyUtils.handleError(CategoryFilter.this,anError.getErrorBody() , anError.getErrorCode());
 
 
                     }

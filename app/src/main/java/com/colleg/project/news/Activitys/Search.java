@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -16,10 +15,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.colleg.project.news.Adapters.AdapterListViewFavourite;
 import com.colleg.project.news.Adapters.AdapterOfSearch;
-import com.colleg.project.news.InternalStorage.mySharedPreference;
-import com.colleg.project.news.Models.ModelOfRejestraion;
 import com.colleg.project.news.Models.ModelOfSearchResult;
 import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
@@ -119,7 +115,7 @@ public class Search extends AppCompatActivity {
                          ModelOfSearchResult data = gson.fromJson(response.toString(), ModelOfSearchResult.class);
                          list  = data.getPosts();
 
-                        resultList.setAdapter(new AdapterOfSearch(Search.this,R.layout.item_listview_favourite,list));
+                        resultList.setAdapter(new AdapterOfSearch(Search.this,R.layout.item_of_searh,list));
 
 
 
@@ -134,7 +130,7 @@ public class Search extends AppCompatActivity {
 
                         MyUtils.handleError(Search.this , anError.getErrorBody() , anError.getErrorCode());
                         list.clear();
-                        resultList.setAdapter(new AdapterOfSearch(Search.this,R.layout.item_listview_favourite,list));
+                        resultList.setAdapter(new AdapterOfSearch(Search.this,R.layout.item_of_searh,list));
 
                     }
                 });

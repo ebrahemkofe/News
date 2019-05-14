@@ -49,29 +49,7 @@ public class Details extends AppCompatActivity {
         Ldis=findViewById(R.id.dis_details);
         SDis=findViewById(R.id.more_details);
 
-        more_acc=findViewById(R.id.more_det);
-        morelayout_acc=findViewById(R.id.more_in_det);
 
-        morelayout_acc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addToFavourite(MyUtils.userId(), Integer.parseInt(MyUtils.PostID));
-
-            }
-        });
-        more_acc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(c==false) {
-                    morelayout_acc.setVisibility(View.VISIBLE);
-                    c=true;
-                }
-                else{
-                    morelayout_acc.setVisibility(View.GONE);
-                    c=false;
-                }
-            }
-        });
         initiateData();
     }
 
