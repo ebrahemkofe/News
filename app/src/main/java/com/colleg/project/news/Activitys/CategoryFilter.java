@@ -12,6 +12,7 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 
+import com.colleg.project.news.Adapters.AdapterListViewCategory;
 import com.colleg.project.news.Adapters.AdapterOfSearch;
 import com.colleg.project.news.Models.ModelOfSearchResult;
 import com.colleg.project.news.MyUtils.MyUtils;
@@ -84,7 +85,7 @@ public class CategoryFilter extends AppCompatActivity {
 
                         list = array.getPosts() ;
 
-                        listView.setAdapter(new AdapterOfSearch(CategoryFilter.this,R.layout.item_of_searh,list));
+                        listView.setAdapter(new AdapterListViewCategory(CategoryFilter.this,R.layout.item_category,list));
 
                     }
 
