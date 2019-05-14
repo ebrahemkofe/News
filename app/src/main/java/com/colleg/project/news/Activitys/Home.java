@@ -52,6 +52,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private   String [] arrayOfnav ;
     private Button search ;
 
+    private boolean home = false , b = true  , favourite = true ;
+
     public static int categoryId ;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,20 +165,36 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
 
     public void favourite(View view) {
-        fragment = new Favourite();
-        transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
-        transaction.commitNow();
+
+        if (favourite) {
+            fragment = new Favourite();
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
+            transaction.commitNow();
+
+            home = true;
+            favourite = false;
+        }
     }
 
     public void profile(View view) {
     }
 
     public void home(View view) {
-        fragment = new HomeFragment();
-        transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
-        transaction.commitNow();
+
+
+        if (home) {
+
+
+            fragment = new HomeFragment();
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
+            transaction.commitNow();
+
+            home = false ;
+            favourite = true ;
+
+        }
 
     }
 
