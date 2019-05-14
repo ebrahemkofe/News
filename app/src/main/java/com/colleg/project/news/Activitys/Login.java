@@ -342,7 +342,7 @@ public class Login extends AppCompatActivity {
 
 
 
-                        if (anError.getErrorCode() == 400){
+                        if (anError.getErrorCode() == 401){
 
 
                             onLoginWithGoogleAfterRejested(password , email);
@@ -403,7 +403,7 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onError(ANError anError) {
 
-                        Toast.makeText(Login.this, anError.getErrorDetail()+"", Toast.LENGTH_SHORT).show();
+                        MyUtils.handleError(Login.this,anError.getErrorBody(),anError.getErrorCode());
                     }
                 });
     }
@@ -446,12 +446,12 @@ public class Login extends AppCompatActivity {
 
 
 
-                        if (anError.getErrorCode() == 400){
+                        if (anError.getErrorCode() == 401){
 
                             afterLoginWithFaceBook(password,email);
 
                         }else {
-                            Toast.makeText(Login.this, anError.getErrorBody()+"", Toast.LENGTH_SHORT).show();
+                            MyUtils.handleError(Login.this,anError.getErrorBody(),anError.getErrorCode());
 
                         }
                     }
@@ -504,7 +504,7 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onError(ANError anError) {
 
-                        Toast.makeText(Login.this, anError.getErrorDetail()+"", Toast.LENGTH_SHORT).show();
+                        MyUtils.handleError(Login.this,anError.getErrorBody(),anError.getErrorCode());
                     }
                 });
 
