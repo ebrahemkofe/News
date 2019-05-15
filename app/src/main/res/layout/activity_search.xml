@@ -16,9 +16,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
 
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/search_icon2"
+            />
         <EditText
-
+            android:background="@color/Blue"
             android:layout_marginBottom="@dimen/_3sdp"
             android:paddingRight="@dimen/_7sdp"
             android:hint="بحث"
@@ -35,14 +43,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content" />
 
-        <ImageView
 
-            android:layout_marginRight="@dimen/_5sdp"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            android:src="@drawable/search_icon2"
-            />
 
     </LinearLayout>
 

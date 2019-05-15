@@ -12,8 +12,9 @@
         android:text="sfsdksjlj"
         android:drawableLeft="@drawable/arrow"
         android:textColor="@color/black"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_13sdp"
         android:padding="@dimen/_8sdp"
+        android:textStyle="bold"
         />
     <TextView
         android:layout_width="match_parent"

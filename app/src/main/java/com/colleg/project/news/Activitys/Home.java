@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,9 +17,7 @@ import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -32,9 +29,6 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.colleg.project.news.Adapters.AdapterOfNavList;
-import com.colleg.project.news.Adapters.CustomPagerAdapterAcc;
-import com.colleg.project.news.Adapters.CustomPagerAdapterSports;
-import com.colleg.project.news.Adapters.CustomPagerAdapterTran;
 import com.colleg.project.news.Fragments.Favourite;
 import com.colleg.project.news.Fragments.HomeFragment;
 import com.colleg.project.news.InternalStorage.mySharedPreference;
@@ -85,15 +79,16 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
 
+
     private void definitions (){
         listView  =findViewById(R.id.items_listView_for_navigation);
         search = findViewById(R.id.searchBtn);
         HomeIcon=findViewById(R.id.home_icon_id);
         FavIcon=findViewById(R.id.favert_icon_id);
         AccountIcon=findViewById(R.id.account_icon_id);
+
         navigationView = findViewById(R.id.nav_view);
-        headerView= navigationView.getHeaderView(0);
-        userNameOfNav = headerView.findViewById(R.id.profile_name1);
+        userNameOfNav = findViewById(R.id.profile_name1);
 
 
 

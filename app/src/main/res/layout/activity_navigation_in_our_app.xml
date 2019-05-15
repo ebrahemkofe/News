@@ -24,26 +24,40 @@
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#fff"
+        android:background="@drawable/login_background"
         app:itemTextColor="#000"
         app:elevation="@dimen/_15sdp"
         android:gravity="right"
         android:layout_gravity = "right"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_navigation_in_our_app"
+
         >
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
             <ListView
+                android:background="#C6FFFFFF"
+                android:paddingTop="@dimen/_170sdp"
 
-                android:layout_marginTop="@dimen/_170sdp"
                 android:id="@+id/items_listView_for_navigation"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:fontFamily="@font/calibri"
                 android:layout_weight="3"
 
                 />
+
+            <include
+                android:id="@+id/in"
+                layout="@layout/nav_header_navigation_in_our_app"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp" />
+        </RelativeLayout>
+
+
 
 
 
