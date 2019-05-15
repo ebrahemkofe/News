@@ -59,7 +59,6 @@ public class Details extends AppCompatActivity {
         parent = findViewById(R.id.parent);
         progressBar = findViewById(R.id.progress_bar);
 
-        Toast.makeText(this, MyUtils.CategoryTittle+"", Toast.LENGTH_SHORT).show();
 
 
 

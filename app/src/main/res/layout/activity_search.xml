@@ -16,6 +16,7 @@
         android:textColorHint="@color/white"
         android:paddingTop="@dimen/_5sdp"
         android:background="@color/Blue"
+        android:textColor="@color/white"
         android:paddingBottom="@dimen/_5sdp"
         android:drawableRight="@drawable/search_icon2"
         android:id="@+id/searchEditText"

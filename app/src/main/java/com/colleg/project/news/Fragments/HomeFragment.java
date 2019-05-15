@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
 
     String []dis = {"الطيب : اطلس الاوقاف يضم 25 مليون مستند","الطيب : اطلس الاوقاف يضم 25 مليون مستند","الطيب : اطلس الاوقاف يضم 25 مليون مستند"};
     String []time = {"2019 jun 7 09:12" , "2019 jun 7 09:12", "2019 jun 7 09:12"};
-    int []image = {R.drawable.sheekh,R.drawable.tramp,R.drawable.news};
+   // int []image = {R.drawable.sheekh,R.drawable.tramp,R.drawable.news};
     ListView listView ;
     ArrayList<ModelListViewHome> list = new ArrayList<>();
     List<GsonForHome.NewsBean> listGson =new ArrayList<>();
@@ -104,9 +104,9 @@ public class HomeFragment extends Fragment {
 
         listView = v.findViewById(R.id.homeListview);
 
-        for(int i=0;i<image.length;i++) {
-            list.add(new ModelListViewHome(dis[i], time[i], image[i]));
-        }
+//        for(int i=0;i<image.length;i++) {
+//            list.add(new ModelListViewHome(dis[i], time[i], image[i]));
+//        }
 
 
         adapter = new AdapterListViewHome(getContext(), R.layout.item_listview_home, list);

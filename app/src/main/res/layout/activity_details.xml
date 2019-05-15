@@ -15,7 +15,7 @@
 
 <ScrollView
     android:id="@+id/parent"
-    android:visibility="visible"
+    android:visibility="gone"
     android:background="@color/white"
     android:padding="@dimen/_2sdp"
     android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                 android:background="#192775"
                 android:gravity="center_vertical"
                 android:paddingRight="@dimen/_5sdp"
-                android:text="أخبار"
+
                 android:fontFamily="@font/calibri_bold"
                 android:textColor="@color/white"
 

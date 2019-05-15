@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
@@ -51,6 +53,8 @@ public class Login extends AppCompatActivity {
     private Button loginWithGoogle ;
     private  Button loginWithFaceBook ;
     private int RC_SIGN_IN = 123;
+    private ProgressBar progressBar;
+    private LinearLayout parent ;
     private CallbackManager callbackManager;
     private GoogleSignInClient mGoogleSignInClient;
     private String sEmail , sPassword ;
@@ -101,6 +105,8 @@ public class Login extends AppCompatActivity {
 
 
     private void definitions(){
+        parent = findViewById(R.id.parentLogin);
+        progressBar = findViewById(R.id.progress_bar_login);
         editEmail = findViewById(R.id.editTextEmailForLogin);
         editpassword = findViewById(R.id.editTextPassword) ;
         loginWithGoogle = findViewById(R.id.login_with_google);
@@ -134,12 +140,16 @@ public class Login extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
+            parent.setVisibility(View.GONE);
+            progressBar.setVisibility(View.VISIBLE);
             onLoginWithGoogle(account.getEmail() , account.getDisplayName() , account.getId());
 
 
         } catch (ApiException e) {
 
 
+            parent.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.GONE);
 
             Toast.makeText(this, "Failed to do Sign In", Toast.LENGTH_SHORT).show();
         }
@@ -174,6 +184,8 @@ public class Login extends AppCompatActivity {
                             String id  = object.getString("id");
 
 
+                            parent.setVisibility(View.GONE);
+                            progressBar.setVisibility(View.VISIBLE);
                             onLoginWithFaceBook(id  , name , id);
 
 
@@ -202,7 +214,10 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onError(FacebookException error) {
-                Log.d("FacebookData", error.toString());
+
+
+                parent.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.GONE);
                 Toast.makeText(Login.this, "Failed to do Sign In", Toast.LENGTH_SHORT).show();
             }
         });
@@ -265,6 +280,8 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onError(ANError anError) {
 
+                        parent.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
                      MyUtils.handleError(Login.this , anError.getErrorBody() , anError.getErrorCode());
                     }
                 });
@@ -280,6 +297,9 @@ public class Login extends AppCompatActivity {
             editpassword.setError("Required");
 
         }else {
+
+            parent.setVisibility(View.GONE);
+            progressBar.setVisibility(View.VISIBLE);
             onLoginData(email1 ,password1  );
 
         }
@@ -290,6 +310,7 @@ public class Login extends AppCompatActivity {
 
 
     public void login(View view) {
+
 
         sEmail = editEmail.getText().toString();
         sPassword = editpassword.getText().toString();
@@ -343,6 +364,8 @@ public class Login extends AppCompatActivity {
 
                         }else {
 
+                            parent.setVisibility(View.VISIBLE);
+                            progressBar.setVisibility(View.GONE);
                             MyUtils.handleError(Login.this,anError.getErrorBody(),anError.getErrorCode());
                         }
 
@@ -384,7 +407,7 @@ public class Login extends AppCompatActivity {
                         String userOBJSTR = gson.toJson(resPOJO.getUser_info());
 
                         mySharedPreference.setUserOBJ(userOBJSTR);
-                        Toast.makeText(Login.this, mySharedPreference.getUserOBJ()+"", Toast.LENGTH_SHORT).show();
+
 
                         startActivity(new Intent(Login.this, Home.class));
                         finish();
@@ -395,6 +418,8 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onError(ANError anError) {
 
+                        parent.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
                         MyUtils.handleError(Login.this,anError.getErrorBody(),anError.getErrorCode());
                     }
                 });
@@ -443,6 +468,9 @@ public class Login extends AppCompatActivity {
                             afterLoginWithFaceBook(password,email);
 
                         }else {
+
+                            parent.setVisibility(View.VISIBLE);
+                            progressBar.setVisibility(View.GONE);
                             MyUtils.handleError(Login.this,anError.getErrorBody(),anError.getErrorCode());
 
                         }
@@ -486,7 +514,7 @@ public class Login extends AppCompatActivity {
                         String userOBJSTR = gson.toJson(resPOJO.getUser_info());
 
                         mySharedPreference.setUserOBJ(userOBJSTR);
-                        Toast.makeText(Login.this, mySharedPreference.getUserOBJ()+"", Toast.LENGTH_SHORT).show();
+
 
                         startActivity(new Intent(Login.this, Home.class));
                         finish();
@@ -495,7 +523,8 @@ public class Login extends AppCompatActivity {
 
                     @Override
                     public void onError(ANError anError) {
-
+                        parent.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
                         MyUtils.handleError(Login.this,anError.getErrorBody(),anError.getErrorCode());
                     }
                 });
