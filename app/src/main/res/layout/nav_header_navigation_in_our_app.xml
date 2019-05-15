@@ -15,9 +15,10 @@
 
 
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:layout_alignParentLeft="true"
         android:id="@+id/profile_image"
+        android:elevation="@dimen/_7sdp"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
         android:src="@mipmap/ic_launcher"
