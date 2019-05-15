@@ -34,6 +34,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="اسم المستخدم "
+            android:inputType="textPersonName"
+            android:gravity="right"
             android:fontFamily="@font/calibri"
             android:backgroundTint="@color/textColorOfLogin"
             />
@@ -42,9 +44,11 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:hint="البريد الالكتروني "
             android:fontFamily="@font/calibri"
             android:backgroundTint="@color/textColorOfLogin"
+            android:inputType="textEmailAddress"
             />
         <EditText
             android:id="@+id/password"
@@ -52,8 +56,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="كلمه المرور  "
+            android:gravity="right"
             android:fontFamily="@font/calibri"
             android:backgroundTint="@color/textColorOfLogin"
+            android:inputType="textPassword"
             />
         <EditText
             android:id="@+id/repassword"
@@ -61,6 +67,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="  تاكيد كلمه المرور"
+            android:gravity="right"
+            android:inputType="textPassword"
             android:fontFamily="@font/calibri"
             android:backgroundTint="@color/textColorOfLogin"
             />
