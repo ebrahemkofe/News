@@ -11,8 +11,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/logo"
-        android:background="#8800BCD4"
+        android:src="@drawable/splash_screen"
         android:id="@+id/img"
         />
 
