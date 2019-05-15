@@ -53,9 +53,6 @@ public class MyUtils {
         Gson gson = new Gson();
         ModelOfRejestraion.UserInfoBean id = gson.fromJson( mySharedPreference.getUserOBJ() , ModelOfRejestraion.UserInfoBean.class);
 
-
-
-
         return  id.getUsername();
     }
 

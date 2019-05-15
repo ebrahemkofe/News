@@ -15,7 +15,7 @@
 
 <ScrollView
     android:id="@+id/parent"
-    android:visibility="gone"
+    android:visibility="visible"
     android:background="@color/white"
     android:padding="@dimen/_2sdp"
     android:layout_width="match_parent"
@@ -87,17 +87,20 @@
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
+
                 android:id="@+id/title_details"
+                android:paddingTop="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:fontFamily="@font/calibri"
                 android:gravity="right"
-                android:textColor="@color/Blue"
+                android:textColor="#012F53"
                 android:textStyle="bold"
-                android:textSize="@dimen/_13sdp" />
+                android:textSize="@dimen/_15sdp" />
 
             <TextView
+                android:lineSpacingExtra="@dimen/_3sdp"
                 android:id="@+id/dis_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -108,6 +111,7 @@
                 android:textSize="@dimen/_11sdp" />
 
             <TextView
+                android:lineSpacingExtra="@dimen/_3sdp"
                 android:id="@+id/more_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

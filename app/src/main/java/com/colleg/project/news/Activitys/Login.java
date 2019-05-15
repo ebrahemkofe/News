@@ -16,7 +16,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
@@ -41,10 +40,8 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -64,18 +61,15 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
          mySharedPreference.init(this);
 
         MyUtils.setLocale(this);
+
         printKeyHash();
-
-
-
         definitions();
-
         googleToken();
         facebookToken();
-
         onClick();
 
 
@@ -509,6 +503,7 @@ public class Login extends AppCompatActivity {
 
 
                         Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
                         ModelOfRejestraion resPOJO = gson.fromJson(response.toString(), ModelOfRejestraion.class);
 
                         String userOBJSTR = gson.toJson(resPOJO.getUser_info());

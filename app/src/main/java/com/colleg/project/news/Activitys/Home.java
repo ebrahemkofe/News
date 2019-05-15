@@ -62,6 +62,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     public static int categoryId ;
     private   View headerView ;
     private NavigationView navigationView ;
+    private boolean home = false , logout = true , favourite = true ;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_in_our_app);
@@ -190,6 +192,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
 
     public void favourite(View view) {
+
+        if(favourite){
+
+
+
+
         fragment = new Favourite();
         transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
@@ -197,9 +205,17 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         HomeIcon.setImageResource(R.drawable.home_black);
         FavIcon.setImageResource(R.drawable.love_blue);
+
+        home = true ;
+        favourite = false;
+
+        }
     }
 
     public void logout(View view) {
+
+
+
         AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
         builder.setTitle("Are you sure you want to logout?");
 
@@ -235,6 +251,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     public void home(View view) {
+
+        if (home){
+
         fragment = new HomeFragment();
         transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
@@ -243,6 +262,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         HomeIcon.setImageResource(R.drawable.home_blue);
         FavIcon.setImageResource(R.drawable.love_black);
 
+        home= false ;
+        favourite =true  ;
+
+        }
 
     }
 
