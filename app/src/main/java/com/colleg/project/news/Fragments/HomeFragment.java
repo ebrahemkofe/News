@@ -28,6 +28,7 @@ import com.colleg.project.news.Adapters.CustomPagerAdapterfourth;
 import com.colleg.project.news.Adapters.CustomPagerAdapterseventh;
 import com.colleg.project.news.Adapters.CustomPagerAdaptersixith;
 import com.colleg.project.news.Models.GsonForHome;
+import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
 import com.colleg.project.news.Models.ModelListViewHome;
 import com.google.gson.Gson;
@@ -52,7 +53,7 @@ public class HomeFragment extends Fragment {
     ListView listView ;
     ArrayList<ModelListViewHome> list = new ArrayList<>();
     List<GsonForHome.NewsBean> listGson =new ArrayList<>();
-    TextView one , tow , three , four , fife , six , seven;
+
     ViewPager viewPagerAcc, viewPagerSports ,viewPagerTran , viewPagerfourth , viewPagerfifth , viewPagersexith , viewPagerseventh ;
     AdapterListViewHome adapter ;
 
@@ -67,8 +68,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
          View v=inflater.inflate(R.layout.fragment_home, container, false);
-
-
 
 
 //......................  View pager accident ......................................................
@@ -207,8 +206,7 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onError(ANError anError) {
 
-                        Toast.makeText(getContext(), "connection field", Toast.LENGTH_SHORT).show();
-
+                     MyUtils.handleError(getActivity() , anError.getErrorBody() , anError.getErrorCode());
                     }
                 });
     }

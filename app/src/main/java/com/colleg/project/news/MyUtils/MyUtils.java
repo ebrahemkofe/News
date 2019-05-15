@@ -24,6 +24,7 @@ import java.util.Locale;
 public class MyUtils {
 
     public static String PostID;
+    public static String CategoryTittle;
 
 
     public static void handleError(Context context, String errorRes, int errorStatusCode) {
@@ -46,6 +47,16 @@ public class MyUtils {
 
 
       return  id.getUserId();
+    }
+
+    public static String userName() {
+        Gson gson = new Gson();
+        ModelOfRejestraion.UserInfoBean id = gson.fromJson( mySharedPreference.getUserOBJ() , ModelOfRejestraion.UserInfoBean.class);
+
+
+
+
+        return  id.getUsername();
     }
 
     public static Boolean isConnected(Context context) {

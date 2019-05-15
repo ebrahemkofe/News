@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -31,12 +32,17 @@ public class CategoryFilter extends AppCompatActivity {
 
     List<ModelOfSearchResult.PostsBean>list = new ArrayList();
     ListView listView;
+    TextView textView ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_filter);
         listView = findViewById(R.id.list_item_filter);
+        textView = findViewById(R.id.header);
+        textView.setText(MyUtils.CategoryTittle);
+
+        MyUtils.setLocale(this);
 
 
         Get_Data(Home.categoryId);
@@ -52,7 +58,7 @@ public class CategoryFilter extends AppCompatActivity {
                 MyUtils.PostID  = String.valueOf(list.get(position).getPost_id());
                 Intent i = new Intent(CategoryFilter.this,Details.class);
                 startActivity(i);
-                finish();
+
 
             }
         });

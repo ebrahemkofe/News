@@ -10,7 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.colleg.project.news.Models.ModelListViewHome;
+import com.colleg.project.news.Models.ModelOfSearchResult;
 import com.colleg.project.news.R;
 
 import java.util.ArrayList;
@@ -20,12 +22,14 @@ public class AdapterListViewCategory extends ArrayAdapter {
 
 
 
-       List<ModelListViewHome> mlist;
+       List<ModelOfSearchResult.PostsBean> mlist;
+       Context mContext ;
 
         public AdapterListViewCategory(@NonNull Context context, int resource, @NonNull List objects) {
             super(context, resource, objects);
 
             mlist = objects;
+            mContext = context ;
         }
 
         @NonNull
@@ -41,9 +45,9 @@ public class AdapterListViewCategory extends ArrayAdapter {
             ImageView images = convertView.findViewById(R.id.categorepic);
 
 
-            textdisc.setText(mlist.get(position).textdis);
-            textTitle.setText(mlist.get(position).texttime);
-            images.setImageResource(mlist.get(position).image);
+            textdisc.setText(mlist.get(position).getDescription());
+            textTitle.setText(mlist.get(position).getPost_title());
+            Glide.with(mContext).load(mlist.get(position).getPost_img()).into(images);
 
 
             return convertView;

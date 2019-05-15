@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="@dimen/_210sdp">
 
    <ImageView
        android:id="@+id/viewpagerpic"
@@ -14,7 +14,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp"
+        android:layout_height="match_parent"
         android:layout_below="@id/viewpagerpic"
         android:orientation="vertical"
         android:background="#0D195A"
@@ -26,8 +26,8 @@
         android:layout_height="wrap_content"
         android:gravity="right"
         android:layout_margin="@dimen/_8sdp"
-        android:paddingTop="@dimen/_6sdp"
-        android:maxLines="1"
+        android:paddingTop="@dimen/_7sdp"
+        android:maxLines="2"
         android:ellipsize="end"
         android:fontFamily="@font/calibri"
         android:textColor="@color/white"
@@ -38,10 +38,14 @@
         android:id="@+id/dis_viewpager"
         android:layout_width="match_parent"
         android:gravity="right"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_margin="@dimen/_5sdp"
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
         android:fontFamily="@font/calibri"
-        android:maxLines="2"
+        android:maxLines="1"
         android:ellipsize="end"
         android:textColor="@color/white"
         android:textSize="@dimen/_10sdp" />
@@ -51,7 +55,8 @@
     <TextView
         android:id="@+id/title_home"
         android:layout_width="@dimen/_70sdp"
-        android:layout_height="@dimen/_22sdp"
+        android:layout_height="@dimen/_20sdp"
+
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="@dimen/_30sdp"

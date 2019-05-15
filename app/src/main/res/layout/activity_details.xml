@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout
+
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".Activitys.Details"
+    >
+
+
+
+
+<ScrollView
+    android:id="@+id/parent"
+    android:visibility="visible"
     android:background="@color/white"
     android:padding="@dimen/_2sdp"
-    tools:context=".Activitys.Details">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -29,12 +44,12 @@
             android:layout_height="2dp" />
 
         <LinearLayout
-            android:id="@+id/more_in_det"
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_30sdp"
+            android:id="@+id/save_Btn"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_margin="@dimen/_5sdp"
             android:background="#66161515"
             android:orientation="vertical"
             android:padding="@dimen/_4sdp">
@@ -51,24 +66,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="#59FFFFFF"
+
             android:layout_below="@id/image_details"
-            android:layout_marginTop="-30dp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="-35dp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
             >
 
             <TextView
-                android:id="@+id/subject_details"
+                android:id="@+id/tittle"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="#A40328BF"
+                android:layout_height="35dp"
+                android:background="#192775"
                 android:gravity="center_vertical"
                 android:paddingRight="@dimen/_5sdp"
                 android:text="أخبار"
                 android:fontFamily="@font/calibri_bold"
-                android:textColor="#000000"
-                android:textSize="@dimen/_11sdp" />
+                android:textColor="@color/white"
+
+                android:textSize="@dimen/_12sdp" />
 
             <TextView
                 android:id="@+id/title_details"
@@ -79,7 +95,7 @@
                 android:gravity="right"
                 android:textColor="@color/Blue"
                 android:textStyle="bold"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_13sdp" />
 
             <TextView
                 android:id="@+id/dis_details"
@@ -89,7 +105,7 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:gravity="right"
                 android:textColor="@color/Blue"
-                android:textSize="@dimen/_13sdp" />
+                android:textSize="@dimen/_11sdp" />
 
             <TextView
                 android:id="@+id/more_details"
@@ -99,8 +115,16 @@
                 android:fontFamily="@font/calibri"
                 android:layout_margin="@dimen/_5sdp"
                 android:textColor="@color/Blue"
-                android:textSize="@dimen/_13sdp" />
+                android:textSize="@dimen/_11sdp" />
         </LinearLayout>
 
     </RelativeLayout>
 </ScrollView>
+
+    <ProgressBar
+         android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        />
+</RelativeLayout>

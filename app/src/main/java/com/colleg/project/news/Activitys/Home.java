@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -30,11 +31,13 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.colleg.project.news.Adapters.AdapterOfNavList;
 import com.colleg.project.news.Adapters.CustomPagerAdapterAcc;
 import com.colleg.project.news.Adapters.CustomPagerAdapterSports;
 import com.colleg.project.news.Adapters.CustomPagerAdapterTran;
 import com.colleg.project.news.Fragments.Favourite;
 import com.colleg.project.news.Fragments.HomeFragment;
+import com.colleg.project.news.InternalStorage.mySharedPreference;
 import com.colleg.project.news.Models.GsonForHome;
 import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
@@ -55,19 +58,17 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private   String [] arrayOfnav ;
     private Button search ;
     private ImageView HomeIcon , FavIcon , AccountIcon;
-
+     TextView userNameOfNav ;
     public static int categoryId ;
-
+    private   View headerView ;
+    private NavigationView navigationView ;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_in_our_app);
 
-        listView  =findViewById(R.id.items_listView_for_navigation);
-        search = findViewById(R.id.searchBtn);
-        HomeIcon=findViewById(R.id.home_icon_id);
-        FavIcon=findViewById(R.id.favert_icon_id);
-        AccountIcon=findViewById(R.id.account_icon_id);
-         MyUtils.setLocale(this);
+        mySharedPreference.init(this);
+         definitions();
+
          navFunction();
          Get_Data();
          firstFragmentRun();
@@ -79,13 +80,27 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
 
 
+    }
+
+
+    private void definitions (){
+        listView  =findViewById(R.id.items_listView_for_navigation);
+        search = findViewById(R.id.searchBtn);
+        HomeIcon=findViewById(R.id.home_icon_id);
+        FavIcon=findViewById(R.id.favert_icon_id);
+        AccountIcon=findViewById(R.id.account_icon_id);
+        navigationView = findViewById(R.id.nav_view);
+        headerView= navigationView.getHeaderView(0);
+        userNameOfNav = headerView.findViewById(R.id.profile_name1);
+
+
 
     }
     private void onClickOnItemsForNavList(){
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                MyUtils.CategoryTittle = listGson.get(position).getCategory_title() ;
                 categoryId   = listGson.get(position).getCategory_id() ;
 
                 startActivity(new Intent(Home.this , CategoryFilter.class));
@@ -102,6 +117,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
             }
         });
+
+
 
     }
 
@@ -138,7 +155,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                     @Override
                     public void onError(ANError anError) {
 
-                        Toast.makeText(Home.this, "connection field", Toast.LENGTH_SHORT).show();
+
+                        MyUtils.handleError(Home.this , anError.getErrorBody() , anError.getErrorCode());
 
                     }
                 });
@@ -156,9 +174,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             arrayOfnav [x]  = listGson.get(x).getCategory_title() ;
         }
 
-        ArrayAdapter <String> arrayAdapter  = new ArrayAdapter<String>(this , android.R.layout.simple_list_item_1,arrayOfnav);
+        AdapterOfNavList arrayAdapter  = new AdapterOfNavList(this ,R.layout.item_nav_list,arrayOfnav);
 
         listView.setAdapter(arrayAdapter);
+
+        userNameOfNav.setText(MyUtils.userName());
+
 
 
     }
@@ -186,6 +207,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+
+                mySharedPreference.setUserOBJ("");
+
                 Intent go =new Intent(Home.this,Login.class);
                 startActivity(go);
                 finish();
@@ -272,7 +296,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         int id = item.getItemId();
 
 
-        Toast.makeText(this, id+"", Toast.LENGTH_SHORT).show();
+
 
 
 

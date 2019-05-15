@@ -34,7 +34,7 @@ public class Rejester extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rejester);
-
+        MyUtils.setLocale(this);
          mySharedPreference.init(this);
         userName = findViewById(R.id.userName);
         email  =findViewById(R.id.email);

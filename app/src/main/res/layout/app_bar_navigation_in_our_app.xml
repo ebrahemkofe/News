@@ -18,13 +18,14 @@
             android:background="#FFFFFF"
             app:popupTheme="@style/AppTheme"
             android:gravity="center"
-            android:paddingLeft="15dp">
+        >
 
 
             <RelativeLayout
-
+                 android:layout_marginRight="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
                 android:layout_alignParentTop="true">
 
                 <Button
@@ -33,7 +34,7 @@
                     android:layout_height="30dp"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="8dp"
+
                     android:background="@drawable/search" />
 
                 <ImageView
@@ -41,7 +42,7 @@
                     android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
+                  android:layout_centerInParent="true"
                     android:scaleType="centerCrop"
                     android:src="@drawable/logo" />
             </RelativeLayout>

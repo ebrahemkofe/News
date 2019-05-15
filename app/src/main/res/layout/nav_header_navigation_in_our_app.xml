@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_200sdp"
@@ -14,21 +16,25 @@
 
 
     <ImageView
+        android:layout_alignParentLeft="true"
         android:id="@+id/profile_image"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
-        android:src="@drawable/tramp"
-        android:layout_margin="@dimen/_15sdp"/>
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"/>
 
     <TextView
-        android:id="@+id/profile_name"
-        android:layout_below="@id/profile_image"
-        android:layout_width="match_parent"
+
+        android:id="@+id/profile_name1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_15sdp"
-        android:gravity="end"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_toRightOf="@+id/profile_image"
         android:fontFamily="@font/calibri"
-        android:text="حمزة شعبان"
+        android:gravity="end"
+        android:text="kkkkkkkk"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#000"
         android:textSize="@dimen/_13sdp"

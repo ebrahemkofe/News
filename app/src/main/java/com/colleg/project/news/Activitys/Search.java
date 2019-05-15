@@ -39,6 +39,8 @@ public class Search extends AppCompatActivity {
         searchEdit = findViewById(R.id.searchEditText);
         resultList = findViewById(R.id.searchResult);
 
+        MyUtils.setLocale(this);
+
 
         searchListener();
         onClick();
@@ -54,6 +56,7 @@ public class Search extends AppCompatActivity {
         resultList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MyUtils.CategoryTittle = list.get(position).getCategory_post();
                 MyUtils.PostID  = String.valueOf(list.get(position).getPost_id());
                 Intent i = new Intent(Search.this,Details.class);
                 startActivity(i);
@@ -71,7 +74,7 @@ public class Search extends AppCompatActivity {
 
            public void afterTextChanged(Editable s) {
 
-               Toast.makeText(Search.this, "s", Toast.LENGTH_SHORT).show();
+
 
                getDataResult(searchEdit.getText().toString().trim());
 

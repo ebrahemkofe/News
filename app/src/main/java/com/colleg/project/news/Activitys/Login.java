@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
          mySharedPreference.init(this);
 
-
+        MyUtils.setLocale(this);
         printKeyHash();
 
 
@@ -74,14 +74,6 @@ public class Login extends AppCompatActivity {
 
         onClick();
 
-        if (!mySharedPreference.getUserOBJ().equals("")){
-
-
-            Toast.makeText(this, "rejested", Toast.LENGTH_SHORT).show();
-        }else {
-
-            Toast.makeText(this, "no", Toast.LENGTH_SHORT).show();
-        }
 
 
 
@@ -262,7 +254,7 @@ public class Login extends AppCompatActivity {
                         String userOBJSTR = gson.toJson(resPOJO.getUser_info());
 
                         mySharedPreference.setUserOBJ(userOBJSTR);
-                        Toast.makeText(Login.this, mySharedPreference.getUserOBJ()+"", Toast.LENGTH_SHORT).show();
+
 
                         startActivity(new Intent(Login.this, Home.class));
                         finish();

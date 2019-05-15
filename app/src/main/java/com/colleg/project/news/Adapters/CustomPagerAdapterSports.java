@@ -74,7 +74,7 @@ public class CustomPagerAdapterSports extends PagerAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-
+                MyUtils.CategoryTittle = list.get(1).getCategory_title();
                 MyUtils.PostID = String.valueOf(list.get(1).getCategory_posts().get(position).getPost_id());
                 Intent i = new Intent(mContext,Details.class);
                 mContext.startActivity(i);

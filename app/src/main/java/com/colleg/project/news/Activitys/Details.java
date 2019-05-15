@@ -9,6 +9,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.colleg.project.news.Adapters.CustomPagerAdapterAcc;
 import com.colleg.project.news.Models.GsonForDetails;
 import com.colleg.project.news.Models.GsonForHome;
+import com.colleg.project.news.Models.ModelHandleFavourite;
 import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
 import com.google.gson.Gson;
@@ -34,20 +37,42 @@ import java.util.List;
 public class Details extends AppCompatActivity {
 
     ImageView image;
-    TextView Title , Ldis , SDis;
+    TextView TitleNews , Ldis , SDis, tittle;
     ImageView more_acc;
-    LinearLayout morelayout_acc;
+    LinearLayout save;
     boolean c=false ;
+
+    ScrollView parent  ;
+
+    ProgressBar progressBar ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-
+        MyUtils.setLocale(this);
         image=findViewById(R.id.image_details);
-        Title=findViewById(R.id.title_details);
+        TitleNews=findViewById(R.id.title_details);
         Ldis=findViewById(R.id.dis_details);
         SDis=findViewById(R.id.more_details);
+        tittle =findViewById(R.id.tittle);
+        parent = findViewById(R.id.parent);
+        progressBar = findViewById(R.id.progress_bar);
+
+        Toast.makeText(this, MyUtils.CategoryTittle+"", Toast.LENGTH_SHORT).show();
+
+
+
+
+
+
+        save = findViewById(R.id.save_Btn);
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addToFavourite(MyUtils.userId(),MyUtils.PostID);
+            }
+        });
 
 
         initiateData();
@@ -59,6 +84,7 @@ public class Details extends AppCompatActivity {
         JSONObject object = new JSONObject();
         try {
             object.put("id", MyUtils.PostID);
+            object.put("user_id", MyUtils.userId());
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -70,15 +96,29 @@ public class Details extends AppCompatActivity {
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        parent.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
 
                         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                        Log.d("TestData", "onResponse: " + response.toString());
                         GsonForDetails array = gson.fromJson(response.toString(), GsonForDetails.class);
 
                         Glide.with(Details.this).load(array.getPost_img()).into(image);
-                        Title.setText(array.getPost_title());
+
+                        TitleNews.setText(array.getPost_title());
                         Ldis.setText(array.getLong_description());
                         SDis.setText(array.getShort_description());
+
+                        tittle.setText(MyUtils.CategoryTittle);
+
+
+                        if (array.getFavorite().equals("false")){
+                             save.setBackgroundColor(getResources().getColor(R.color.textColorOfLogin));
+
+                        }else {
+                            save.setBackgroundColor(getResources().getColor(R.color.Blue));
+
+
+                        }
 
 
 
@@ -87,15 +127,15 @@ public class Details extends AppCompatActivity {
 
                     @Override
                     public void onError(ANError anError) {
-                        Log.d("TestData", "onResponse: " + anError.toString());
-
+                       MyUtils.handleError(Details.this , anError.getErrorBody() , anError.getErrorCode());
+                       progressBar.setVisibility(View.GONE);
 
                     }
                 });
 
     }
 
-    private void addToFavourite(int userId  , int postId){
+    private void addToFavourite(int userId  , String postId){
 
         JSONObject object = new JSONObject();
         try {
@@ -120,8 +160,23 @@ public class Details extends AppCompatActivity {
 
 
 
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+                        ModelHandleFavourite array = gson.fromJson(response.toString(), ModelHandleFavourite.class);
 
 
+                      char x = array.getMsg().charAt(1);
+                      if (x == 'e'){
+
+
+                          save.setBackgroundColor(getResources().getColor(R.color.textColorOfLogin));
+
+                      }else {
+
+                          save.setBackgroundColor(getResources().getColor(R.color.Blue));
+
+
+                      }
 
 
 
@@ -135,12 +190,6 @@ public class Details extends AppCompatActivity {
                 });
 
 
-    }
-    @Override
-    public void onBackPressed() {
-
-        startActivity(new Intent(Details.this  , Home.class));
-        finish();
     }
 
 

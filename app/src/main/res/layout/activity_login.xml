@@ -110,7 +110,7 @@
             android:textStyle="bold"
             android:fontFamily="@font/calibri"
             android:layout_height="@dimen/_40sdp" />
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/linear"
             android:layout_marginTop="@dimen/_7sdp"
             android:orientation="horizontal"
@@ -121,21 +121,29 @@
 
             <Button
                 android:id="@+id/login_with_faceBook"
-                android:background="@drawable/back_ground_of_face_google_login"
                 android:layout_width="@dimen/_90sdp"
-                android:textColor="@color/black"
-                android:text="Facebook"
-                android:drawableLeft="@drawable/face_icon"
-                android:textSize="@dimen/_9sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:background="@drawable/back_ground_of_face_google_login"
+                android:drawableLeft="@drawable/facebook_icon"
                 android:fontFamily="@font/calibri"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingRight="@dimen/_10sdp"
+                android:text="Facebook"
                 android:textAllCaps="false"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:layout_height="@dimen/_42sdp" />
+                android:textColor="@color/black"
+                android:textSize="@dimen/_9sdp" />
             <Button
+                android:layout_toRightOf="@+id/login_with_faceBook"
                 android:id="@+id/login_with_google"
                 android:textColor="@color/black"
                 android:text="Google"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingRight="@dimen/_10sdp"
+
+                android:layout_marginLeft="@dimen/_12sdp"
                 android:background="@drawable/back_ground_of_face_google_login"
                 android:textSize="@dimen/_9sdp"
                 android:drawableLeft="@drawable/google_icon"
@@ -145,7 +153,7 @@
                 android:layout_height="@dimen/_42sdp" />
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
 

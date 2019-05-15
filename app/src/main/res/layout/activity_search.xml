@@ -6,17 +6,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Activitys.Search">
 
     <EditText
+        android:layout_marginBottom="@dimen/_3sdp"
         android:paddingRight="@dimen/_5sdp"
         android:hint="     بحث  "
         android:textColorHint="@color/white"
         android:paddingTop="@dimen/_5sdp"
         android:background="@color/Blue"
         android:paddingBottom="@dimen/_5sdp"
-        android:drawableRight="@drawable/search_iconn"
+        android:drawableRight="@drawable/search_icon2"
         android:id="@+id/searchEditText"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <ListView
