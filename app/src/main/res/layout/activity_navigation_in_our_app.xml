@@ -24,7 +24,7 @@
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#345EFA"
+        android:background="#fff"
         app:itemTextColor="#FFF"
         app:elevation="@dimen/_15sdp"
         android:gravity="right"
@@ -42,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/calibri"
                 android:layout_weight="3"
+
                 />
 
 
