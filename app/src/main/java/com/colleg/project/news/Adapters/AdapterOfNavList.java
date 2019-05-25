@@ -33,11 +33,15 @@ public class AdapterOfNavList extends ArrayAdapter {
 
         convertView = layoutInflater.inflate(R.layout.item_nav_list, parent,false);
 
-        TextView textdisc = convertView.findViewById(R.id.mtext);
+        TextView textView = convertView.findViewById(R.id.mtext);
+
+        textView.setText(text[position]);
 
 
 
-        textdisc.setText(text[position]);
+
+
+
 
 
         return convertView;

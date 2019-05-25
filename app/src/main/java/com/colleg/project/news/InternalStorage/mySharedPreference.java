@@ -42,11 +42,12 @@ public class mySharedPreference {
     }
 
 
-    public static void setUserToken(String userToken) {
+    public static void setUserAdmin(String userToken) {
+
         SharedPreferences.Editor editor = getSharedPreferences().edit();
         editor.putString(mySharedPreference_userToken, userToken).apply();
     }
-    public static String getUserToken() {
+    public static String getUserAdmin() {
         return getSharedPreferences().getString(mySharedPreference_userToken, "");
     }
 

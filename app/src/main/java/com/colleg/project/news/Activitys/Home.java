@@ -54,21 +54,20 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private   String [] arrayOfnav ;
     private Button search ;
     private ImageView HomeIcon , FavIcon , AccountIcon;
-     TextView userNameOfNav , mediaclick;
+     TextView userNameOfNav ,mediaclick ;
     public static int categoryId ;
     private   View headerView ;
     private NavigationView navigationView ;
     private boolean home = false , logout = true , favourite = true ;
     private CircleImageView shareButton;
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_in_our_app);
 
-
         mySharedPreference.init(this);
          definitions();
+
          navFunction();
          Get_Data();
          firstFragmentRun();
@@ -97,7 +96,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
 
 
-
     }
 
 
@@ -109,15 +107,13 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         FavIcon=findViewById(R.id.favert_icon_id);
         AccountIcon=findViewById(R.id.account_icon_id);
         shareButton=findViewById(R.id.ShareButton);
+
         navigationView = findViewById(R.id.nav_view);
         userNameOfNav = findViewById(R.id.profile_name1);
-        mediaclick=findViewById(R.id.MediaClick);
 
 
 
     }
-
-
     private void onClickOnItemsForNavList(){
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -168,7 +164,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                         GsonForHome array = gson.fromJson(response.toString(), GsonForHome.class);
 
                         listGson = array.getNews();
-
 
                         dataForNav();
 
