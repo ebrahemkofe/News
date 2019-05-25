@@ -107,7 +107,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         FavIcon=findViewById(R.id.favert_icon_id);
         AccountIcon=findViewById(R.id.account_icon_id);
         shareButton=findViewById(R.id.ShareButton);
-
+        mediaclick=findViewById(R.id.MediaClick);
         navigationView = findViewById(R.id.nav_view);
         userNameOfNav = findViewById(R.id.profile_name1);
 

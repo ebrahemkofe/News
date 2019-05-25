@@ -43,7 +43,7 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_8sdp"
         android:layout_marginRight="@dimen/_8sdp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/calibri"
         android:maxLines="1"
         android:ellipsize="end"

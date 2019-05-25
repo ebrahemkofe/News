@@ -7,24 +7,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.colleg.project.news.Adapters.AdapterListViewPhotos;
-import com.colleg.project.news.Models.GsonForHome;
 import com.colleg.project.news.Models.ModelMediaPhotos;
 import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONObject;
+
+
 
 /**
  * A simple {@link Fragment} subclass.
