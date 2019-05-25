@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical"
     android:padding="10dp"
@@ -16,21 +17,38 @@
         android:id="@+id/viewpager_accidents"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_210sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
-        />
+        android:layout_marginBottom="@dimen/_5sdp" />
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout_viewpager_accidents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/viewpager_accidents"
+            app:tabBackground="@drawable/tab_selector"
+            android:layout_marginTop="-50dp"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            />
 
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager_sports"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_210sdp"
+            android:layout_below="@+id/viewpager_accidents"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="@dimen/_5sdp" />
 
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager_sports"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_210sdp"
-        android:layout_below="@+id/viewpager_accidents"
-        android:layout_marginBottom="@dimen/_5sdp"
-        />
-
-
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout_viewpager_sports"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/viewpager_sports"
+            app:tabBackground="@drawable/tab_selector"
+            android:layout_marginTop="-50dp"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            />
 
 
 
@@ -38,7 +56,6 @@
         android:id="@+id/homeListview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:visibility="gone"
         android:layout_below="@+id/viewpager_sports"/>
 
@@ -49,7 +66,16 @@
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_below="@+id/homeListview"
             />
-
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout_viewpager_Investigations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/viewpager_Investigations"
+            app:tabBackground="@drawable/tab_selector"
+            android:layout_marginTop="-50dp"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            />
 
 
 
@@ -60,7 +86,16 @@
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_below="@id/viewpager_Investigations"
             />
-
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout_viewpager_fourth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/viewpager_fourth"
+            app:tabBackground="@drawable/tab_selector"
+            android:layout_marginTop="-50dp"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            />
 
 
 
@@ -72,7 +107,16 @@
             android:layout_below="@id/viewpager_fourth"
             />
 
-
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout_viewpager_fifth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/viewpager_fifth"
+            app:tabBackground="@drawable/tab_selector"
+            android:layout_marginTop="-50dp"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            />
 
 
         <android.support.v4.view.ViewPager
@@ -84,7 +128,16 @@
             />
 
 
-
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout_viewpager_sixith"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/viewpager_sixith"
+            app:tabBackground="@drawable/tab_selector"
+            android:layout_marginTop="-50dp"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager_seventh"
@@ -94,7 +147,16 @@
             android:layout_below="@id/viewpager_sixith"
             />
 
-
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout_viewpager_seventh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/viewpager_seventh"
+            app:tabBackground="@drawable/tab_selector"
+            android:layout_marginTop="-50dp"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            />
 
     </RelativeLayout>
 </ScrollView>

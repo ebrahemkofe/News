@@ -32,30 +32,39 @@
         android:fitsSystemWindows="true"
 
         >
-        <RelativeLayout
+        <LinearLayout
             android:orientation="vertical"
+            android:background="#C6FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
-            <ListView
-                android:background="#C6FFFFFF"
-                android:paddingTop="@dimen/_170sdp"
-
-                android:id="@+id/items_listView_for_navigation"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/calibri"
-                android:layout_weight="3"
-
-                />
 
             <include
                 android:id="@+id/in"
                 layout="@layout/nav_header_navigation_in_our_app"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_200sdp" />
-        </RelativeLayout>
+
+            <ListView
+                android:id="@+id/items_listView_for_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/calibri"
+                />
+
+            <TextView
+                android:id="@+id/MediaClick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="المعرض"
+                android:drawableLeft="@drawable/arrow"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"
+                android:padding="@dimen/_8sdp"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
 
 
 

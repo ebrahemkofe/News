@@ -4,20 +4,15 @@ package com.colleg.project.news.Fragments;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.colleg.project.news.Activitys.Details;
 import com.colleg.project.news.Adapters.AdapterListViewHome;
 import com.colleg.project.news.Adapters.CustomPagerAdapterAcc;
@@ -28,14 +23,12 @@ import com.colleg.project.news.Adapters.CustomPagerAdapterfourth;
 import com.colleg.project.news.Adapters.CustomPagerAdapterseventh;
 import com.colleg.project.news.Adapters.CustomPagerAdaptersixith;
 import com.colleg.project.news.Models.GsonForHome;
+import com.colleg.project.news.Models.ModelListViewHome;
 import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
-import com.colleg.project.news.Models.ModelListViewHome;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +69,8 @@ public class HomeFragment extends Fragment {
 
 
          viewPagerAcc = v.findViewById(R.id.viewpager_accidents);
-
+        TabLayout tabLayoutacc = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_accidents);
+        tabLayoutacc.setupWithViewPager(viewPagerAcc, true);
         Get_Data();
 
 
@@ -84,6 +78,8 @@ public class HomeFragment extends Fragment {
 
 
           viewPagerTran = v.findViewById(R.id.viewpager_Investigations);
+        TabLayout tabLayoutTran = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_Investigations);
+        tabLayoutTran.setupWithViewPager(viewPagerTran, true);
 
 
 //......................  View pager Sports ........................................................
@@ -92,10 +88,29 @@ public class HomeFragment extends Fragment {
 
 
           viewPagerSports = v.findViewById(R.id.viewpager_sports);
+        TabLayout tabLayoutsport = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_sports);
+        tabLayoutsport.setupWithViewPager(viewPagerSports, true);
+
+
           viewPagerfourth= v.findViewById(R.id.viewpager_fourth);
+        TabLayout tabLayout4 = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_fourth);
+        tabLayout4.setupWithViewPager(viewPagerfourth, true);
+
+
           viewPagerfifth = v.findViewById(R.id.viewpager_fifth);
+        TabLayout tabLayout5 = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_fifth);
+        tabLayout5.setupWithViewPager(viewPagerfifth, true);
+
+
           viewPagersexith = v.findViewById(R.id.viewpager_sixith);
+        TabLayout tabLayout6 = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_sixith);
+        tabLayout6.setupWithViewPager(viewPagersexith, true);
+
+
           viewPagerseventh = v.findViewById(R.id.viewpager_seventh);
+        TabLayout tabLayout7 = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_seventh);
+        tabLayout7.setupWithViewPager(viewPagerseventh, true);
+
 
 
 

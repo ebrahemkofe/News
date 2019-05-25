@@ -7,4 +7,5 @@
     <color name="white">#ffffff</color>
     <color name="textColorOfLogin">#616161</color>
     <color name="Blue">#0310AA</color>
+    <color name="BlueClicked">#4353A7</color>
 </resources>
