@@ -56,6 +56,16 @@ public class MyUtils {
         return  id.getUsername();
     }
 
+    public static String userMail(){
+
+        Gson gson = new Gson();
+        ModelOfRejestraion.UserInfoBean mail = gson.fromJson( mySharedPreference.getUserOBJ() , ModelOfRejestraion.UserInfoBean.class);
+
+
+
+     return mail.getEmail();
+    }
+
     public static Boolean isConnected(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 

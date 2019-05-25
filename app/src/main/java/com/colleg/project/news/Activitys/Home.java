@@ -4,10 +4,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,8 +21,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,8 +38,14 @@ import com.colleg.project.news.Fragments.Favourite;
 import com.colleg.project.news.Fragments.HomeFragment;
 import com.colleg.project.news.InternalStorage.mySharedPreference;
 import com.colleg.project.news.Models.GsonForHome;
+import com.colleg.project.news.Models.ModelOfSurvey;
 import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
+import com.google.android.gms.tasks.OnCanceledListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -53,6 +64,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private Button search ;
     private ImageView HomeIcon , FavIcon , AccountIcon;
      TextView userNameOfNav ;
+
+     private DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
     public static int categoryId ;
     private   View headerView ;
     private NavigationView navigationView ;
@@ -63,6 +76,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         setContentView(R.layout.activity_navigation_in_our_app);
 
         mySharedPreference.init(this);
+        dilogOfSurvey();
          definitions();
 
          navFunction();
@@ -195,7 +209,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         fragment = new Favourite();
         transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
+        transaction.replace(R.id.FragmentLayout, fragment, "favourite");
         transaction.commitNow();
 
         HomeIcon.setImageResource(R.drawable.home_black);
@@ -288,23 +302,113 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     }
 
+    private void dilogOfSurvey(){
+
+
+        final ModelOfSurvey model = new ModelOfSurvey();
+
+
+
+          LayoutInflater layoutInflater = LayoutInflater.from(this);
+          View view = layoutInflater.inflate(R.layout.customdialoge, null);
+
+          final AlertDialog alertD = new AlertDialog.Builder(this).create();
+
+        final LinearLayout parent = view.findViewById(R.id.parentOfDialog);
+        final ProgressBar progressBar = view.findViewById(R.id.progress_bar_dialog);
+
+          Button submit = view.findViewById(R.id.submit_btn);
+          final EditText editText = view.findViewById(R.id.editTextOfAnswer);
+
+
+
+
+              submit.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+                      
+                      parent.setVisibility(View.GONE);
+                      progressBar.setVisibility(View.VISIBLE);
+
+                      if(editText.getText().toString().equals("")){
+                          editText.setError("Enter your answer");
+
+
+
+                      }else {
+
+                          model.setUserName(MyUtils.userName());
+                          model.setUserEmail(MyUtils.userMail());
+                          model.setAnswer(editText.getText().toString().trim());
+
+                          ref.child("survey").child(MyUtils.userId() + "").setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
+                              @Override
+                              public void onComplete(@NonNull Task<Void> task) {
+                                  alertD.cancel();
+
+                              }
+                          }).addOnCanceledListener(new OnCanceledListener() {
+                              @Override
+                              public void onCanceled() {
+                                  parent.setVisibility(View.VISIBLE);
+                                  progressBar.setVisibility(View.GONE);
+
+                                  Toast.makeText(Home.this, "Connection field", Toast.LENGTH_SHORT).show();
+                              }
+                          });
+                          
+                      }
+
+                  }
+
+              });
+
+          alertD.setCancelable(true);
+          alertD.setView(view);
+          alertD.show();
+
+
+
+
+
+    }
+
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
 
-            if (backPressedTime + 2000 > System.currentTimeMillis()) {
-                finishAffinity();
-            } else {
-                Toast.makeText(this, "press again to exit ", Toast.LENGTH_SHORT).show();
-            }
+       if(fragment.getTag().equals("favourite")){
 
-            backPressedTime = System.currentTimeMillis();
-        }
+           fragment = new HomeFragment();
+           transaction = getSupportFragmentManager().beginTransaction();
+           transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
+           transaction.commitNow();
+
+           HomeIcon.setImageResource(R.drawable.home_blue);
+           FavIcon.setImageResource(R.drawable.love_black);
+
+           home= false ;
+           favourite =true  ;
 
 
+
+
+       }else {
+
+           DrawerLayout drawer = findViewById(R.id.drawer_layout);
+           if (drawer.isDrawerOpen(GravityCompat.START)) {
+               drawer.closeDrawer(GravityCompat.START);
+           } else {
+
+               if (backPressedTime + 2000 > System.currentTimeMillis()) {
+                   finishAffinity();
+               } else {
+                   Toast.makeText(this, "press again to exit ", Toast.LENGTH_SHORT).show();
+               }
+
+               backPressedTime = System.currentTimeMillis();
+           }
+
+       }
     }
 
 

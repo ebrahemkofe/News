@@ -71,7 +71,7 @@ public class Favourite extends Fragment {
                 MyUtils.PostID  = String.valueOf(list.get(position).getPost_id());
                 Intent i = new Intent(getActivity(),Details.class);
                 startActivity(i);
-                getActivity().finish();
+
             }
         });
 

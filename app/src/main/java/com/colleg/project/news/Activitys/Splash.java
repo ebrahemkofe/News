@@ -49,19 +49,27 @@ public class Splash extends AppCompatActivity {
     }
 
     private void checkLoggedInUser() {
+        if(!mySharedPreference.getUserAdmin().equals("")){
 
 
-        if (mySharedPreference.getUserOBJ().equals("")) {
-            //user obj not available
-            startActivity(new Intent(Splash.this, Login.class));
+            startActivity(new Intent(Splash.this, Admin.class));
             finish();
-        } else {
-            //user obj available
-            startActivity(new Intent(Splash.this, Home.class));
-            finish();
+
+
+        }else {
+
+
+            if (mySharedPreference.getUserOBJ().equals("")) {
+                //user obj not available
+                startActivity(new Intent(Splash.this, Login.class));
+                finish();
+            } else {
+                //user obj available
+                startActivity(new Intent(Splash.this, Home.class));
+                finish();
+            }
+
         }
-
-
     }
     }
 
