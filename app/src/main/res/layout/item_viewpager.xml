@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_220sdp">
-
+    android:layout_height="@dimen/_215sdp"
+    >
    <ImageView
        android:id="@+id/viewpagerpic"
        android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/viewpagerpic"
         android:orientation="vertical"
-        android:background="#0D195A"
+        android:background="@color/Blue"
         >
 
     <TextView
@@ -43,7 +43,6 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_8sdp"
         android:layout_marginRight="@dimen/_8sdp"
-        android:layout_marginBottom="20dp"
         android:fontFamily="@font/calibri"
         android:maxLines="1"
         android:ellipsize="end"
