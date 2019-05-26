@@ -27,7 +27,7 @@
             android:gravity="right"
             android:layout_margin="@dimen/_8sdp"
             android:paddingTop="@dimen/_6sdp"
-            android:fontFamily="@font/calibri"
+            android:fontFamily="@font/amiri_regular"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="@dimen/_12sdp" />
@@ -38,7 +38,7 @@
             android:gravity="right"
             android:layout_height="@dimen/_40sdp"
             android:layout_margin="@dimen/_5sdp"
-            android:fontFamily="@font/calibri"
+            android:fontFamily="@font/amiri_regular"
             android:textColor="@color/white"
             android:textSize="@dimen/_10sdp" />
 

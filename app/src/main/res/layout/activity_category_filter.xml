@@ -11,7 +11,7 @@
         android:id="@+id/header"
         android:padding="@dimen/_8sdp"
         android:textSize="@dimen/_14sdp"
-
+        android:fontFamily="@font/amiri_regular"
         android:textColor="@color/black"
         android:gravity="center"
         android:layout_width="match_parent"

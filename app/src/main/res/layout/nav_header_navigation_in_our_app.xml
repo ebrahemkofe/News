@@ -11,6 +11,7 @@
     android:gravity="start"
     android:layout_gravity="start"
     android:orientation="horizontal"
+    android:paddingTop="@dimen/_5sdp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
 
@@ -33,7 +34,7 @@
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_25sdp"
         android:layout_toRightOf="@+id/profile_image"
-        android:fontFamily="@font/calibri"
+        android:fontFamily="@font/amiri_regular"
         android:gravity="end"
         android:text="kkkkkkkk"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"

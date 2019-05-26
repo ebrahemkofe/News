@@ -80,10 +80,8 @@
                 android:background="#192775"
                 android:gravity="center_vertical"
                 android:paddingRight="@dimen/_5sdp"
-
-                android:fontFamily="@font/calibri_bold"
+                android:fontFamily="@font/amiri_bold"
                 android:textColor="@color/white"
-
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
@@ -93,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:fontFamily="@font/calibri"
+                android:fontFamily="@font/amiri_regular"
                 android:gravity="right"
                 android:textColor="#012F53"
                 android:textStyle="bold"
@@ -104,7 +102,7 @@
                 android:id="@+id/dis_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/calibri"
+                android:fontFamily="@font/amiri_regular"
                 android:layout_margin="@dimen/_5sdp"
                 android:gravity="right"
                 android:textColor="@color/Blue"
@@ -116,7 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:fontFamily="@font/calibri"
+                android:fontFamily="@font/amiri_regular"
                 android:layout_margin="@dimen/_5sdp"
                 android:textColor="@color/Blue"
                 android:textSize="@dimen/_11sdp" />

@@ -26,7 +26,7 @@
         android:layout_toLeftOf="@id/image_listview"
         android:layout_margin="@dimen/_5sdp"
         android:padding="@dimen/_10sdp"
-        android:fontFamily="@font/calibri"
+        android:fontFamily="@font/amiri_regular"
         android:text="@string/discrbtian"
         android:textSize="@dimen/_12sdp"
         android:textColor="@color/black"
@@ -41,7 +41,7 @@
         android:layout_alignParentLeft="true"
         android:layout_margin="@dimen/_5sdp"
         android:text="2019 jun 7 09:12"
-        android:fontFamily="@font/calibri"
+        android:fontFamily="@font/amiri_regular"
         android:textColor="#6A000000"
         android:textSize="@dimen/_10sdp"
         />

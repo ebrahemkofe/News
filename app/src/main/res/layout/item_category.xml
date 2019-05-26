@@ -31,7 +31,7 @@
         android:paddingTop="@dimen/_6sdp"
         android:maxLines="2"
         android:ellipsize="end"
-        android:fontFamily="@font/calibri"
+        android:fontFamily="@font/amiri_regular"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="@dimen/_12sdp" />
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_5sdp"
             android:ellipsize="end"
-            android:fontFamily="@font/calibri"
+            android:fontFamily="@font/amiri_regular"
             android:gravity="right"
             android:maxLines="1"
             android:textColor="@color/white"

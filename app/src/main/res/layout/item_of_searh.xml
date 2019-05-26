@@ -23,6 +23,7 @@
         android:layout_gravity="center"
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/amiri_regular"
         android:layout_height="wrap_content"
         android:textSize="@dimen/_11sdp"
         android:textColor="@color/black"

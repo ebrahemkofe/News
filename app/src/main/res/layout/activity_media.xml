@@ -19,6 +19,7 @@
         android:text="الفيديوهات"
         android:textColor="@color/white"
         android:background="#4353A7"
+        android:fontFamily="@font/amiri_regular"
         android:textSize="@dimen/_9sdp"
         android:textStyle="bold"
         />
@@ -29,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="المعرض"
+        android:fontFamily="@font/amiri_regular"
         android:textColor="@color/white"
         android:background="@color/Blue"
         android:textSize="@dimen/_9sdp"

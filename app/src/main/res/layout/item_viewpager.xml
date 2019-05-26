@@ -29,7 +29,7 @@
         android:paddingTop="@dimen/_7sdp"
         android:maxLines="2"
         android:ellipsize="end"
-        android:fontFamily="@font/calibri"
+        android:fontFamily="@font/amiri_regular"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="@dimen/_12sdp" />
@@ -38,12 +38,11 @@
         android:id="@+id/dis_viewpager"
         android:layout_width="match_parent"
         android:gravity="right"
-
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_8sdp"
         android:layout_marginRight="@dimen/_8sdp"
-        android:fontFamily="@font/calibri"
+        android:fontFamily="@font/amiri_regular"
         android:maxLines="1"
         android:ellipsize="end"
         android:textColor="@color/white"
@@ -64,7 +63,7 @@
         android:gravity="center"
         android:padding="@dimen/_2sdp"
         android:textColor="@color/black"
-        android:fontFamily="@font/calibri"
+        android:fontFamily="@font/amiri_regular"
         android:background="@drawable/textview_slider"
         android:textSize="@dimen/_11sdp"
         />

@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
+            android:fontFamily="@font/amiri_regular"
             android:textSize="@dimen/_13sdp"
             android:text="Name :"
 
@@ -28,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
              android:layout_marginLeft="@dimen/_5sdp"
+            android:fontFamily="@font/amiri_regular"
             android:textSize="@dimen/_12sdp"
             android:id="@+id/userName1"
 
@@ -50,6 +52,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="@dimen/_13sdp"
+            android:fontFamily="@font/amiri_regular"
             android:text="e-mail :"
 
 
@@ -58,6 +61,7 @@
             android:layout_toRightOf="@+id/emails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/amiri_regular"
             android:layout_marginLeft="@dimen/_5sdp"
             android:textSize="@dimen/_12sdp"
             android:id="@+id/mail1"
@@ -80,6 +84,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="@dimen/_13sdp"
+            android:fontFamily="@font/amiri_regular"
             android:text="Answer :"
 
 
@@ -88,6 +93,7 @@
             android:layout_toRightOf="@id/an"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/amiri_regular"
             android:layout_marginLeft="@dimen/_5sdp"
             android:textSize="@dimen/_12sdp"
             android:id="@+id/answer"

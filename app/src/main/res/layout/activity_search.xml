@@ -33,12 +33,9 @@
             android:textColorHint="@color/white"
             android:paddingTop="@dimen/_5sdp"
             android:paddingLeft="@dimen/_7sdp"
-
             android:textColor="@color/white"
             android:paddingBottom="@dimen/_5sdp"
-
             android:id="@+id/searchEditText"
-
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />

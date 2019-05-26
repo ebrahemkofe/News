@@ -14,11 +14,13 @@
         android:textColor="@color/black"
         android:textSize="@dimen/_13sdp"
         android:padding="@dimen/_8sdp"
+        android:fontFamily="@font/amiri_regular"
         android:textStyle="bold"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:fontFamily="@font/amiri_regular"
         android:background="#B1B1B1"
         />
 
