@@ -60,23 +60,20 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
     private   Fragment fragment;
     private   FragmentTransaction transaction;
     private   ListView listView  ;
-    private   long backPressedTime  ;
     private   List<GsonForHome.NewsBean> listGson =new ArrayList<>();
     private   String [] arrayOfnav ;
-    private    Button search ;
-    private   ImageView HomeIcon , FavIcon , AccountIcon;
-    private   TextView userNameOfNav ,mediaclick ;
+    private   Button search ;
+    private   ImageView HomeIcon , FavIcon , GallaryIcon;
+    private   TextView userNameOfNav ;
+    private   TextView goAbout ;
+    private   DatabaseReference ref  = FirebaseDatabase.getInstance().getReference() ;
     public static int categoryId ;
-    private   View headerView ;
-    private NavigationView navigationView ;
-    private boolean home = false , logout = true , favourite = true ;
-    private CircleImageView shareButton;
-    private TextView goAbout ;
-    private DatabaseReference ref  = FirebaseDatabase.getInstance().getReference() ;
-
+    private   boolean home = false , gallary = true , favourite = true ;
+    private   long backPressedTime  ;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,23 +95,17 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     }
 
-
-
     private void definitions (){
         goAbout = findViewById(R.id.goAboutUs);
         listView  =findViewById(R.id.items_listView_for_navigation);
         search = findViewById(R.id.searchBtn);
         HomeIcon=findViewById(R.id.home_icon_id);
         FavIcon=findViewById(R.id.favert_icon_id);
-        AccountIcon=findViewById(R.id.account_icon_id);
-
-        mediaclick=findViewById(R.id.MediaClick);
-        navigationView = findViewById(R.id.nav_view);
+        GallaryIcon=findViewById(R.id.Media_icon_id);
         userNameOfNav = findViewById(R.id.profile_name1);
 
-
-
     }
+
     private void onClickOnItemsForNavList(){
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -138,17 +129,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         });
 
 
-
-
-
-        mediaclick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent go = new Intent(Home.this, MediaActivity.class);
-                startActivity(go);
-            }
-        });
-
         goAbout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,9 +148,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
         transaction.commitNow();
 
+        GallaryIcon.setImageResource(R.drawable.gallary_black);
+
     }
-
-
 
     private void Get_Data() {
 
@@ -204,8 +184,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 });
     }
 
-
-
     private void dataForNav(){
         arrayOfnav = new String[listGson.size()];
 
@@ -228,11 +206,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     }
 
-
-
-
-
-
     public void favourite(View view) {
 
         if(favourite){
@@ -247,9 +220,21 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         HomeIcon.setImageResource(R.drawable.home_black);
         FavIcon.setImageResource(R.drawable.love_blue);
+        GallaryIcon.setImageResource(R.drawable.gallary_black);
 
         home = true ;
+        gallary=true;
         favourite = false;
+
+        }
+    }
+
+    public void Gallary(View view) {
+
+        if(gallary){
+
+        Intent i =new Intent(Home.this,MediaActivity.class);
+        startActivity(i);
 
         }
     }
@@ -303,9 +288,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         HomeIcon.setImageResource(R.drawable.home_blue);
         FavIcon.setImageResource(R.drawable.love_black);
+        GallaryIcon.setImageResource(R.drawable.gallary_black);
 
         home= false ;
         favourite =true  ;
+        gallary=true;
 
         }
 
@@ -398,6 +385,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         listView.requestLayout();
 
     }
+
     private void showDialogOfSurvy(){
 
         LayoutInflater layoutInflater = LayoutInflater.from(this);

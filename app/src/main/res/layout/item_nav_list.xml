@@ -13,7 +13,8 @@
         android:drawableLeft="@drawable/arrow"
         android:textColor="@color/black"
         android:textSize="@dimen/_13sdp"
-
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
         android:fontFamily="@font/amiri_regular"
         android:textStyle="bold"
         />

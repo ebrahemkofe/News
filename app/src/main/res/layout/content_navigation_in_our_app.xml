@@ -65,6 +65,14 @@
 
                 />
 
+        <ImageView
+            android:id="@+id/Media_icon_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="Gallary"
+            android:src="@drawable/gallary_black" />
+
 
 
         <ImageView

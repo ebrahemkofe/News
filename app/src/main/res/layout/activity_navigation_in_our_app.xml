@@ -60,18 +60,7 @@
                 android:fontFamily="@font/calibri"
                 />
 
-            <TextView
-                android:id="@+id/MediaClick"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="المعرض"
-                android:drawableLeft="@drawable/arrow"
-                android:textColor="@color/black"
-                android:fontFamily="@font/amiri_regular"
-                android:textSize="@dimen/_13sdp"
 
-                android:textStyle="bold"
-                />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -82,7 +71,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_13sdp"
-
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_5sdp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/amiri_regular"
                 android:textStyle="bold"
