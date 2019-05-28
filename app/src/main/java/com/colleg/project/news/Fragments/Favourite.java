@@ -69,6 +69,7 @@ public class Favourite extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MyUtils.PostID  = String.valueOf(list.get(position).getPost_id());
+                MyUtils.CategoryTittle = list.get(position).getCategoty_name();
                 Intent i = new Intent(getActivity(),Details.class);
                 startActivity(i);
 
@@ -111,6 +112,7 @@ public class Favourite extends Fragment {
                         ModelOfAllFavourite data = gson.fromJson(response.toString(), ModelOfAllFavourite.class);
 
                         list = data.getFavorites();
+
 
 
                         listView.setAdapter(new AdapterListViewFavourite(getContext(),R.layout.item_listview_favourite,list));

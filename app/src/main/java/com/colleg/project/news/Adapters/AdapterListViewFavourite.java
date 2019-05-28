@@ -62,7 +62,6 @@ public class AdapterListViewFavourite extends ArrayAdapter {
 
         ImageView imageView = view.findViewById(R.id.listviewFavPic);
         TextView textViewtitle = view.findViewById(R.id.title_listview);
-        TextView textViewdis = view.findViewById(R.id.dis_listview);
         TextView textViewsubject = view.findViewById(R.id.subject_list_fav);
         ImageView buttonDelete = view.findViewById(R.id.unsave_in_listview);
 
@@ -70,7 +69,7 @@ public class AdapterListViewFavourite extends ArrayAdapter {
 
         Glide.with(context).load(list.get(position).getPost_img()).into(imageView);
         textViewsubject.setText(list.get(position).getCategoty_name());
-        textViewdis.setText(list.get(position).getDescription());
+
         textViewtitle.setText(list.get(position).getPost_title());
 
 

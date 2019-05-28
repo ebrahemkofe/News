@@ -4,10 +4,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,10 +19,16 @@ import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,8 +41,14 @@ import com.colleg.project.news.Fragments.Favourite;
 import com.colleg.project.news.Fragments.HomeFragment;
 import com.colleg.project.news.InternalStorage.mySharedPreference;
 import com.colleg.project.news.Models.GsonForHome;
+import com.colleg.project.news.Models.ModelOfSurvey;
 import com.colleg.project.news.MyUtils.MyUtils;
 import com.colleg.project.news.R;
+import com.google.android.gms.tasks.OnCanceledListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -52,20 +66,24 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private   long backPressedTime  ;
     private   List<GsonForHome.NewsBean> listGson =new ArrayList<>();
     private   String [] arrayOfnav ;
-    private Button search ;
-    private ImageView HomeIcon , FavIcon , AccountIcon;
-     TextView userNameOfNav ,mediaclick ;
+    private    Button search ;
+    private   ImageView HomeIcon , FavIcon , AccountIcon;
+    private   TextView userNameOfNav ,mediaclick ;
     public static int categoryId ;
     private   View headerView ;
     private NavigationView navigationView ;
     private boolean home = false , logout = true , favourite = true ;
     private CircleImageView shareButton;
+    private TextView goAbout ;
+    private DatabaseReference ref  = FirebaseDatabase.getInstance().getReference() ;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_in_our_app);
 
         mySharedPreference.init(this);
+          showDialogOfSurvy();
          definitions();
 
          navFunction();
@@ -73,25 +91,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
          firstFragmentRun();
          onClickOnItemsForNavList();
 
-        shareButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
-                sendIntent.setType("text/plain");
-                startActivity(sendIntent);
-            }
-        });
 
-
-        mediaclick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent go = new Intent(Home.this, MediaActivity.class);
-                startActivity(go);
-            }
-        });
 
 
 
@@ -101,12 +101,13 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
 
     private void definitions (){
+        goAbout = findViewById(R.id.goAboutUs);
         listView  =findViewById(R.id.items_listView_for_navigation);
         search = findViewById(R.id.searchBtn);
         HomeIcon=findViewById(R.id.home_icon_id);
         FavIcon=findViewById(R.id.favert_icon_id);
         AccountIcon=findViewById(R.id.account_icon_id);
-        shareButton=findViewById(R.id.ShareButton);
+
         mediaclick=findViewById(R.id.MediaClick);
         navigationView = findViewById(R.id.nav_view);
         userNameOfNav = findViewById(R.id.profile_name1);
@@ -138,6 +139,27 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
 
 
+
+
+        mediaclick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent go = new Intent(Home.this, MediaActivity.class);
+                startActivity(go);
+            }
+        });
+
+        goAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent go = new Intent(Home.this, AboutUs.class);
+                startActivity(go);
+            }
+        });
+
+
+
+
     }
 
     private void firstFragmentRun(){
@@ -164,6 +186,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                         GsonForHome array = gson.fromJson(response.toString(), GsonForHome.class);
 
                         listGson = array.getNews();
+
+
 
                         dataForNav();
 
@@ -192,9 +216,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             arrayOfnav [x]  = listGson.get(x).getCategory_title() ;
         }
 
+
         AdapterOfNavList arrayAdapter  = new AdapterOfNavList(this ,R.layout.item_nav_list,arrayOfnav);
 
         listView.setAdapter(arrayAdapter);
+        setListViewHeightBasedOnChildren(listView);
 
         userNameOfNav.setText(MyUtils.userName());
 
@@ -216,7 +242,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         fragment = new Favourite();
         transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
+        transaction.replace(R.id.FragmentLayout, fragment, "favourite");
         transaction.commitNow();
 
         HomeIcon.setImageResource(R.drawable.home_black);
@@ -311,23 +337,117 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
 
-            if (backPressedTime + 2000 > System.currentTimeMillis()) {
-                finishAffinity();
+        if (!fragment.getTag().equals("Home_Fragment")) {
+            fragment = new HomeFragment();
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.FragmentLayout, fragment, "Home_Fragment");
+            transaction.commitNow();
+            HomeIcon.setImageResource(R.drawable.home_blue);
+            FavIcon.setImageResource(R.drawable.love_black);
+            home= false ;
+            favourite =true  ;
+        }else {
+
+
+            DrawerLayout drawer = findViewById(R.id.drawer_layout);
+            if (drawer.isDrawerOpen(GravityCompat.START)) {
+                drawer.closeDrawer(GravityCompat.START);
             } else {
-                Toast.makeText(this, "press again to exit ", Toast.LENGTH_SHORT).show();
+
+                if (backPressedTime + 2000 > System.currentTimeMillis()) {
+                    finishAffinity();
+                } else {
+                    Toast.makeText(this, "press again to exit ", Toast.LENGTH_SHORT).show();
+                }
+
+                backPressedTime = System.currentTimeMillis();
             }
 
-            backPressedTime = System.currentTimeMillis();
         }
-
-
     }
 
+    public static void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) return;
+
+
+
+        View.MeasureSpec m = new View.MeasureSpec();
+
+
+        int desiredWidth = m.makeMeasureSpec(listView.getWidth(),
+                View.MeasureSpec.EXACTLY);
+        int totalHeight = 0;
+        View view = null;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            view = listAdapter.getView(i, view, listView);
+            if (i == 0) view.setLayoutParams(new
+                    ViewGroup.LayoutParams(desiredWidth,
+                    ViewGroup.LayoutParams.WRAP_CONTENT));
+
+            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+            totalHeight += view.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+
+        listView.setLayoutParams(params);
+        listView.requestLayout();
+
+    }
+    private void showDialogOfSurvy(){
+
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+
+        View view = layoutInflater.inflate(R.layout.customdialoge, null);
+
+        final AlertDialog alertD = new AlertDialog.Builder(this).create();
+
+        final EditText editText = view.findViewById(R.id.editTextOfAnswer);
+        final LinearLayout parent = view.findViewById(R.id.parentOfDialog);
+        Button submit = view.findViewById(R.id.submit_btn);
+        final ProgressBar progressBar = view.findViewById(R.id.progress_bar_dialog);
+        
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+                parent.setVisibility(View.GONE);
+
+                ModelOfSurvey model = new ModelOfSurvey();
+                model.setAnswer(editText.getText().toString().trim());
+                model.setUserEmail(MyUtils.userMail());
+                model.setUserName(MyUtils.userName());
+
+                ref.child("survey").child(String.valueOf(MyUtils.userId())).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        alertD.cancel();
+                        
+                    }
+                }).addOnCanceledListener(new OnCanceledListener() {
+                    @Override
+                    public void onCanceled() {
+                        progressBar.setVisibility(View.GONE);
+                        parent.setVisibility(View.VISIBLE);
+                        Toast.makeText(Home.this, "Connection Error", Toast.LENGTH_SHORT).show();
+                        
+                    }
+                });
+
+            }
+        });
+
+        alertD.setCancelable(true);
+
+        alertD.setView(view);
+
+        alertD.show();
+    }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

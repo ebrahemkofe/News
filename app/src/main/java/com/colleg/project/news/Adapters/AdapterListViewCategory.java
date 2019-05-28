@@ -40,12 +40,12 @@ public class AdapterListViewCategory extends ArrayAdapter {
 
             convertView = layoutInflater.inflate(R.layout.item_category, parent,false);
 
-            TextView textdisc = convertView.findViewById(R.id.dis_category);
+
             TextView textTitle = convertView.findViewById(R.id.title_category);
             ImageView images = convertView.findViewById(R.id.categorepic);
 
 
-            textdisc.setText(mlist.get(position).getDescription());
+
             textTitle.setText(mlist.get(position).getPost_title());
             Glide.with(mContext).load(mlist.get(position).getPost_img()).into(images);
 

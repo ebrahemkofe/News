@@ -61,14 +61,14 @@ public class CustomPagerAdapterSports extends PagerAdapter {
 
         ImageView image = view.findViewById(R.id.viewpagerpic);
         TextView titl = view.findViewById(R.id.title_viewpager);
-        TextView disc = view.findViewById(R.id.dis_viewpager);
+
 
 
 
 
         Glide.with(mContext).load(list2.get(position).getPost_img()).into(image);
         titl.setText(list2.get(position).getPost_title());
-        disc.setText(list2.get(position).getDescription());
+
         TextView name = view.findViewById(R.id.title_home);
         name.setText(list.get(1).getCategory_title());
         view.setOnClickListener(new View.OnClickListener() {

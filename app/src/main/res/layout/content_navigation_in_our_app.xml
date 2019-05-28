@@ -11,10 +11,16 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Activitys.Home"
     tools:showIn="@layout/app_bar_navigation_in_our_app">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 <FrameLayout
     android:id="@+id/FragmentLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+
     >
 
 </FrameLayout>
@@ -23,7 +29,8 @@
 
         android:id="@+id/Home_BottomNavi"
         android:layout_width="match_parent"
-        android:paddingBottom="@dimen/_7sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:paddingTop="@dimen/_5sdp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
@@ -77,17 +84,8 @@
 
     </LinearLayout>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/ShareButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="centerCrop"
-        android:layout_above="@id/Home_BottomNavi"
-        android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/_20sdp"
-        android:src="@drawable/share_button"
-        />
 
+    </LinearLayout>
 
 
 </RelativeLayout>

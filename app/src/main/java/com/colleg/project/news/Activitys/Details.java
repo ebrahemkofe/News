@@ -7,6 +7,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -34,6 +35,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Details extends AppCompatActivity {
 
     ImageView image;
@@ -43,6 +46,7 @@ public class Details extends AppCompatActivity {
     boolean c=false ;
 
     ScrollView parent  ;
+    CircleImageView shareButton ;
 
     ProgressBar progressBar ;
 
@@ -58,12 +62,21 @@ public class Details extends AppCompatActivity {
         tittle =findViewById(R.id.tittle);
         parent = findViewById(R.id.parent);
         progressBar = findViewById(R.id.progress_bar);
+        shareButton=findViewById(R.id.ShareButton);
 
 
 
 
-
-
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+            }
+        });
 
         save = findViewById(R.id.save_Btn);
         save.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +110,7 @@ public class Details extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         parent.setVisibility(View.VISIBLE);
                         progressBar.setVisibility(View.GONE);
+                        shareButton.setVisibility(View.VISIBLE);
 
                         Gson gson = new GsonBuilder().setPrettyPrinting().create();
                         GsonForDetails array = gson.fromJson(response.toString(), GsonForDetails.class);

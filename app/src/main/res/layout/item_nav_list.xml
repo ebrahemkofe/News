@@ -13,7 +13,7 @@
         android:drawableLeft="@drawable/arrow"
         android:textColor="@color/black"
         android:textSize="@dimen/_13sdp"
-        android:padding="@dimen/_8sdp"
+
         android:fontFamily="@font/amiri_regular"
         android:textStyle="bold"
         />

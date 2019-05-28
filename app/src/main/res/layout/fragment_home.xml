@@ -16,7 +16,7 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager_accidents"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_215sdp"
+        android:layout_height="@dimen/_210sdp"
         android:layout_marginBottom="@dimen/_5sdp" />
         <android.support.design.widget.TabLayout
             android:id="@+id/tab_layout_viewpager_accidents"
@@ -33,10 +33,10 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager_sports"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_215sdp"
+            android:layout_height="@dimen/_210sdp"
             android:layout_below="@+id/viewpager_accidents"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="11dp"
+
             android:layout_marginBottom="@dimen/_5sdp" />
 
         <android.support.design.widget.TabLayout
@@ -62,7 +62,7 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager_Investigations"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_215sdp"
+            android:layout_height="@dimen/_210sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_below="@+id/homeListview"
             />
@@ -82,7 +82,7 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager_fourth"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_215sdp"
+            android:layout_height="@dimen/_210sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_below="@id/viewpager_Investigations"
             />
@@ -102,7 +102,7 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager_fifth"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_215sdp"
+            android:layout_height="@dimen/_210sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_below="@id/viewpager_fourth"
             />
@@ -122,7 +122,7 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager_sixith"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_215sdp"
+            android:layout_height="@dimen/_210sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_below="@id/viewpager_fifth"
             />
@@ -142,7 +142,7 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager_seventh"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_215sdp"
+            android:layout_height="@dimen/_210sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_below="@id/viewpager_sixith"
             />

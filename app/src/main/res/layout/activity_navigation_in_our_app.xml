@@ -24,6 +24,7 @@
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:background="@drawable/login_background"
         app:itemTextColor="#000"
         app:elevation="@dimen/_15sdp"
@@ -32,9 +33,15 @@
         android:fitsSystemWindows="true"
 
         >
+        <ScrollView
+            android:background="#C6FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
         <LinearLayout
             android:orientation="vertical"
-            android:background="#C6FFFFFF"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -46,6 +53,7 @@
                 android:layout_height="@dimen/_200sdp" />
 
             <ListView
+                android:layout_marginTop="-40dp"
                 android:id="@+id/items_listView_for_navigation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,12 +69,29 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/amiri_regular"
                 android:textSize="@dimen/_13sdp"
-                android:padding="@dimen/_8sdp"
+
                 android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#AFACAC"
+                />
+            <TextView
+               android:id="@+id/goAboutUs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sdp"
+
+                android:textColor="@color/black"
+                android:fontFamily="@font/amiri_regular"
+                android:textStyle="bold"
+                android:drawableLeft="@drawable/arrow"
+                android:text="عن المنصة"
                 />
 
         </LinearLayout>
-
+        </ScrollView>
 
 
 

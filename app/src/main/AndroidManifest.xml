@@ -15,10 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Activitys.MediaActivity"></activity>
+        <activity android:name=".Activitys.AboutUs"></activity>
+        <activity android:name=".Activitys.MediaActivity" />
         <activity
             android:name=".Activitys.Search"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
