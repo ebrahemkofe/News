@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import com.colleg.project.news.Activitys.Details;
 import com.colleg.project.news.Adapters.AdapterListViewHome;
 import com.colleg.project.news.Adapters.CustomPagerAdapterAcc;
@@ -68,6 +70,9 @@ public class HomeFragment extends Fragment {
         viewPagerAcc = v.findViewById(R.id.viewpager_accidents);
         TabLayout tabLayoutacc = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_accidents);
         tabLayoutacc.setupWithViewPager(viewPagerAcc, true);
+
+
+
 
         viewPagerTran = v.findViewById(R.id.viewpager_Investigations);
         TabLayout tabLayoutTran = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_Investigations);

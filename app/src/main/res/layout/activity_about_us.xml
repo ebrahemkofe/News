@@ -29,6 +29,7 @@
         android:layout_below="@+id/header11"
         android:textColor="@color/black"
         android:id="@+id/des"
+        android:textSize="@dimen/_13sdp"
         android:layout_marginTop="@dimen/_20sdp"
         />
 
@@ -43,37 +44,39 @@
 
         <ImageView
 
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
               android:layout_margin="@dimen/_5sdp"
             android:onClick="openTwitter"
-            android:src="@drawable/twitter" />
-
-        <ImageView
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:onClick="openfacebook"
-            android:src="@drawable/facebook" />
-
-        <ImageView
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="5dp"
-            android:onClick="openinsta"
-            android:src="@drawable/insta" />
-
+                 android:background="@drawable/twitter"   />
         <ImageView
             android:layout_margin="@dimen/_5sdp"
             android:layout_width="50dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
 
             android:layout_marginLeft="10dp"
             android:onClick="openyoutube"
 
             android:src="@drawable/youtube" />
+
+        <ImageView
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:onClick="openfacebook"
+            android:src="@drawable/face" />
+
+
+        <ImageView
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:onClick="openinsta"
+            android:src="@drawable/instagram" />
+
+
 
 
         <ImageView

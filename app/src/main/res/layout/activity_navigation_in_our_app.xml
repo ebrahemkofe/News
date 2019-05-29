@@ -62,11 +62,6 @@
 
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#AFACAC"
-                />
-            <TextView
                android:id="@+id/goAboutUs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

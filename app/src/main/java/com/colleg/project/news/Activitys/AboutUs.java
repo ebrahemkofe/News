@@ -75,16 +75,10 @@ public class AboutUs extends AppCompatActivity {
     }
 
     public void opengoogle(View view) {
-
-        try {
-
-
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("https://google.com"));
-            startActivity(intent);
-        } catch (Exception o) {
-//            Toast.makeText(this,youtubeUrl+ "", Toast.LENGTH_SHORT).show();
-        }
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse("mailto:" + ""));
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, "Newssite2030@gmail.com");
+        startActivity(emailIntent);
     }
 
 }
