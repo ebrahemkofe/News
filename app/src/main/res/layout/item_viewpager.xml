@@ -51,7 +51,6 @@
         android:layout_marginRight="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_120sdp"
         android:gravity="center"
-        android:padding="@dimen/_2sdp"
         android:textColor="@color/black"
         android:fontFamily="@font/amiri_regular"
         android:background="@drawable/textview_slider"

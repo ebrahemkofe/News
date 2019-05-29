@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
 
     String []dis = {"الطيب : اطلس الاوقاف يضم 25 مليون مستند","الطيب : اطلس الاوقاف يضم 25 مليون مستند","الطيب : اطلس الاوقاف يضم 25 مليون مستند"};
     String []time = {"2019 jun 7 09:12" , "2019 jun 7 09:12", "2019 jun 7 09:12"};
-   // int []image = {R.drawable.sheekh,R.drawable.tramp,R.drawable.news};
+//    int []image = {R.drawable.sheekh,R.drawable.tramp,R.drawable.news};
     ListView listView ;
     ArrayList<ModelListViewHome> list = new ArrayList<>();
     List<GsonForHome.NewsBean> listGson =new ArrayList<>();
@@ -60,72 +60,49 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-         View v=inflater.inflate(R.layout.fragment_home, container, false);
+        View v=inflater.inflate(R.layout.fragment_home, container, false);
 
-
-//......................  View pager accident ......................................................
-
-
-
-
-         viewPagerAcc = v.findViewById(R.id.viewpager_accidents);
-        TabLayout tabLayoutacc = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_accidents);
-        tabLayoutacc.setupWithViewPager(viewPagerAcc, true);
         Get_Data();
 
 
-//......................  View pager Investigations ................................................
+        viewPagerAcc = v.findViewById(R.id.viewpager_accidents);
+        TabLayout tabLayoutacc = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_accidents);
+        tabLayoutacc.setupWithViewPager(viewPagerAcc, true);
 
-
-          viewPagerTran = v.findViewById(R.id.viewpager_Investigations);
+        viewPagerTran = v.findViewById(R.id.viewpager_Investigations);
         TabLayout tabLayoutTran = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_Investigations);
         tabLayoutTran.setupWithViewPager(viewPagerTran, true);
 
 
-//......................  View pager Sports ........................................................
-
-
-
-
-          viewPagerSports = v.findViewById(R.id.viewpager_sports);
+        viewPagerSports = v.findViewById(R.id.viewpager_sports);
         TabLayout tabLayoutsport = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_sports);
         tabLayoutsport.setupWithViewPager(viewPagerSports, true);
 
 
-          viewPagerfourth= v.findViewById(R.id.viewpager_fourth);
+        viewPagerfourth= v.findViewById(R.id.viewpager_fourth);
         TabLayout tabLayout4 = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_fourth);
         tabLayout4.setupWithViewPager(viewPagerfourth, true);
 
 
-          viewPagerfifth = v.findViewById(R.id.viewpager_fifth);
+        viewPagerfifth = v.findViewById(R.id.viewpager_fifth);
         TabLayout tabLayout5 = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_fifth);
         tabLayout5.setupWithViewPager(viewPagerfifth, true);
 
 
-          viewPagersexith = v.findViewById(R.id.viewpager_sixith);
+        viewPagersexith = v.findViewById(R.id.viewpager_sixith);
         TabLayout tabLayout6 = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_sixith);
         tabLayout6.setupWithViewPager(viewPagersexith, true);
 
 
-          viewPagerseventh = v.findViewById(R.id.viewpager_seventh);
+        viewPagerseventh = v.findViewById(R.id.viewpager_seventh);
         TabLayout tabLayout7 = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_seventh);
         tabLayout7.setupWithViewPager(viewPagerseventh, true);
-
-
-
 
 //......................  List view ................................................................
 
 
         listView = v.findViewById(R.id.homeListview);
-
-//        for(int i=0;i<image.length;i++) {
-//            list.add(new ModelListViewHome(dis[i], time[i], image[i]));
-//        }
-
-
         adapter = new AdapterListViewHome(getContext(), R.layout.item_listview_home, list);
-
         listView.setAdapter(adapter);
         ListViewClick();
         setListViewHeightBasedOnChildren(listView);

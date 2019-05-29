@@ -35,8 +35,8 @@ public class MediaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                photos.setBackgroundResource(R.color.BlueClicked);
-                videos.setBackgroundResource(R.color.Blue);
+                photos.setBackgroundResource(R.color.Blue);
+                videos.setBackgroundResource(R.color.BlueUnClicked);
 
                 fragment = new GallaryFragment();
                 transaction = getSupportFragmentManager().beginTransaction();
@@ -49,8 +49,8 @@ public class MediaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                videos.setBackgroundResource(R.color.BlueClicked);
-                photos.setBackgroundResource(R.color.Blue);
+                videos.setBackgroundResource(R.color.Blue);
+                photos.setBackgroundResource(R.color.BlueUnClicked);
 
                 fragment = new VideosFragment();
                 transaction = getSupportFragmentManager().beginTransaction();

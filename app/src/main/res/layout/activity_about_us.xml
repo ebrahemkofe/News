@@ -9,14 +9,12 @@
     tools:context=".Activitys.AboutUs">
 
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_10sdp"
-        android:textSize="@dimen/_13sdp"
-        android:fontFamily="@font/amiri_bold"
-        android:text="عن المنصة"
+       android:src="@drawable/loogo"
 
         android:textColor="#C51C1C"
         android:id="@+id/header11"
@@ -31,7 +29,7 @@
         android:layout_below="@+id/header11"
         android:textColor="@color/black"
         android:id="@+id/des"
-        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         />
 
     <LinearLayout
@@ -85,7 +83,7 @@
 
             android:layout_marginLeft="10dp"
 
-            android:onClick="gmail"
+            android:onClick="opengoogle"
             android:src="@drawable/gmail" />
 
 

@@ -40,18 +40,12 @@ public class AboutUs extends AppCompatActivity {
 
     public void openfacebook(View view) {
 
-
-
-
-
-
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/2030-492918314787192/?modal=admin_todo_tour"));
             startActivity(intent);
         } catch (Exception e) {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/2030-492918314787192/?modal=admin_todo_tour")));
         }
-
 
     }
 
@@ -74,6 +68,19 @@ public class AboutUs extends AppCompatActivity {
 
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse("https://m.youtube.com/channel/UCsJyL-UJkUyBeT1VAjjyAAQ"));
+            startActivity(intent);
+        } catch (Exception o) {
+//            Toast.makeText(this,youtubeUrl+ "", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void opengoogle(View view) {
+
+        try {
+
+
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("https://google.com"));
             startActivity(intent);
         } catch (Exception o) {
 //            Toast.makeText(this,youtubeUrl+ "", Toast.LENGTH_SHORT).show();
