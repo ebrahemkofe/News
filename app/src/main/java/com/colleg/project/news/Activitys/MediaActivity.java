@@ -1,5 +1,9 @@
 package com.colleg.project.news.Activitys;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.annotation.ColorRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +20,6 @@ public class MediaActivity extends AppCompatActivity {
     Fragment fragment;
     FragmentTransaction transaction;
     Button photos,videos;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,10 @@ public class MediaActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 photos.setBackgroundResource(R.color.Blue);
-                videos.setBackgroundResource(R.color.BlueUnClicked);
+                photos.setTextColor(MediaActivity.this.getResources().getColor(R.color.white));
+
+                videos.setBackgroundResource(R.color.white);
+                videos.setTextColor(MediaActivity.this.getResources().getColor(R.color.black));
 
                 fragment = new GallaryFragment();
                 transaction = getSupportFragmentManager().beginTransaction();
@@ -50,7 +56,10 @@ public class MediaActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 videos.setBackgroundResource(R.color.Blue);
-                photos.setBackgroundResource(R.color.BlueUnClicked);
+                videos.setTextColor(MediaActivity.this.getResources().getColor(R.color.white));
+
+                photos.setBackgroundResource(R.color.white);
+                photos.setTextColor(MediaActivity.this.getResources().getColor(R.color.black));
 
                 fragment = new VideosFragment();
                 transaction = getSupportFragmentManager().beginTransaction();

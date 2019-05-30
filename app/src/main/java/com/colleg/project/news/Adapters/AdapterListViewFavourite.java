@@ -137,13 +137,6 @@ public class AdapterListViewFavourite extends ArrayAdapter {
                     @Override
                     public void onResponse(JSONObject response) {
 
-
-
-
-
-
-
-
                     }
 
                     @Override

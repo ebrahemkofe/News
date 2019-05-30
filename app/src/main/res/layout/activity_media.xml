@@ -30,9 +30,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="المعرض"
-        android:background="#4353A7"
+        android:background="@color/white"
         android:fontFamily="@font/amiri_regular"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="@dimen/_9sdp"
         android:textStyle="bold"
         />
