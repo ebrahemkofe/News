@@ -1,7 +1,9 @@
 package com.colleg.project.news.Fragments;
 
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -56,38 +58,22 @@ public class VideosFragment extends Fragment {
         // Inflate the layout for this fragment
       View v=  inflater.inflate(R.layout.fragment_videos, container, false);
 
-      listVideo=v.findViewById(R.id.VideosListView);
+        Intent intent=null;
+        try {
+            intent =new Intent(Intent.ACTION_VIEW);
+            intent.setPackage("com.google.android.youtube");
+            intent.setData(Uri.parse("https://www.youtube.com/channel/UCsJyL-UJkUyBeT1VAjjyAAQ"));
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("https://www.youtube.com/channel/UCsJyL-UJkUyBeT1VAjjyAAQ"));
+            startActivity(intent);
+        }
 
-      Get_Data();
-
-      return v;
+        return v;
     }
 
-    private void Get_Data() {
 
-        AndroidNetworking.get(Url.videos)
-                .setPriority(Priority.HIGH)
-                .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-
-
-                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                        ModelMediaVideos array = gson.fromJson(response.toString(), ModelMediaVideos.class);
-
-                        listGson=array.getAll_videos();
-
-                        listVideo.setAdapter(new AdapterListViewVideos(getContext(),R.layout.item_listview_videos,listGson));
-                    }
-
-                    @Override
-                    public void onError(ANError anError) {
-
-                        MyUtils.handleError(getContext(), anError.getErrorBody() , anError.getErrorCode());
-                    }
-                });
-    }
 
 }
 
