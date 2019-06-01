@@ -26,13 +26,20 @@ public class MediaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media);
 
-        fragment = new VideosFragment();
+        photos=findViewById(R.id.Photos);
+        videos=findViewById(R.id.Videos);
+
+        photos.setBackgroundResource(R.color.Blue);
+        photos.setTextColor(MediaActivity.this.getResources().getColor(R.color.white));
+
+        videos.setBackgroundResource(R.color.white);
+        videos.setTextColor(MediaActivity.this.getResources().getColor(R.color.black));
+
+        fragment = new GallaryFragment();
         transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.MediaFragment, fragment, "Home_Fragment");
         transaction.commitNow();
 
-        photos=findViewById(R.id.Photos);
-        videos=findViewById(R.id.Videos);
 
         photos.setOnClickListener(new View.OnClickListener() {
             @Override

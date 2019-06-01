@@ -168,11 +168,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
                         listGson = array.getNews();
 
-
-
                         dataForNav();
-
-
                     }
 
                     @Override
