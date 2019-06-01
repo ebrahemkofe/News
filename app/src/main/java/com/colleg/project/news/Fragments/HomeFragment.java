@@ -27,6 +27,7 @@ import com.colleg.project.news.Adapters.CustomPagerAdaptersixith;
 import com.colleg.project.news.Models.GsonForHome;
 import com.colleg.project.news.Models.ModelListViewHome;
 import com.colleg.project.news.MyUtils.MyUtils;
+import com.colleg.project.news.MyUtils.Url;
 import com.colleg.project.news.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -174,7 +175,7 @@ public class HomeFragment extends Fragment {
 
     private void Get_Data() {
 
-        AndroidNetworking.get("https://cizaro.net/2030/api/allnews")
+        AndroidNetworking.get(Url.home)
                 .setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {

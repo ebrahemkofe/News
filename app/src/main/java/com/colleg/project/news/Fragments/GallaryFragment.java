@@ -14,6 +14,7 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.colleg.project.news.Adapters.AdapterListViewPhotos;
 import com.colleg.project.news.Models.ModelMediaPhotos;
 import com.colleg.project.news.MyUtils.MyUtils;
+import com.colleg.project.news.MyUtils.Url;
 import com.colleg.project.news.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +51,7 @@ public class GallaryFragment extends Fragment {
 
     private void Get_Data() {
 
-        AndroidNetworking.get("https://cizaro.net/2030/api/photos")
+        AndroidNetworking.get(Url.photos)
                 .setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {

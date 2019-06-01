@@ -25,6 +25,7 @@ import com.colleg.project.news.Adapters.AdapterListViewVideos;
 import com.colleg.project.news.Models.ModelMediaPhotos;
 import com.colleg.project.news.Models.ModelMediaVideos;
 import com.colleg.project.news.MyUtils.MyUtils;
+import com.colleg.project.news.MyUtils.Url;
 import com.colleg.project.news.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -64,7 +65,7 @@ public class VideosFragment extends Fragment {
 
     private void Get_Data() {
 
-        AndroidNetworking.get("https://2030news.online/api/videos")
+        AndroidNetworking.get(Url.videos)
                 .setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {

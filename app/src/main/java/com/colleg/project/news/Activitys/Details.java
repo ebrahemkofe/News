@@ -25,6 +25,7 @@ import com.colleg.project.news.Models.GsonForDetails;
 import com.colleg.project.news.Models.GsonForHome;
 import com.colleg.project.news.Models.ModelHandleFavourite;
 import com.colleg.project.news.MyUtils.MyUtils;
+import com.colleg.project.news.MyUtils.Url;
 import com.colleg.project.news.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -101,7 +102,7 @@ public class Details extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        AndroidNetworking.post("https://cizaro.net/2030/api/singel_post")
+        AndroidNetworking.post(Url.details)
                 .addJSONObjectBody(object)
                 .setPriority(Priority.MEDIUM)
                 .build()
@@ -163,9 +164,9 @@ public class Details extends AppCompatActivity {
 
 
 
-        AndroidNetworking.post("https://cizaro.net/2030/api/favorite")
+        AndroidNetworking.post(Url.addToFavourite)
                 .addJSONObjectBody(object)
-                .setPriority(Priority.MEDIUM)
+                .setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override

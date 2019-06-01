@@ -16,6 +16,7 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.colleg.project.news.InternalStorage.mySharedPreference;
 import com.colleg.project.news.Models.ModelOfRejestraion;
 import com.colleg.project.news.MyUtils.MyUtils;
+import com.colleg.project.news.MyUtils.Url;
 import com.colleg.project.news.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -99,7 +100,7 @@ public class Rejester extends AppCompatActivity {
 
 
 
-        AndroidNetworking.post("https://cizaro.net/2030/api/registration")
+        AndroidNetworking.post(Url.rejestration)
                 .addJSONObjectBody(object)
                 .setPriority(Priority.MEDIUM)
                 .build()

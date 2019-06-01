@@ -43,6 +43,7 @@ import com.colleg.project.news.InternalStorage.mySharedPreference;
 import com.colleg.project.news.Models.GsonForHome;
 import com.colleg.project.news.Models.ModelOfSurvey;
 import com.colleg.project.news.MyUtils.MyUtils;
+import com.colleg.project.news.MyUtils.Url;
 import com.colleg.project.news.R;
 import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -154,7 +155,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     private void Get_Data() {
 
-        AndroidNetworking.get("https://cizaro.net/2030/api/allnews")
+        AndroidNetworking.get(Url.home)
                 .setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {

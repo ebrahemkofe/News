@@ -17,6 +17,7 @@ import com.colleg.project.news.Adapters.AdapterListViewCategory;
 import com.colleg.project.news.Adapters.AdapterOfSearch;
 import com.colleg.project.news.Models.ModelOfSearchResult;
 import com.colleg.project.news.MyUtils.MyUtils;
+import com.colleg.project.news.MyUtils.Url;
 import com.colleg.project.news.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -78,7 +79,7 @@ public class CategoryFilter extends AppCompatActivity {
 
 
 
-        AndroidNetworking.post("https://cizaro.net/2030/api/categoryposts")
+        AndroidNetworking.post(Url.categoryFilter)
                 .addJSONObjectBody(object)
                 .setPriority(Priority.MEDIUM)
                 .build()

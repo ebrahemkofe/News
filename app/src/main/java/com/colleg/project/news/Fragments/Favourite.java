@@ -29,6 +29,7 @@ import com.colleg.project.news.Models.ModelListViewHome;
 import com.colleg.project.news.Models.ModelOfAllFavourite;
 import com.colleg.project.news.Models.ModelOfRejestraion;
 import com.colleg.project.news.MyUtils.MyUtils;
+import com.colleg.project.news.MyUtils.Url;
 import com.colleg.project.news.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -98,7 +99,7 @@ public class Favourite extends Fragment {
 
 
 
-        AndroidNetworking.post("https://cizaro.net/2030/api/allfavorites")
+        AndroidNetworking.post(Url.favourite)
                 .addJSONObjectBody(object)
                 .setPriority(Priority.MEDIUM)
                 .build()

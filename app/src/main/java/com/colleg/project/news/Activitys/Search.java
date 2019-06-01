@@ -18,6 +18,7 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.colleg.project.news.Adapters.AdapterOfSearch;
 import com.colleg.project.news.Models.ModelOfSearchResult;
 import com.colleg.project.news.MyUtils.MyUtils;
+import com.colleg.project.news.MyUtils.Url;
 import com.colleg.project.news.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -104,7 +105,7 @@ public class Search extends AppCompatActivity {
 
 
 
-        AndroidNetworking.post("https://cizaro.net/2030/api/search_result")
+        AndroidNetworking.post(Url.search)
                 .addJSONObjectBody(object)
                 .setPriority(Priority.MEDIUM)
                 .build()
