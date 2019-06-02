@@ -18,7 +18,10 @@ import android.widget.Toast;
 import com.colleg.project.news.Activitys.Details;
 import com.colleg.project.news.Adapters.AdapterListViewHome;
 import com.colleg.project.news.Adapters.CustomPagerAdapterAcc;
+import com.colleg.project.news.Adapters.CustomPagerAdapterEight;
+import com.colleg.project.news.Adapters.CustomPagerAdapterNine;
 import com.colleg.project.news.Adapters.CustomPagerAdapterSports;
+import com.colleg.project.news.Adapters.CustomPagerAdapterTen;
 import com.colleg.project.news.Adapters.CustomPagerAdapterTran;
 import com.colleg.project.news.Adapters.CustomPagerAdapterfifth;
 import com.colleg.project.news.Adapters.CustomPagerAdapterfourth;
@@ -50,7 +53,7 @@ public class HomeFragment extends Fragment {
     ArrayList<ModelListViewHome> list = new ArrayList<>();
     List<GsonForHome.NewsBean> listGson =new ArrayList<>();
 
-    ViewPager viewPagerAcc, viewPagerSports ,viewPagerTran , viewPagerfourth , viewPagerfifth , viewPagersexith , viewPagerseventh ;
+    ViewPager viewPagerAcc, viewPagerSports ,viewPagerTran , viewPagerfourth , viewPagerfifth , viewPagersexith , viewPagerseventh , viewPagerEight, viewPagerNine , viewPagerTen ;
     AdapterListViewHome adapter ;
 
 
@@ -103,6 +106,21 @@ public class HomeFragment extends Fragment {
         viewPagerseventh = v.findViewById(R.id.viewpager_seventh);
         TabLayout tabLayout7 = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_seventh);
         tabLayout7.setupWithViewPager(viewPagerseventh, true);
+
+
+        viewPagerEight = v.findViewById(R.id.viewpager_eight);
+        TabLayout tabLayout8 = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_eight);
+        tabLayout8.setupWithViewPager(viewPagerEight, true);
+
+
+        viewPagerNine = v.findViewById(R.id.viewpager_nine);
+        TabLayout tabLayout9 = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_nine);
+        tabLayout9.setupWithViewPager(viewPagerNine, true);
+
+
+        viewPagerTen = v.findViewById(R.id.viewpager_ten);
+        TabLayout tabLayout10 = (TabLayout) v.findViewById(R.id.tab_layout_viewpager_ten);
+        tabLayout10.setupWithViewPager(viewPagerTen, true);
 
 //......................  List view ................................................................
 
@@ -186,7 +204,7 @@ public class HomeFragment extends Fragment {
                         Gson gson = new GsonBuilder().setPrettyPrinting().create();
                         GsonForHome array = gson.fromJson(response.toString(), GsonForHome.class);
 
-                           listGson = array.getNews();
+                        listGson = array.getNews();
 
 
                        viewPagerAcc.setAdapter(new CustomPagerAdapterAcc(getContext(),listGson));
@@ -196,6 +214,9 @@ public class HomeFragment extends Fragment {
                        viewPagerfifth.setAdapter(new CustomPagerAdapterfifth(getContext(),listGson));
                        viewPagersexith.setAdapter(new CustomPagerAdaptersixith(getContext(),listGson));
                        viewPagerseventh.setAdapter(new CustomPagerAdapterseventh(getContext(),listGson));
+                       viewPagerEight.setAdapter(new CustomPagerAdapterEight(getContext(),listGson));
+                       viewPagerNine.setAdapter(new CustomPagerAdapterNine(getContext(),listGson));
+                       viewPagerTen.setAdapter(new CustomPagerAdapterTen(getContext(),listGson));
 
 
 
