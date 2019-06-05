@@ -137,6 +137,7 @@ public class Login extends AppCompatActivity {
 
             parent.setVisibility(View.GONE);
             progressBar.setVisibility(View.VISIBLE);
+
             onLoginWithGoogle(account.getEmail() , account.getDisplayName() , account.getId());
 
 

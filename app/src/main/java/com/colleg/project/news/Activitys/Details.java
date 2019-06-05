@@ -1,12 +1,16 @@
 package com.colleg.project.news.Activitys;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -46,6 +50,12 @@ public class Details extends AppCompatActivity {
     LinearLayout save;
     boolean c=false ;
 
+    Button sound ;
+
+    GsonForDetails array ;
+
+
+
     ScrollView parent  ;
     CircleImageView shareButton ;
 
@@ -64,6 +74,8 @@ public class Details extends AppCompatActivity {
         parent = findViewById(R.id.parent);
         progressBar = findViewById(R.id.progress_bar);
         shareButton=findViewById(R.id.ShareButton);
+        sound = findViewById(R.id.soundBtn);
+
 
 
 
@@ -73,7 +85,7 @@ public class Details extends AppCompatActivity {
             public void onClick(View v) {
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.colleg.project.news");
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
             }
@@ -114,7 +126,7 @@ public class Details extends AppCompatActivity {
                         shareButton.setVisibility(View.VISIBLE);
 
                         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                        GsonForDetails array = gson.fromJson(response.toString(), GsonForDetails.class);
+                      array = gson.fromJson(response.toString(), GsonForDetails.class);
 
                         Glide.with(Details.this).load(array.getPost_img()).into(image);
 
@@ -122,7 +134,8 @@ public class Details extends AppCompatActivity {
                         Ldis.setText(array.getLong_description());
                         SDis.setText(array.getShort_description());
 
-                        tittle.setText(MyUtils.CategoryTittle);
+                        tittle.setText(  " كتب / "+array.getAouther());
+
 
 
                         if (array.getFavorite().equals("false")){
@@ -133,6 +146,16 @@ public class Details extends AppCompatActivity {
 
 
                         }
+                      try {
+                          if (array.getSoundcloud().equals(null)||array.getSoundcloud().equals("")){
+
+
+
+                          }else {
+                              sound.setVisibility(View.VISIBLE);
+
+                          }
+                      }catch (Exception e){}
 
 
 
@@ -207,5 +230,21 @@ public class Details extends AppCompatActivity {
     }
 
 
+    public void toSound(View view) {
 
+        Intent intent=null;
+        try {
+
+
+            intent =new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(array.getSoundcloud()));
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(array.getSoundcloud()));
+            startActivity(intent);
+        }
+
+
+    }
 }

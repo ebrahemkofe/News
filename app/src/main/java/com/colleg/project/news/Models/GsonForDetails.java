@@ -1,22 +1,40 @@
 package com.colleg.project.news.Models;
 
+import java.util.List;
+
 public class GsonForDetails {
 
+
     /**
-     * post_id : 2
-     * post_title : محمد صلاح يلقب ب ايجبشن كنج
-     * post_img : https://cizaro.net/2030/uploads/blog/posts/post-15563272715cc3ab67381bc.jpg
-     * short_description : محمد صلاح يسجل 5 اهداففى اخر مباره
-     * long_description : <p><a href="http://www.kooora.com/?n=810297&amp;o=n3011803" style="padding: 0px; margin: 0px; color: rgb(21, 21, 21); text-decoration-line: none; font-family: Helvetica, Arial, sans-serif; font-size: 14px; text-align: right; background-color: rgb(248, 248, 248);"><strong>ليفربول يكرر إنجازا سابقا بفضل صلاح وماني</strong></a></p><p style="text-align:right">سجل محمد صلاح وساديو ماني، نجما ليفربول، ثنائية لكل منهما في شباك هيديرسفيلد، اليوم الجمعة، في اللقاء الذي جمع الفريقين بالجولة 36 من الدوري الإنجليزي. ...</p><ul>	<li>	<div class="inline" style="padding: 0px; margin: 0px 20px 0px 0px; display: inline-block; width: 460px; vertical-align: top;"><a href="http://www.kooora.com/?n=810264&amp;o=n3011803" style="padding: 0px; margin: 0px; color: rgb(21, 21, 21); text-decoration-line: none;"><strong>صلاح يحاكي إنجاز فاولر وسواريز</strong></a>	<p>أحرز نجم ليفربول، محمد صلاح، الهدفين الثالث والخامس لفريقه في مرمى هيديرسفيلد تاون، مساء الجمعة، في افتتاح الجولة ال 36 من الدوري الإنجليزي الممتاز لكرة القدم....</p>	</div>	</li>	<li><a href="http://www.kooora.com/?n=810241&amp;o=n3011803" style="padding: 0px; margin: 0px; color: rgb(21, 21, 21); text-decoration-line: none;"><img alt="صلاح يسجل رقمًا تاريخيًا جديدًا مع ليفربول" src="http://img.kooora.com/?i=reuters%2f2018-10-20%2f2018-10-20t181731z_237049185_rc1ca420f270_rtrmadp_3_soccer-england-hdd-liv_reuters.jpg&amp;z=120|90&amp;c=28|12|551|415&amp;h=1293" style="border:0px; height:90px; margin:0px; padding:0px; width:120px" /></a>	<div class="inline" style="padding: 0px; margin: 0px 20px 0px 0px; display: inline-block; width: 460px; vertical-align: top;"><a href="http://www.kooora.com/?n=810241&amp;o=n3011803" style="padding: 0px; margin: 0px; color: rgb(21, 21, 21); text-decoration-line: none;"><strong>صلاح يسجل رقمًا تاريخيًا جديدًا مع ليفربول</strong></a>	<p>حقق النجم المصري محمد صلاح لاعب فريق ليفربول رقمًا تاريخيًا جديدًا في مسيرته مع الفريق الإنجليزي في المباراة التي يخوضها الريدز ضد هيدرسفيلد، بالجولة 36 من...</p>	</div>	</li>	<li><a href="http://striveme.com/article/%D9%87%D9%84-%D8%A7%D8%B6%D8%A7%D9%81%D8%A7%D8%AA-%D8%A7%D9%84%D8%B2%D9%8A%D9%88%D8%AA-%D9%84%D9%85%D8%AD%D8%B1%D9%83-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A9-%D9%84%D9%87%D8%A7-%D9%81%D9%88%D8%A7%D8%A6%D8%AF" rel="noopener" style="padding: 0px; margin: 0px; color: rgb(21, 21, 21); text-decoration-line: none;" target="_blank"><img alt="هل اضافات الزيوت لمحرك السيارة لها فوائد؟" src="http://striveme.com/img/article/6695/5cb07bc1ce1a8.jpg" style="border:0px; height:90px; margin:0px 0px 10px; padding:0px; width:120px" /></a>	<div class="inline" style="padding: 0px; margin: 0px 20px 0px 0px; display: inline-block; width: 520px; vertical-align: top;"><a class="block" href="http://striveme.com/article/%D9%87%D9%84-%D8%A7%D8%B6%D8%A7%D9%81%D8%A7%D8%AA-%D8%A7%D9%84%D8%B2%D9%8A%D9%88%D8%AA-%D9%84%D9%85%D8%AD%D8%B1%D9%83-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A9-%D9%84%D9%87%D8%A7-%D9%81%D9%88%D8%A7%D8%A6%D8%AF" rel="noopener" style="padding: 0px; margin: 0px; color: rgb(221, 102, 0); text-decoration-line: none; display: block; cursor: pointer; outline: 0px;" target="_blank"><strong>هل اضافات الزيوت لمحرك السيارة لها فوائد؟</strong></a>	<p>هل اضافات الزيوت مفيدة حقا لمحرك سيارتك؟ تعرف معنا على رأي الخبراء في ذل</p>	</div>	</li></ul>
+     * post_id : 31
+     * post_title : صباحك اندرجراوند| أغنية "سلام" لكريمة نايت
+     * aouther : أحمد عمارة
+     * soundcloud : https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/89930938&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true
+     * under_image : كريمة نايت.. صورة أرشيفية
+     * tags : [{"tag0":"كريمة نايت","tag1":"الجزائر","tag2":"فتحي سلامة","tag3":"جرامي","tag4":"مصر","tag5":"شرقيات"}]
+     * post_img : https://2030news.online/uploads/blog/posts/post-15592926995cf0eb1b402ed.jpg
+     * short_description : كلمات: كريمة نايت، وألحان: كريمة نايت وفريدريك جيل
+     * long_description :
+
+     كلمات: كريمة نايت
+     ألحان: كريمة نايت وفريدريك جيل
+
+
+
+     ولدت كريمة نايت بالجزائر، ونشأت بها، حيث احترفت الغناء، وامتهنت الرقص الحديث، قبل أن تسافر إلى مصر عام 1998، حيث عملت بالرقص على مسارح دار الأوبرا المصرية، كما شكلت بصوتها المختلف، رفقة الملحن فتحي سلامة الحاصل على جائزة الجرامي، ثنائياً متناغماً، قبل أن تنجح بانضمامها إلى فرقته شرقيات، في إصدار ألبوم غنائي مشترك وحيد، وإقامة حفلات غنائية عديدة بمختلف دول العالم، حتى استقرت بالسويد، حيث سجلت هناك بالتعاون مع الملحن فريدريك جيل، ألبومها المنفرد الأول، الذي يحتوي على 13 أغنية، كتبت كلماتها بنفسها، باللغة العربية تارة، والفرنسية تارة أخرى.
      * favorite : false
      */
 
     private int post_id;
     private String post_title;
+    private String aouther;
+    private String soundcloud;
+    private String under_image;
     private String post_img;
     private String short_description;
     private String long_description;
     private String favorite;
+    private List<TagsBean> tags;
 
     public int getPost_id() {
         return post_id;
@@ -32,6 +50,30 @@ public class GsonForDetails {
 
     public void setPost_title(String post_title) {
         this.post_title = post_title;
+    }
+
+    public String getAouther() {
+        return aouther;
+    }
+
+    public void setAouther(String aouther) {
+        this.aouther = aouther;
+    }
+
+    public String getSoundcloud() {
+        return soundcloud;
+    }
+
+    public void setSoundcloud(String soundcloud) {
+        this.soundcloud = soundcloud;
+    }
+
+    public String getUnder_image() {
+        return under_image;
+    }
+
+    public void setUnder_image(String under_image) {
+        this.under_image = under_image;
     }
 
     public String getPost_img() {
@@ -64,5 +106,79 @@ public class GsonForDetails {
 
     public void setFavorite(String favorite) {
         this.favorite = favorite;
+    }
+
+    public List<TagsBean> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<TagsBean> tags) {
+        this.tags = tags;
+    }
+
+    public static class TagsBean {
+        /**
+         * tag0 : كريمة نايت
+         * tag1 : الجزائر
+         * tag2 : فتحي سلامة
+         * tag3 : جرامي
+         * tag4 : مصر
+         * tag5 : شرقيات
+         */
+
+        private String tag0;
+        private String tag1;
+        private String tag2;
+        private String tag3;
+        private String tag4;
+        private String tag5;
+
+        public String getTag0() {
+            return tag0;
+        }
+
+        public void setTag0(String tag0) {
+            this.tag0 = tag0;
+        }
+
+        public String getTag1() {
+            return tag1;
+        }
+
+        public void setTag1(String tag1) {
+            this.tag1 = tag1;
+        }
+
+        public String getTag2() {
+            return tag2;
+        }
+
+        public void setTag2(String tag2) {
+            this.tag2 = tag2;
+        }
+
+        public String getTag3() {
+            return tag3;
+        }
+
+        public void setTag3(String tag3) {
+            this.tag3 = tag3;
+        }
+
+        public String getTag4() {
+            return tag4;
+        }
+
+        public void setTag4(String tag4) {
+            this.tag4 = tag4;
+        }
+
+        public String getTag5() {
+            return tag5;
+        }
+
+        public void setTag5(String tag5) {
+            this.tag5 = tag5;
+        }
     }
 }

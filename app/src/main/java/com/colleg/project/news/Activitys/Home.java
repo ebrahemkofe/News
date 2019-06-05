@@ -400,31 +400,36 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBar.setVisibility(View.VISIBLE);
-                parent.setVisibility(View.GONE);
 
-                ModelOfSurvey model = new ModelOfSurvey();
-                model.setAnswer(editText.getText().toString().trim());
-                model.setUserEmail(MyUtils.userMail());
-                model.setUserName(MyUtils.userName());
+                if (!editText.getText().toString().trim().equals("")) {
+                    progressBar.setVisibility(View.VISIBLE);
+                    parent.setVisibility(View.GONE);
 
-                ref.child("survey").child(String.valueOf(MyUtils.userId())).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        alertD.cancel();
-                        
-                    }
-                }).addOnCanceledListener(new OnCanceledListener() {
-                    @Override
-                    public void onCanceled() {
-                        progressBar.setVisibility(View.GONE);
-                        parent.setVisibility(View.VISIBLE);
-                        Toast.makeText(Home.this, "Connection Error", Toast.LENGTH_SHORT).show();
-                        
-                    }
-                });
+                    ModelOfSurvey model = new ModelOfSurvey();
+                    model.setAnswer(editText.getText().toString().trim());
+                    model.setUserEmail(MyUtils.userMail());
+                    model.setUserName(MyUtils.userName());
 
+                    ref.child("survey").child(String.valueOf(MyUtils.userId())).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            alertD.cancel();
+
+                        }
+                    }).addOnCanceledListener(new OnCanceledListener() {
+                        @Override
+                        public void onCanceled() {
+                            progressBar.setVisibility(View.GONE);
+                            parent.setVisibility(View.VISIBLE);
+                            Toast.makeText(Home.this, "Connection Error", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                }else {
+                    editText.setError("Please Enter your Answer");
+                }
             }
+
         });
 
         alertD.setCancelable(true);
