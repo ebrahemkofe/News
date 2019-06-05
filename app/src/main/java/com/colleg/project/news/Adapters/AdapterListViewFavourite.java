@@ -24,6 +24,7 @@ import com.colleg.project.news.Models.ModelListViewFavourite;
 import com.colleg.project.news.Models.ModelOfAllFavourite;
 import com.colleg.project.news.Models.ModelOfRejestraion;
 import com.colleg.project.news.MyUtils.MyUtils;
+import com.colleg.project.news.MyUtils.Url;
 import com.colleg.project.news.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -129,7 +130,7 @@ public class AdapterListViewFavourite extends ArrayAdapter {
 
 
 
-        AndroidNetworking.post("https://cizaro.net/2030/api/favorite")
+        AndroidNetworking.post(Url.addToFavourite)
                 .addJSONObjectBody(object)
                 .setPriority(Priority.MEDIUM)
                 .build()
